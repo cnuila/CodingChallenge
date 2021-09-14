@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "koys+qfBDJGSJF98+icqqx8Uin/TrKBGl+ePRUENN2K5yuwJAd765XlZ5E+quEU8txVnPDmKKs2bzmb86ggZog==",
+  "dgSpecHash": "QHCkupwj5DAbbRC1Q5PU+kc6qTxDZnGjMdkVkRrqxKHKBgcOnWer4Mr/bCdpJUrQP2SCgPimFdFgk9MqtDq1NQ==",
   "success": true,
-  "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
+  "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
   "expectedPackageFiles": [
     "/Users/cnuila/.nuget/packages/microsoft.aspnetcore.authorization/5.0.9/microsoft.aspnetcore.authorization.5.0.9.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.aspnetcore.components/5.0.9/microsoft.aspnetcore.components.5.0.9.nupkg.sha512",

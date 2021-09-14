@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0mCVKnopRtos5G5/KbeB9W0gwC79ANs4PakENIIXvGPXLb9BU/CC0ejvpv8YdnDysKF5CddTMH7hhDRkHkfUuQ==",
+  "dgSpecHash": "/N0lXVcWKNjcHkGk/CH5KXGSnr5IY3BPYUQqLM84c8wCNHahGXhxutDhz7GcBoFo0eV4mx29GvwkwHropwACsg==",
   "success": true,
-  "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
+  "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
   "expectedPackageFiles": [
     "/Users/cnuila/.nuget/packages/automapper/10.0.0/automapper.10.0.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",

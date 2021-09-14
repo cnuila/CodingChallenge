@@ -6786,14 +6786,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
+      "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
       "projectName": "FlamingSoftHR.Server",
-      "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
+      "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
       "packagesPath": "/Users/cnuila/.nuget/packages/",
-      "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/obj/",
+      "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/cnuila/.nuget/NuGet/NuGet.Config"
+        "/Users/cnuila/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6805,11 +6805,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {
-              "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj"
+            "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {
+              "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj"
             },
-            "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
-              "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj"
+            "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
+              "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj"
             }
           }
         }
