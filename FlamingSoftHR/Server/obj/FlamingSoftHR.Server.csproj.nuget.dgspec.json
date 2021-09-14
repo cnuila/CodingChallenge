@@ -1,0 +1,254 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj": {}
+  },
+  "projects": {
+    "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
+        "projectName": "FlamingSoftHR.Client",
+        "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
+        "packagesPath": "/Users/cnuila/.nuget/packages/",
+        "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/cnuila/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
+                "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+              "version": "[5.0.9, 5.0.9]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
+        "projectName": "FlamingSoftHR.Server",
+        "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
+        "packagesPath": "/Users/cnuila/.nuget/packages/",
+        "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Server/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/cnuila/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {
+                "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj"
+              },
+              "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
+                "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
+        "projectName": "FlamingSoftHR.Shared",
+        "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
+        "packagesPath": "/Users/cnuila/.nuget/packages/",
+        "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/cnuila/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
