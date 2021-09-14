@@ -22,3 +22,15 @@ E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingS
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.deps.json
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.pdb
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfoInputs.cache
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfo.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.CoreCompileInputs.cache
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb

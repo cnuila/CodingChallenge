@@ -453,11 +453,13 @@ GO
 
 CREATE TABLE dbo.Employee (
     Id INT IDENTITY(100000,1) NOT NULL,
-    UserId NVARCHAR(450) NOT NULL,
+    UserId NVARCHAR(450) NULL,
     EmployeeTypeId INT NOT NULL,
     First_Name NVARCHAR(200) NOT NULL,
     Middle_Name NVARCHAR(200),
     Last_Name NVARCHAR(200) NOT NULL,
+	Salary DECIMAL(15,2) NOT NULL,
+	JobId INT NOT NULL,
     CONSTRAINT PK_Employee PRIMARY KEY(Id),
     CONSTRAINT FK_Employee_To_AspNetUser 
         FOREIGN KEY(UserId) 
@@ -466,8 +468,16 @@ CREATE TABLE dbo.Employee (
     CONSTRAINT FK_Employee_To_EmployeeType 
         FOREIGN KEY(EmployeeTypeId) 
         REFERENCES dbo.EmployeeType(Id) 
-        ON DELETE CASCADE,    
+        ON DELETE CASCADE,  
+	CONSTRAINT FK_Employee_To_Job
+        FOREIGN KEY(JobId) 
+        REFERENCES dbo.Job(Id) 
+        ON DELETE CASCADE    
 )
+GO
+
+ALTER TABLE dbo.Employee 
+ALTER COLUMN UserId NVARCHAR(450) NULL;
 GO
 
 CREATE TABLE dbo.LoggedTime (
@@ -490,20 +500,92 @@ CREATE TABLE dbo.LoggedTime (
 )
 GO
 
-CREATE TABLE dbo.Position (
+CREATE TABLE dbo.Job (
     Id INT IDENTITY(1,1) NOT NULL,
     [Description] NVARCHAR(500) NOT NULL,
-    Salary DECIMAL(15,2) NOT NULL,
-    EmployeeId INT NOT NULL,
-    DepartmentId INT NOT NULL,
+	MinSalary DECIMAL(15,2) NOT NULL,
+	MaxSalary DECIMAL(15,2) NOT NULL,
+	DepartmentId INT NOT NULL,
     CONSTRAINT PK_Position PRIMARY KEY(Id),
-    CONSTRAINT FK_Position_To_Employee 
-        FOREIGN KEY(EmployeeId) 
-        REFERENCES dbo.Employee(Id) 
-        ON DELETE CASCADE,
-    CONSTRAINT FK_Position_To_Department
+	CONSTRAINT FK_Job_To_Department
         FOREIGN KEY(DepartmentId) 
         REFERENCES dbo.Department(Id) 
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+	CONSTRAINT U_Description_Job UNIQUE([Description])
 )
 GO
+
+/**** Populating the Database ****/
+
+/**** Department ****/
+INSERT INTO 
+		dbo.Department(
+			[Name]
+		) 
+VALUES 
+		('IT'),
+		('HR'),
+		('Payroll'),
+		('Marketing');
+
+/**** Employee Type ****/
+INSERT INTO dbo.EmployeeType([Description]) VALUES ('Contract'), ('Permanent');
+
+/**** Logged Time Type ****/
+INSERT INTO 
+		dbo.LoggedTimeType(
+			[Description]
+		) 
+VALUES
+		('Sick'),
+		('Vacation'),
+		('Regular');
+
+/**** Job ****/
+INSERT INTO 
+		dbo.Job(
+			[Description],MinSalary,MaxSalary,DepartmentId
+		) 
+VALUES
+		('Database Administrator',10000.00,200000.00,1),
+		('Software Engineer',80000.00,18000.00,1),
+		('Recruiter',2000.00,10000.00,2),
+		('HR Specialist',4000.00,15000.00,2),
+		('Payroll Specialist',4000.00,15000.00,3),
+		('Payroll Manager',10000.00,30000.00,3),
+		('Communications Manager',5000.00,12000.00,4),
+		('Content Marketing Specialist',8000.00,15000.00,4);
+
+/**** Employee ****/
+INSERT INTO 
+		dbo.Employee(
+			UserId,EmployeeTypeId,First_Name,Middle_Name,Last_Name, Salary, JobId
+		) 
+VALUES 
+		(NULL,2,'Carlos','Antonio','Nuila',10000.00,2),
+		(NULL,2,'Diana',NULL,'Hernandez',15000.00,4),
+		(NULL,1,'John',NULL,'Buckeridge',3000.00,3),
+		(NULL,1,'Sarah','Madelyne','Cameron',6000.00,5),
+		(NULL,2,'Billie','Evelyn','Smith',5000.00,3);
+
+/**** Logged TIme ****/
+INSERT INTO 
+		dbo.LoggedTime(
+			DateLogged,[Hours],WeekNumber,EmployeeId, LogTypeId
+		) 
+VALUES
+		('2021-09-14 00:00:00',7.00,37,100000,3),
+		('2021-09-13 00:00:00',7.00,37,100000,3),
+		('2021-09-11 00:00:00',8.00,36,100000,3),
+		('2021-09-10 00:00:00',8.00,36,100000,3),
+		('2021-09-09 00:00:00',8.00,36,100000,3),
+		('2021-09-08 00:00:00',8.00,36,100000,3),
+		('2021-09-07 00:00:00',8.00,36,100000,3),
+		('2021-09-06 00:00:00',8.00,36,100000,3),
+		('2021-09-03 00:00:00',0.00,35,100000,1),
+		('2021-09-02 00:00:00',0.00,35,100000,1),
+		('2021-09-01 00:00:00',8.00,35,100000,3),
+		('2021-08-31 00:00:00',0.00,35,100000,2),
+		('2021-08-30 00:00:00',0.00,35,100000,2);
+
+SELECT * FROM LoggedTime

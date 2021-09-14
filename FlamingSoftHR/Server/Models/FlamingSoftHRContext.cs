@@ -25,12 +25,12 @@ namespace FlamingSoftHR.Server.Models
         public virtual DbSet<DeviceCode> DeviceCodes { get; set; }
         public virtual DbSet<PersistedGrant> PersistedGrants { get; set; }*/
 
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<EmployeeType> EmployeeTypes { get; set; }
-        public DbSet<LoggedTime> LoggedTimes { get; set; }
-        public DbSet<LoggedTimeType> LoggedTimeTypes { get; set; }
-        public DbSet<Position> Positions { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<EmployeeType> EmployeeTypes { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
+        public virtual DbSet<LoggedTime> LoggedTimes { get; set; }
+        public virtual DbSet<LoggedTimeType> LoggedTimeTypes { get; set; }
 
         /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

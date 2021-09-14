@@ -52,6 +52,8 @@ namespace FlamingSoftHR.Server.Models
                 result.LastName = employeeToUpdate.LastName;
                 result.MiddleName = employeeToUpdate.MiddleName;
                 result.EmployeeTypeId = employeeToUpdate.EmployeeTypeId;
+                result.Salary = employeeToUpdate.Salary;
+                result.JobId = employeeToUpdate.JobId;
 
                 await hrContext.SaveChangesAsync();
                 return result;

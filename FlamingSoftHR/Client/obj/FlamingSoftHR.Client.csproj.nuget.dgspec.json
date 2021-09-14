@@ -14,7 +14,7 @@
         "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/cnuila/.config/NuGet/NuGet.Config"
+          "/Users/cnuila/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -104,7 +104,7 @@
         "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/cnuila/.config/NuGet/NuGet.Config"
+          "/Users/cnuila/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

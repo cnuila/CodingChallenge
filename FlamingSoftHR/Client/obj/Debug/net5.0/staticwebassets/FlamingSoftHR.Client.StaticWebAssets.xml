@@ -1,5 +1,5 @@
 ﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/bin/Debug/net5.0/wwwroot/" />
+  <ContentRoot BasePath="/" Path="/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/scopedcss/bundle/" />
   <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="/Users/cnuila/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/5.0.9/build/../staticwebassets/" />
-  <ContentRoot BasePath="/" Path="/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/bin/Debug/net5.0/wwwroot/" />
-  <ContentRoot BasePath="/" Path="/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Client/obj/Debug/net5.0/scopedcss/bundle/" />
 </StaticWebAssets>

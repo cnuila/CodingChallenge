@@ -1,23 +1,29 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Server/Models/JobRepository.cs">
+    <Files>
+      <File FileName="FlamingSoftHR/Server/Models/FlamingSoftHRContext.cs" Line="24" Column="77" NotebookId="2" />
+      <File FileName="FlamingSoftHR/Server/Models/JobRepository.cs" Line="9" Column="34" NotebookId="2" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FlamingSoftHR" expanded="True">
             <Node name="FlamingSoftHR.Server" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="LoggedTimeRepository.cs" selected="True" />
+                <Node name="JobRepository.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="FlamingSoftHR.Shared" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Client PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
