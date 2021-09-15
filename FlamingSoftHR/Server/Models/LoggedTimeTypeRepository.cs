@@ -17,34 +17,34 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<LoggedTimeType> AddLoggedTimeType(LoggedTimeType loggedTimeTypeToAdd)
         {
-            var result = await hrContext.LoggedTimeTypes.AddAsync(loggedTimeTypeToAdd);
+            var result = await hrContext.LoggedTimeType.AddAsync(loggedTimeTypeToAdd);
             await hrContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task DeleteLoggedTimeType(int id)
         {
-            var result = await hrContext.LoggedTimeTypes.FirstOrDefaultAsync(l => l.Id == id);
+            var result = await hrContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == id);
             if (result != null)
             {
-                hrContext.LoggedTimeTypes.Remove(result);
+                hrContext.LoggedTimeType.Remove(result);
                 await hrContext.SaveChangesAsync();
             }
         }
 
         public async Task<LoggedTimeType> GetLoggedTimeType(int id)
         {
-            return await hrContext.LoggedTimeTypes.FirstOrDefaultAsync(l => l.Id == id);
+            return await hrContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == id);
         }
 
         public async Task<IEnumerable<LoggedTimeType>> GetLoggedTimeTypes()
         {
-            return await hrContext.LoggedTimeTypes.ToListAsync();
+            return await hrContext.LoggedTimeType.ToListAsync();
         }
 
         public async Task<LoggedTimeType> UpdateLoggedTimeType(LoggedTimeType loggedTimeTypeToUpdate)
         {
-            var result = await hrContext.LoggedTimeTypes.FirstOrDefaultAsync(l => l.Id == loggedTimeTypeToUpdate.Id);
+            var result = await hrContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == loggedTimeTypeToUpdate.Id);
             if (result != null)
             {
                 result.Description = loggedTimeTypeToUpdate.Description;

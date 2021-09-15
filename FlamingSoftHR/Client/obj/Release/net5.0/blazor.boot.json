@@ -203,7 +203,6 @@
     },
     "lazyAssembly": null,
     "pdb": {
-      "FlamingSoftHR.Shared.pdb": "sha256-8PxwmDxnGo+7svJnXS1EpDGORj89XjtkcV1vp0X40XA=",
       "FlamingSoftHR.Client.pdb": "sha256-4hDytE7irUPPDWt9Vm8DvHFr4mRoSZxEFw8CE8WibIM="
     },
     "runtime": {

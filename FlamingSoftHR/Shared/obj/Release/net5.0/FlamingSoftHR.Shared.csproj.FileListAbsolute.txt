@@ -9,3 +9,4 @@
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Release/net5.0/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Release/net5.0/ref/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Release/net5.0/FlamingSoftHR.Shared.pdb
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Release/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache

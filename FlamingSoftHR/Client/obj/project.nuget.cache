@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KA89ko4j9zCAOvdEzXn8juSQ0vQn34zo+zTHlqBm8Ino1KShSnfAhrhtYI4ylBbwpGY737S40YMNBpQfroOAAw==",
+  "dgSpecHash": "DnzYv4Gh/2El7Yh3ilUBJPdkDJXtflLrtnujRW9HQjbcgM7Gsv/q4+QbQ9sirgb6TgPcOsdZaSIWlsWofqroeg==",
   "success": true,
   "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
   "expectedPackageFiles": [
@@ -31,9 +31,10 @@
     "/Users/cnuila/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.jsinterop/5.0.9/microsoft.jsinterop.5.0.9.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.jsinterop.webassembly/5.0.9/microsoft.jsinterop.webassembly.5.0.9.nupkg.sha512",
+    "/Users/cnuila/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/system.net.http.json/5.0.0/system.net.http.json.5.0.0.nupkg.sha512",
-    "/Users/cnuila/.nuget/packages/microsoft.netcore.app.runtime.browser-wasm/5.0.9/microsoft.netcore.app.runtime.browser-wasm.5.0.9.nupkg.sha512"
+    "/Users/cnuila/.nuget/packages/microsoft.netcore.app.runtime.browser-wasm/5.0.10/microsoft.netcore.app.runtime.browser-wasm.5.0.10.nupkg.sha512"
   ],
   "logs": []
 }

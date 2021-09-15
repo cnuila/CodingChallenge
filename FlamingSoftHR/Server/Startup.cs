@@ -48,7 +48,7 @@ namespace FlamingSoftHR.Server
             services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
             services.AddScoped<ILoggedTimeRepository, LoggedTimeRepository>();
             services.AddScoped<ILoggedTimeTypeRepository, LoggedTimeTypeRepository>();
-            services.AddScoped<IPositionRepository, PositionRepository>();
+            services.AddScoped<IJobRepository, JobRepository>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

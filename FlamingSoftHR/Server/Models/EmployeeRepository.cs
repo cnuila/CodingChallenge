@@ -17,35 +17,35 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<Employee> AddEmployee(Employee employeeToAdd)
         {
-            var result = await hrContext.Employees.AddAsync(employeeToAdd);
+            var result = await hrContext.Employee.AddAsync(employeeToAdd);
             await hrContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task DeleteEmployee(int id)
         {
-            var result = await hrContext.Employees.FirstOrDefaultAsync(e => e.Id == id);
+            var result = await hrContext.Employee.FirstOrDefaultAsync(e => e.Id == id);
             if (result != null)
             {
-                hrContext.Employees.Remove(result);
+                hrContext.Employee.Remove(result);
                 await hrContext.SaveChangesAsync();
             }
         }
 
         public async Task<Employee> GetEmployee(int id)
         {
-            return await hrContext.Employees.FirstOrDefaultAsync(e => e.Id == id);
+            return await hrContext.Employee.FirstOrDefaultAsync(e => e.Id == id);
             
         }
 
         public async Task<IEnumerable<Employee>> GetEmployees()
         {
-            return await hrContext.Employees.ToListAsync();
+            return await hrContext.Employee.ToListAsync();
         }
 
         public async Task<Employee> UpdateEmployee(Employee employeeToUpdate)
         {
-            var result = await hrContext.Employees.FirstOrDefaultAsync(e => e.Id == employeeToUpdate.Id);
+            var result = await hrContext.Employee.FirstOrDefaultAsync(e => e.Id == employeeToUpdate.Id);
             if (result != null)
             {
                 result.FirstName = employeeToUpdate.FirstName;

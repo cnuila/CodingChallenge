@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aFkC9hdkKPxpE/83Kl+i+tgNG6MVJSKjf/8Z+XMqglu8suikksSYKLjOEEDgdxTZMMB/lGfTwVitv06P6FZPSA==",
+  "dgSpecHash": "tOYCtiFScoZxCwddtbkC0/92Lf02OmTkCNqIMFTWTosxe7BxjNMCoZ3GMIH9hm6cI+YJc8CRCgMhguFPemUhIw==",
   "success": true,
   "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/cnuila/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
