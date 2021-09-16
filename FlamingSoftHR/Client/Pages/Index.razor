@@ -1,7 +1,77 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<MudGrid Spacing="1" Justify="Justify.FlexStart">
 
-Welcome to your new app.
+    <MudItem xs="4" Class="pa-8">
+        <MudCard @onclick='() => GoToPage("timemanagement/1")'>
+            <MudCardMedia Image="/Images/timeManagement.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Time Management</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <MudItem xs="4" Class="pa-8">
+        <MudCard>
+            <MudCardMedia Image="/Images/employees.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Employees</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="4" Class="pa-8">
+        <MudCard>
+            <MudCardMedia Image="/Images/departments.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Departments</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="4" Class="pa-8">
+        <MudCard>
+            <MudCardMedia Image="/Images/jobs.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Jobs</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="4" Class="pa-8">
+        <MudCard>
+            <MudCardMedia Image="/Images/employeeType.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Employee Types</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="4" Class="pa-8">
+        <MudCard>
+            <MudCardMedia Image="/Images/loggedTimeType.png" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Logged Time Types</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+</MudGrid>
+
+@code{
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    private void GoToPage(string route)
+    {
+        
+        NavigationManager.NavigateTo($"/{route}");
+    }
+
+
+}
+
+
+
+

@@ -97,7 +97,7 @@ using FlamingSoftHR.Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Shared/NavMenu.razor"
+#line 23 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Shared/NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

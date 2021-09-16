@@ -1961,3 +1961,10 @@ E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingS
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/build-gz/S+ttb7GP.gz
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/build-gz/B+tECKe8.gz
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/build-gz/+C9z1Bee.gz
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Shared/Navbar.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Shared/Navbar.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/bin/Debug/net5.0/wwwroot/_framework/MudBlazor.dll.gz
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/bin/Debug/net5.0/wwwroot/_framework/MudBlazor.dll
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/build-gz/tSk9figt.gz
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/TimeManagement.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/TimeManagement.razor.g.cs

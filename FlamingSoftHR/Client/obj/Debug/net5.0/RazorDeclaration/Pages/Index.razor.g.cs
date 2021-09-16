@@ -89,6 +89,13 @@ using FlamingSoftHR.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -97,6 +104,24 @@ using FlamingSoftHR.Client.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 61 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Index.razor"
+      
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    private void GoToPage(string route)
+    {
+        
+        NavigationManager.NavigateTo($"/{route}");
+    }
+
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

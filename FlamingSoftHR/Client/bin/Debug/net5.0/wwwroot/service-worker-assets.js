@@ -1,11 +1,19 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
+      "hash": "sha256-m6ohEG74aiheBf1\/dXI46\/hSgo84jyWaMZB46m\/soGM=",
+      "url": "_content\/MudBlazor\/MudBlazor.min.css"
+    },
+    {
+      "hash": "sha256-rvP7RJm74e+0GIEcubcj+q7sJhc3abT7zkh5\/fIz8as=",
+      "url": "_content\/MudBlazor\/MudBlazor.min.js"
+    },
+    {
       "hash": "sha256-pJQvSpzzXNlfQUjYVNgyMVCSbkbhkhhb5UM9Isl25h4=",
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     },
     {
-      "hash": "sha256-eT6dNQ6efRNDG9TYFZm2WMNKKEJX81evgPeSETPruX8=",
+      "hash": "sha256-YKw3hVQNhbfZ506AFtc9k9VpnXIwS4Urje5KIOtgBNA=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -107,6 +115,10 @@
     {
       "hash": "sha256-TZF2KGZRSev\/gMKjN7GoplW2xZPrK+yI4lECdonDwC4=",
       "url": "_framework\/Microsoft.JSInterop.WebAssembly.dll"
+    },
+    {
+      "hash": "sha256-FpdSIpS73m9PoRvxgz86WzWdmVWzlvCo02klTePvDTs=",
+      "url": "_framework\/MudBlazor.dll"
     },
     {
       "hash": "sha256-3ET+mpR7F058YRj9YaLHOVXBqOW6iUxtIpeiKPYw4PA=",
@@ -809,11 +821,11 @@
       "url": "_framework\/FlamingSoftHR.Shared.pdb"
     },
     {
-      "hash": "sha256-A7\/EP8htWRKBwiF4vkIoTptxjQXs8pHxPMrxnzGhITA=",
+      "hash": "sha256-sKxH3mMCyUlCWpPNlvChqysM+eopoMMlgo+QBdyHNIQ=",
       "url": "_framework\/FlamingSoftHR.Client.dll"
     },
     {
-      "hash": "sha256-7nnRWH+EyN6RxIzUqwKB5WkXnzAhdMbQssPPcz7Cihw=",
+      "hash": "sha256-6Jo6ff0Y2LGDUOQHEUYYJq8Vlt6O46xfhrUtSeB5Zhc=",
       "url": "_framework\/FlamingSoftHR.Client.pdb"
     },
     {
@@ -919,6 +931,10 @@
     {
       "hash": "sha256-lhgHqE+l516sTfYhZusR766BNgB\/8OKw8klF8Bxjeyc=",
       "url": "_framework\/Microsoft.JSInterop.WebAssembly.dll.gz"
+    },
+    {
+      "hash": "sha256-TB21zkL84e2IbiVHUryRwdoI\/kCGMDBchvQIPrIWJJ4=",
+      "url": "_framework\/MudBlazor.dll.gz"
     },
     {
       "hash": "sha256-Oo2PR\/8iIaYz96jk5MaPhnVUyOhGz0xZyM2B1kdbT68=",
@@ -1673,7 +1689,27 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-0FkqRorStaZIKzRoWKciGsoqy3aFaE+MZ8UoHoLdCWM=",
+      "hash": "sha256-cKD\/DfPsUBOuCNwN8dBjSUgO5oz2W4qEuN8Mpxy0PH0=",
+      "url": "Images\/departments.jpg"
+    },
+    {
+      "hash": "sha256-1AkiCyK81DNBViFvOoqxNp\/u6a05gB3RWD6on7941qQ=",
+      "url": "Images\/employees.jpg"
+    },
+    {
+      "hash": "sha256-dJpQ8cm8QiI0Tbb8XCSddAp4ab9H3Sx+WirCKJ0fWJ8=",
+      "url": "Images\/employeeType.jpg"
+    },
+    {
+      "hash": "sha256-ceePrBPsaXZDhOtu89Vpv1dvPF2\/vdHfZR6mG0rYQwU=",
+      "url": "Images\/jobs.jpg"
+    },
+    {
+      "hash": "sha256-FHfINnr8s3PSCw4lEsSFV45DJQnfRXlOV+WRo+kX5LA=",
+      "url": "Images\/loggedTimeType.png"
+    },
+    {
+      "hash": "sha256-DMrbX1CMJKTN5s3mAwXjolsI67tRgrAoqtNsKKlmdxk=",
       "url": "index.html"
     },
     {
@@ -1681,13 +1717,13 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-Jcy5UZNQ73f2cuZCoYKen1nd6Qm\/ACm6w1rPUoPnprU=",
+      "hash": "sha256-SoD5Qz98El0JgbU4ODaes23GqvJuK8sMCfBjb2se0ec=",
       "url": "FlamingSoftHR.Client.styles.css"
     },
     {
-      "hash": "sha256-Re1ycOYARNaJzrSVhmbIPH\/AWcWBNWcIglmlhFBMK\/I=",
+      "hash": "sha256-9PtZwQH1XiDXul7NN755hELK\/OOFG6GFDdWmMViXhTw=",
       "url": "FlamingSoftHR.Client.bundle.scp.css"
     }
   ],
-  "version": "NHC8Wgw8"
+  "version": "9AJ32gja"
 };

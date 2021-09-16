@@ -963,6 +963,25 @@
           }
         }
       },
+      "MudBlazor/5.1.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.9",
+          "Microsoft.AspNetCore.Components.Web": "5.0.9"
+        },
+        "compile": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/12.0.2": {
         "type": "package",
         "compile": {
@@ -1969,6 +1988,7 @@
           "Microsoft.AspNetCore.Components.WebAssembly": "5.0.10",
           "Microsoft.AspNetCore.Components.WebAssembly.Authentication": "5.0.10",
           "Microsoft.Extensions.Http": "5.0.0",
+          "MudBlazor": "5.1.4",
           "System.Net.Http.Json": "5.0.0"
         },
         "compile": {
@@ -3404,6 +3424,27 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MudBlazor/5.1.4": {
+      "sha512": "njHIlwnuUnce4kr2duees/F2HTCX0z9qY5JWPHFl9uPklP+qzPxqJh7ECoyUvRFHQLFmjpUo1ZQASr3MkxHUGw==",
+      "type": "package",
+      "path": "mudblazor/5.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Nuget.png",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.props",
+        "buildMultiTargeting/MudBlazor.props",
+        "buildTransitive/MudBlazor.props",
+        "lib/net5.0/MudBlazor.dll",
+        "lib/net5.0/MudBlazor.xml",
+        "mudblazor.5.1.4.nupkg.sha512",
+        "mudblazor.nuspec",
+        "staticwebassets/MudBlazor.min.css",
+        "staticwebassets/MudBlazor.min.js"
       ]
     },
     "Newtonsoft.Json/12.0.2": {

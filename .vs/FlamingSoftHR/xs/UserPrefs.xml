@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
-  <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Server/Startup.cs">
+  <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/TimeManagement.razor">
     <Files>
-      <File FileName="FlamingSoftHR/Server/Controllers/EmployeesController.cs" Line="1" Column="1" />
-      <File FileName="FlamingSoftHR/Server/Startup.cs" Line="36" Column="68" />
+      <File FileName="FlamingSoftHR/Client/Pages/TimeManagement.razor" Line="21" Column="116" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FlamingSoftHR" expanded="True">
-            <Node name="FlamingSoftHR.Client" expanded="True" />
-            <Node name="FlamingSoftHR.Server" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
+            <Node name="FlamingSoftHR.Client" expanded="True">
+              <Node name="Pages" expanded="True">
+                <Node name="TimeManagement.razor" selected="True" />
+              </Node>
+              <Node name="Shared" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -21,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Client PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

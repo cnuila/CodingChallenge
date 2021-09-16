@@ -80,6 +80,20 @@ using FlamingSoftHR.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using Syncfusion.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using Syncfusion.Blazor.Grids;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Shared/LoginDisplay.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9dVnThf287KU5uqouYizjJTX1xG8t6nIFmWet6Hy1EEAjg7Mmb/gtEmlVBwEXqPhIIzXnDGyJEIWLG4A84t4xw==",
+  "dgSpecHash": "i7hqA0Di5nobPbe/+l7FhAhYpVL9sHRmXyu/3tuV8f1Uq6UxKfdX+97iZkIPWnDGpv0KIWKJvivJDRPZEj9mWA==",
   "success": true,
   "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "/Users/cnuila/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.jsinterop/5.0.10/microsoft.jsinterop.5.0.10.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.jsinterop.webassembly/5.0.10/microsoft.jsinterop.webassembly.5.0.10.nupkg.sha512",
+    "/Users/cnuila/.nuget/packages/mudblazor/5.1.4/mudblazor.5.1.4.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/system.net.http.json/5.0.0/system.net.http.json.5.0.0.nupkg.sha512",
