@@ -1,21 +1,14 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/Index.razor">
-    <Files>
-      <File FileName="FlamingSoftHR/Client/Pages/SimpleTable.razor" Line="10" Column="27" />
-      <File FileName="FlamingSoftHR/Client/Pages/Employee.razor" Line="14" Column="1" />
-      <File FileName="FlamingSoftHR/Client/Pages/Index.razor" Line="8" Column="71" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FlamingSoftHR" expanded="True">
-            <Node name="FlamingSoftHR.Client" expanded="True">
-              <Node name="Pages" expanded="True">
-                <Node name="Index.razor" selected="True" />
-              </Node>
+            <Node name="FlamingSoftHR.Server" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
-            <Node name="FlamingSoftHR.Server" expanded="True" />
           </Node>
         </State>
       </Pad>

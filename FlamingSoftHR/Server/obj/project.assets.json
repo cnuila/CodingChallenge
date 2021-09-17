@@ -6837,7 +6837,7 @@
       "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/cnuila/.nuget/NuGet/NuGet.Config"
+        "/Users/cnuila/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

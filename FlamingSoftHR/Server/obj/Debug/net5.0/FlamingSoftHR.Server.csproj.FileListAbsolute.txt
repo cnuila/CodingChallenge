@@ -339,3 +339,6 @@ E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingS
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/obj/Debug/net5.0/FlamingSoftHR.Server.pdb
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/obj/Debug/net5.0/FlamingSoftHR.Server.genruntimeconfig.cache
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/bin/Debug/net5.0/MudBlazor.dll
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/obj/Debug/net5.0/Razor/Areas/Identity/Pages/Account/Login.cshtml.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/obj/Debug/net5.0/Razor/Areas/Identity/Pages/Account/Register.cshtml.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/obj/Debug/net5.0/Razor/Areas/Identity/Pages/Account/_ViewImports.cshtml.g.cs

@@ -105,7 +105,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Employee.razor"
+#line 46 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Employee.razor"
        
 
     [Inject]
