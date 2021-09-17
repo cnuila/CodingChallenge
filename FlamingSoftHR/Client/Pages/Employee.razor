@@ -7,7 +7,33 @@
             <MudItem xs="12">
                 <MudPaper Elevation="4" Class="grey lighten-4 pa-7 red-text text-darken-2">
 
-                    <Table OpenAdd="OpenAddEmployee" HeaderContent="headerContent"/>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudText Typo="Typo.h4"> Employees </MudText>
+                        </MudItem>
+
+                        <MudItem xs="12">
+
+                            <MudTable Hover="true" Items="@(new List<string>())" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                                <HeaderContent>
+                                    <MudTh>Employee Id</MudTh>
+                                    <MudTh>Name</MudTh>
+                                    <MudTh>Department</MudTh>
+                                    <MudTh>Salary</MudTh>
+                                    <MudTh>Actions</MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    <MudTd DataLabel="Employee Id">100000</MudTd>
+                                    <MudTd DataLabel="Name">Carlos Nuila</MudTd>
+                                    <MudTd DataLabel="Department">IT</MudTd>
+                                    <MudTd DataLabel="Salary">100000</MudTd>
+                                    <MudTd DataLabel="Actions">0</MudTd>
+                                </RowTemplate>
+                            </MudTable>
+
+                        </MudItem>
+
+                    </MudGrid>
 
                 </MudPaper>
             </MudItem>

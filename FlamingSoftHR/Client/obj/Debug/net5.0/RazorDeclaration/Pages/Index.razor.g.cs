@@ -84,20 +84,13 @@ using FlamingSoftHR.Client;
 #nullable disable
 #nullable restore
 #line 11 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
-using FlamingSoftHR.Client.Pages.Employees;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using FlamingSoftHR.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+#line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using MudBlazor;
 
 #line default
@@ -123,6 +116,7 @@ using MudBlazor;
     private List<List<string>> modules = new List<List<string>> {
         new List<string> { "timemanagement/1", "/Images/timeManagement.jpg", "Time Management" },
         new List<string> { "employees", "/Images/employees.jpg", "Employees" },
+        new List<string> { "departments", "/Images/departments.jpg", "Departments" },
         new List<string> { "jobs", "/Images/jobs.jpg", "Jobs" },
         new List<string> { "employeetypes", "/Images/employeeType.jpg", "Employee Types" },
         new List<string> { "loggedtimetypes", "/Images/loggedTimeType.png", "Logged Time Types" }

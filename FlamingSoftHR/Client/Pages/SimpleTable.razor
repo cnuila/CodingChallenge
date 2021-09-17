@@ -1,0 +1,49 @@
+﻿
+<MudGrid Justify="Justify.FlexStart">
+    <MudItem xs="7">
+        <MudPaper Elevation="4" Class="grey lighten-4 pa-7 red-text text-darken-2">
+
+            <MudGrid>
+
+                <MudItem xs="7">
+                    <MudText Typo="Typo.h4"> @Title </MudText>
+                </MudItem>
+
+                <MudItem xs="5" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@(() => OpenAdd.InvokeAsync())"> Add </MudButton>
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudTable Hover="true" Items="@(new List<string>())" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                        <HeaderContent>
+                            <MudTh> Id </MudTh>
+                            <MudTh> Description  </MudTh>
+                            <MudTh> Actions  </MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="Id">1</MudTd>
+                            <MudTd DataLabel="Description">IrT</MudTd>
+                            <MudTd DataLabel="Action">0</MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                </MudItem>
+
+            </MudGrid>
+
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    //The component recieves a function to open the add dialog and a Title to display
+
+    [Parameter]
+    public EventCallback OpenAdd { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+
+
+}

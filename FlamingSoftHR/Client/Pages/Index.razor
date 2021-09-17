@@ -5,7 +5,7 @@
     @foreach (var module in modules)
     {
         <MudItem xs="4" Class="pa-8">
-            <MudCard Elevation="3" @onclick='() => GoToPage(module[0])'>
+            <MudCard Elevation="3" @onclick='() => GoToPage(module[0])' Style="cursor:pointer">
 
                 <MudCardMedia Image=@module[1] Height="200" />
 
@@ -29,6 +29,7 @@
     private List<List<string>> modules = new List<List<string>> {
         new List<string> { "timemanagement/1", "/Images/timeManagement.jpg", "Time Management" },
         new List<string> { "employees", "/Images/employees.jpg", "Employees" },
+        new List<string> { "departments", "/Images/departments.jpg", "Departments" },
         new List<string> { "jobs", "/Images/jobs.jpg", "Jobs" },
         new List<string> { "employeetypes", "/Images/employeeType.jpg", "Employee Types" },
         new List<string> { "loggedtimetypes", "/Images/loggedTimeType.png", "Logged Time Types" }

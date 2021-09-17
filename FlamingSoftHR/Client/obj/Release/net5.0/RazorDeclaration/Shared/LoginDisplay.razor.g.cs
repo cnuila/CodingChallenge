@@ -77,7 +77,7 @@ using FlamingSoftHR.Client;
 #nullable disable
 #nullable restore
 #line 11 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
-using FlamingSoftHR.Client.Pages;
+using FlamingSoftHR.Client.Pages.Employees;
 
 #line default
 #line hidden

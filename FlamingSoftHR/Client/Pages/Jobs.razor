@@ -1,0 +1,21 @@
+﻿@page "/jobs"
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" Class="pa-8">
+        <SimpleTable OpenAdd="OpenAddJob" Title='Jobs'/>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    [Inject]
+    public IDialogService DialogService { get; set; }
+
+    private void OpenAddJob()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Description");
+
+        DialogService.Show<AddUpdateSimple>("Add Job", parameters);
+    }
+}

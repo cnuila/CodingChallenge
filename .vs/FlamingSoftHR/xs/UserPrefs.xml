@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/Employee.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/Index.razor">
     <Files>
-      <File FileName="FlamingSoftHR/Client/Pages/Employee.razor" Line="10" Column="21" />
-      <File FileName="FlamingSoftHR/Client/Pages/Table.razor" Line="14" Column="29" />
-      <File FileName="FlamingSoftHR/Client/Pages/Employees/AddUpdateEmployee.razor" Line="1" Column="1" />
+      <File FileName="FlamingSoftHR/Client/Pages/SimpleTable.razor" Line="10" Column="27" />
+      <File FileName="FlamingSoftHR/Client/Pages/Employee.razor" Line="14" Column="1" />
+      <File FileName="FlamingSoftHR/Client/Pages/Index.razor" Line="8" Column="71" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,15 +12,10 @@
           <Node name="FlamingSoftHR" expanded="True">
             <Node name="FlamingSoftHR.Client" expanded="True">
               <Node name="Pages" expanded="True">
-                <Node name="Employees" expanded="True" />
-                <Node name="Employee.razor" selected="True" />
+                <Node name="Index.razor" selected="True" />
               </Node>
-              <Node name="Shared" expanded="True" />
             </Node>
-            <Node name="FlamingSoftHR.Server" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
-            </Node>
+            <Node name="FlamingSoftHR.Server" expanded="True" />
           </Node>
         </State>
       </Pad>

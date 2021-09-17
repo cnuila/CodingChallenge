@@ -1,0 +1,32 @@
+﻿
+<MudDialog>
+    <DialogContent>
+
+        <MudGrid>
+            <MudItem xs="12" Class="mx-8 my-7">
+
+                <MudTextField @bind-Value="fieldValue" Label="@FieldName" Variant="Variant.Text"></MudTextField>
+
+            </MudItem>
+        </MudGrid>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton OnClick="Submit" Class="red-text text-darken-3">Ok</MudButton>
+    </DialogActions>
+
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public string FieldName { get; set; }
+
+    private string fieldValue { get; set; }
+
+    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    private void Cancel() => MudDialog.Cancel();
+}

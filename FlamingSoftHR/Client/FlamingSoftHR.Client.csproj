@@ -32,12 +32,10 @@
     <None Remove="Syncfusion.Blazor.Grid" />
     <None Remove="Syncfusion.Blazor.Cards" />
     <None Remove="MudBlazor" />
-    <None Remove="Pages\Employees\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="wwwroot\Images\" />
-    <Folder Include="Pages\Employees\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\timeManagement.jpg" />

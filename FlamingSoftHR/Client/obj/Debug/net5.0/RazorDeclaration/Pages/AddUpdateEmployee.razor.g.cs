@@ -84,26 +84,19 @@ using FlamingSoftHR.Client;
 #nullable disable
 #nullable restore
 #line 11 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
-using FlamingSoftHR.Client.Pages.Employees;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using FlamingSoftHR.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+#line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class Table : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class AddUpdateEmployee : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -111,18 +104,21 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Table.razor"
+#line 31 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/AddUpdateEmployee.razor"
        
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
 
-    [Parameter]
-    public EventCallback OpenAdd { get; set; }
+    private TimeSpan? entryTime = DateTime.Now.TimeOfDay;
+    private TimeSpan? exitTime = DateTime.Now.TimeOfDay;
 
-    [Parameter]
-    public List<string> HeaderContent { get; set; }
+    private void OnSelectedValue(string value)
+    {
 
+    }
 
-
-
+    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    private void Cancel() => MudDialog.Cancel();
 
 #line default
 #line hidden

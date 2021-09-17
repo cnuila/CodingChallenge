@@ -1,0 +1,22 @@
+﻿@page "/employeetypes"
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" Class="pa-8">
+        <SimpleTable OpenAdd="OpenAddEmployeeType" Title='Employee Types' />
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    [Inject]
+    public IDialogService DialogService { get; set; }
+
+    private void OpenAddEmployeeType()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Description");
+
+        DialogService.Show<AddUpdateSimple>("Add Employee Type", parameters);
+    }
+}
+

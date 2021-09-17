@@ -84,7 +84,7 @@ using FlamingSoftHR.Client;
 #nullable disable
 #nullable restore
 #line 11 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
-using FlamingSoftHR.Client.Pages;
+using FlamingSoftHR.Client.Pages.Employees;
 
 #line default
 #line hidden
@@ -112,11 +112,23 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 61 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Index.razor"
+#line 22 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Index.razor"
       
 
     [Inject]
     public NavigationManager NavigationManager { get; set; }
+
+
+    //Every module in the app, { route, image path and display text }
+    private List<List<string>> modules = new List<List<string>> {
+        new List<string> { "timemanagement/1", "/Images/timeManagement.jpg", "Time Management" },
+        new List<string> { "employees", "/Images/employees.jpg", "Employees" },
+        new List<string> { "departments", "/Images/departments.jpg", "Departments" },
+        new List<string> { "jobs", "/Images/jobs.jpg", "Jobs" },
+        new List<string> { "employeetypes", "/Images/employeeType.jpg", "Employee Types" },
+        new List<string> { "loggedtimetypes", "/Images/loggedTimeType.png", "Logged Time Types" }
+    };
+
 
     private void GoToPage(string route)
     {
