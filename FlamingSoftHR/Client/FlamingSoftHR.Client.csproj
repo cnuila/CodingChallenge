@@ -26,22 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Services\" />
-    <None Remove="Syncfusion.Blazor" />
-    <None Remove="Syncfusion.Blazor.Data" />
-    <None Remove="Syncfusion.Blazor.Grid" />
-    <None Remove="Syncfusion.Blazor.Cards" />
     <None Remove="MudBlazor" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\Images\timeManagement.jpg" />
-    <Content Remove="wwwroot\Images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\Images\timeManagement.jpg" />
   </ItemGroup>
 </Project>

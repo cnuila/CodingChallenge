@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FlamingSoftHR.Server.Data;
 using FlamingSoftHR.Shared;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,47 +9,47 @@ namespace FlamingSoftHR.Server.Models
 {
     public class EmployeeTypeRepository : IEmployeeTypeRepository
     {
-        private readonly FlamingSoftHRContext hrContext;
+        private readonly ApplicationDbContext applicationDBContext;
 
-        public EmployeeTypeRepository(FlamingSoftHRContext hrContext)
+        public EmployeeTypeRepository(ApplicationDbContext applicationDBContext)
         {
-            this.hrContext = hrContext;
+            this.applicationDBContext = applicationDBContext;
         }
 
         public async Task<EmployeeType> AddEmployeeType(EmployeeType employeeTypeToAdd)
         {
-            var result = await hrContext.EmployeeType.AddAsync(employeeTypeToAdd);
-            await hrContext.SaveChangesAsync();
+            var result = await applicationDBContext.EmployeeType.AddAsync(employeeTypeToAdd);
+            await applicationDBContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task DeleteEmployeeType(int id)
         {
-            var result = await hrContext.EmployeeType.FirstOrDefaultAsync(e => e.Id == id);
+            var result = await applicationDBContext.EmployeeType.FirstOrDefaultAsync(e => e.Id == id);
             if (result != null)
             {
-                hrContext.EmployeeType.Remove(result);
-                await hrContext.SaveChangesAsync();
+                applicationDBContext.EmployeeType.Remove(result);
+                await applicationDBContext.SaveChangesAsync();
             }
         }
 
         public async Task<EmployeeType> GetEmployeeType(int id)
         {
-            return await hrContext.EmployeeType.FirstOrDefaultAsync(e => e.Id == id);
+            return await applicationDBContext.EmployeeType.FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<IEnumerable<EmployeeType>> GetEmployeeTypes()
         {
-            return await hrContext.EmployeeType.ToListAsync();
+            return await applicationDBContext.EmployeeType.ToListAsync();
         }
 
         public async Task<EmployeeType> UpdateEmployeeType(EmployeeType employeeTypeToUpdate)
         {
-            var result = await hrContext.EmployeeType.FirstOrDefaultAsync(e => e.Id == employeeTypeToUpdate.Id);
+            var result = await applicationDBContext.EmployeeType.FirstOrDefaultAsync(e => e.Id == employeeTypeToUpdate.Id);
             if (result != null)
             {
                 result.Description = employeeTypeToUpdate.Description;
-                await hrContext.SaveChangesAsync();
+                await applicationDBContext.SaveChangesAsync();
                 return result;
             }
             return null;

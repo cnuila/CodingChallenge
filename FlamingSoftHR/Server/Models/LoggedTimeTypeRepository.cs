@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FlamingSoftHR.Server.Data;
 using FlamingSoftHR.Shared;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,47 +9,47 @@ namespace FlamingSoftHR.Server.Models
 {
     public class LoggedTimeTypeRepository : ILoggedTimeTypeRepository
     {
-        private readonly FlamingSoftHRContext hrContext;
+        private readonly ApplicationDbContext applicationDBContext;
 
-        public LoggedTimeTypeRepository(FlamingSoftHRContext hrContext)
+        public LoggedTimeTypeRepository(ApplicationDbContext applicationDBContext)
         {
-            this.hrContext = hrContext;
+            this.applicationDBContext = applicationDBContext;
         }
 
         public async Task<LoggedTimeType> AddLoggedTimeType(LoggedTimeType loggedTimeTypeToAdd)
         {
-            var result = await hrContext.LoggedTimeType.AddAsync(loggedTimeTypeToAdd);
-            await hrContext.SaveChangesAsync();
+            var result = await applicationDBContext.LoggedTimeType.AddAsync(loggedTimeTypeToAdd);
+            await applicationDBContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task DeleteLoggedTimeType(int id)
         {
-            var result = await hrContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == id);
+            var result = await applicationDBContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == id);
             if (result != null)
             {
-                hrContext.LoggedTimeType.Remove(result);
-                await hrContext.SaveChangesAsync();
+                applicationDBContext.LoggedTimeType.Remove(result);
+                await applicationDBContext.SaveChangesAsync();
             }
         }
 
         public async Task<LoggedTimeType> GetLoggedTimeType(int id)
         {
-            return await hrContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == id);
+            return await applicationDBContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == id);
         }
 
         public async Task<IEnumerable<LoggedTimeType>> GetLoggedTimeTypes()
         {
-            return await hrContext.LoggedTimeType.ToListAsync();
+            return await applicationDBContext.LoggedTimeType.ToListAsync();
         }
 
         public async Task<LoggedTimeType> UpdateLoggedTimeType(LoggedTimeType loggedTimeTypeToUpdate)
         {
-            var result = await hrContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == loggedTimeTypeToUpdate.Id);
+            var result = await applicationDBContext.LoggedTimeType.FirstOrDefaultAsync(l => l.Id == loggedTimeTypeToUpdate.Id);
             if (result != null)
             {
                 result.Description = loggedTimeTypeToUpdate.Description;
-                await hrContext.SaveChangesAsync();
+                await applicationDBContext.SaveChangesAsync();
                 return result;
             }
             return null;

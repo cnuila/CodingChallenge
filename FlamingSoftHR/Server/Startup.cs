@@ -26,18 +26,13 @@ namespace FlamingSoftHR.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //Connection to the DB
-            services.AddDbContext<FlamingSoftHRContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DBConnection")));
-
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DBConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
@@ -52,7 +47,6 @@ namespace FlamingSoftHR.Server
             services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
             services.AddScoped<ILoggedTimeRepository, LoggedTimeRepository>();
             services.AddScoped<ILoggedTimeTypeRepository, LoggedTimeTypeRepository>();
-            services.AddScoped<IJobRepository, JobRepository>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

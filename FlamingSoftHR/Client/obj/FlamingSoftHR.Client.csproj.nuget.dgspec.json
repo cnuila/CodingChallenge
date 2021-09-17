@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {}
+    "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {}
   },
   "projects": {
-    "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {
+    "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
+        "projectUniqueName": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
         "projectName": "FlamingSoftHR.Client",
-        "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
+        "projectPath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
         "packagesPath": "/Users/cnuila/.nuget/packages/",
-        "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/",
+        "outputPath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/cnuila/.config/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
-                "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj"
+              "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
+                "projectPath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj"
               }
             }
           }
@@ -98,14 +98,14 @@
         }
       }
     },
-    "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
+    "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
+        "projectUniqueName": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
         "projectName": "FlamingSoftHR.Shared",
-        "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
+        "projectPath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
         "packagesPath": "/Users/cnuila/.nuget/packages/",
-        "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/",
+        "outputPath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/cnuila/.config/NuGet/NuGet.Config"
@@ -131,12 +131,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "System.ComponentModel.Annotations": {
-              "target": "Package",
-              "version": "[5.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

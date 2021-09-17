@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PZ71A5Po2U0K4F+osZZWc1mmHiZvsrBbfECNbsGZOPEp+oC+35SemYrtyZfX/ROGOj3vWr9H3p6PuAKZTwLjBw==",
+  "dgSpecHash": "SIyjmRFjlE++67gngIJcSpnAIo0FFTmiJZ03lK3I+Pd8ebwjSLqHqAE8eDpcle6ASuWnA5UGhYuKm2aNiFT02g==",
   "success": true,
-  "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
+  "projectFilePath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
   "expectedPackageFiles": [
     "/Users/cnuila/.nuget/packages/microsoft.aspnetcore.authorization/5.0.10/microsoft.aspnetcore.authorization.5.0.10.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.aspnetcore.components/5.0.10/microsoft.aspnetcore.components.5.0.10.nupkg.sha512",
@@ -32,7 +32,6 @@
     "/Users/cnuila/.nuget/packages/microsoft.jsinterop/5.0.10/microsoft.jsinterop.5.0.10.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.jsinterop.webassembly/5.0.10/microsoft.jsinterop.webassembly.5.0.10.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/mudblazor/5.1.4/mudblazor.5.1.4.nupkg.sha512",
-    "/Users/cnuila/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/system.net.http.json/5.0.0/system.net.http.json.5.0.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.netcore.app.runtime.browser-wasm/5.0.10/microsoft.netcore.app.runtime.browser-wasm.5.0.10.nupkg.sha512"

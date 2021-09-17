@@ -10,27 +10,27 @@ E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingS
 E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
 E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
 E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.deps.json
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.pdb
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfoInputs.cache
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfo.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.CoreCompileInputs.cache
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.deps.json
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.pdb
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfoInputs.cache
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfo.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.CoreCompileInputs.cache
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.deps.json
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.dll
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.pdb
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfoInputs.cache
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfo.cs
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.CoreCompileInputs.cache
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
+C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.deps.json
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.pdb
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfoInputs.cache
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfo.cs
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.CoreCompileInputs.cache
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
+/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb

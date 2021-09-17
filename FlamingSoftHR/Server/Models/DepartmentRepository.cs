@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FlamingSoftHR.Server.Data;
 using FlamingSoftHR.Shared;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,47 +9,47 @@ namespace FlamingSoftHR.Server.Models
 {
     public class DepartmentRepository : IDepartmentRepository
     {
-        private readonly FlamingSoftHRContext hrContext;
+        private readonly ApplicationDbContext applicationDBContext;
 
-        public DepartmentRepository(FlamingSoftHRContext hrContext)
+        public DepartmentRepository(ApplicationDbContext applicationDBContext)
         {
-            this.hrContext = hrContext;
+            this.applicationDBContext = applicationDBContext;
         }
 
         public async Task<Department> AddDepartment(Department departmentToAdd)
         {
-            var result = await hrContext.Department.AddAsync(departmentToAdd);
-            await hrContext.SaveChangesAsync();
+            var result = await applicationDBContext.Department.AddAsync(departmentToAdd);
+            await applicationDBContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task DeleteDepartment(int id)
         {
-            var result = await hrContext.Department.FirstOrDefaultAsync(d => d.Id == id);
+            var result = await applicationDBContext.Department.FirstOrDefaultAsync(d => d.Id == id);
             if (result != null)
             {
-                hrContext.Department.Remove(result);
-                await hrContext.SaveChangesAsync();
+                applicationDBContext.Department.Remove(result);
+                await applicationDBContext.SaveChangesAsync();
             }
         }
 
         public async Task<Department> GetDepartment(int id)
         {
-            return await hrContext.Department.FirstOrDefaultAsync(d => d.Id == id);
+            return await applicationDBContext.Department.FirstOrDefaultAsync(d => d.Id == id);
         }
 
         public async Task<IEnumerable<Department>> GetDepartments()
         {
-            return await hrContext.Department.ToListAsync();
+            return await applicationDBContext.Department.ToListAsync();
         }
 
         public async Task<Department> UpdateDepartment(Department departmentToUpdate)
         {
-            var result = await hrContext.Department.FirstOrDefaultAsync(d => d.Id == departmentToUpdate.Id);
+            var result = await applicationDBContext.Department.FirstOrDefaultAsync(d => d.Id == departmentToUpdate.Id);
             if (result != null)
             {
                 result.Name = departmentToUpdate.Name;
-                await hrContext.SaveChangesAsync();
+                await applicationDBContext.SaveChangesAsync();
                 return result;
             }
             return null;

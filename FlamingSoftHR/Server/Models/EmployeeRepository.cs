@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FlamingSoftHR.Server.Data;
 using FlamingSoftHR.Shared;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,44 +9,44 @@ namespace FlamingSoftHR.Server.Models
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        private readonly FlamingSoftHRContext hrContext;
+        private readonly ApplicationDbContext applicationDBContext;
 
-        public EmployeeRepository(FlamingSoftHRContext hrContext)
+        public EmployeeRepository(ApplicationDbContext applicationDBContext)
         {
-            this.hrContext = hrContext;
+            this.applicationDBContext = applicationDBContext;
         }
 
         public async Task<Employee> AddEmployee(Employee employeeToAdd)
         {
-            var result = await hrContext.Employee.AddAsync(employeeToAdd);
-            await hrContext.SaveChangesAsync();
+            var result = await applicationDBContext.Employee.AddAsync(employeeToAdd);
+            await applicationDBContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task DeleteEmployee(int id)
         {
-            var result = await hrContext.Employee.FirstOrDefaultAsync(e => e.Id == id);
+            var result = await applicationDBContext.Employee.FirstOrDefaultAsync(e => e.Id == id);
             if (result != null)
             {
-                hrContext.Employee.Remove(result);
-                await hrContext.SaveChangesAsync();
+                applicationDBContext.Employee.Remove(result);
+                await applicationDBContext.SaveChangesAsync();
             }
         }
 
         public async Task<Employee> GetEmployee(int id)
         {
-            return await hrContext.Employee.FirstOrDefaultAsync(e => e.Id == id);
+            return await applicationDBContext.Employee.FirstOrDefaultAsync(e => e.Id == id);
             
         }
 
         public async Task<IEnumerable<Employee>> GetEmployees()
         {
-            return await hrContext.Employee.ToListAsync();
+            return await applicationDBContext.Employee.ToListAsync();
         }
 
         public async Task<Employee> UpdateEmployee(Employee employeeToUpdate)
         {
-            var result = await hrContext.Employee.FirstOrDefaultAsync(e => e.Id == employeeToUpdate.Id);
+            var result = await applicationDBContext.Employee.FirstOrDefaultAsync(e => e.Id == employeeToUpdate.Id);
             if (result != null)
             {
                 result.FirstName = employeeToUpdate.FirstName;
@@ -55,7 +56,7 @@ namespace FlamingSoftHR.Server.Models
                 result.Salary = employeeToUpdate.Salary;
                 result.JobId = employeeToUpdate.JobId;
 
-                await hrContext.SaveChangesAsync();
+                await applicationDBContext.SaveChangesAsync();
                 return result;
             }
             return null;

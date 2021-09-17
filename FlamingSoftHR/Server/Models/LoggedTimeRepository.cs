@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FlamingSoftHR.Server.Data;
 using FlamingSoftHR.Shared;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,43 +9,43 @@ namespace FlamingSoftHR.Server.Models
 {
     public class LoggedTimeRepository : ILoggedTimeRepository
     {
-        private readonly FlamingSoftHRContext hrContext;
+        private readonly ApplicationDbContext applicationDBContext;
 
-        public LoggedTimeRepository(FlamingSoftHRContext hrContext)
+        public LoggedTimeRepository(ApplicationDbContext applicationDBContext)
         {
-            this.hrContext = hrContext;
+            this.applicationDBContext = applicationDBContext;
         }
 
         public async Task<LoggedTime> AddLoggedTime(LoggedTime loggedTimeToAdd)
         {
-            var result = await hrContext.LoggedTime.AddAsync(loggedTimeToAdd);
-            await hrContext.SaveChangesAsync();
+            var result = await applicationDBContext.LoggedTime.AddAsync(loggedTimeToAdd);
+            await applicationDBContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task DeleteLoggedTime(int id)
         {
-            var result = await hrContext.LoggedTime.FirstOrDefaultAsync(l => l.Id == id);
+            var result = await applicationDBContext.LoggedTime.FirstOrDefaultAsync(l => l.Id == id);
             if (result != null)
             {
-                hrContext.LoggedTime.Remove(result);
-                await hrContext.SaveChangesAsync();
+                applicationDBContext.LoggedTime.Remove(result);
+                await applicationDBContext.SaveChangesAsync();
             }
         }
 
         public async Task<LoggedTime> GetLoggedTime(int id)
         {
-            return await hrContext.LoggedTime.FirstOrDefaultAsync(l => l.Id == id);
+            return await applicationDBContext.LoggedTime.FirstOrDefaultAsync(l => l.Id == id);
         }
 
         public async Task<IEnumerable<LoggedTime>> GetLoggedTimes()
         {
-            return await hrContext.LoggedTime.ToListAsync();
+            return await applicationDBContext.LoggedTime.ToListAsync();
         }
 
         public async Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate)
         {
-            var result = await hrContext.LoggedTime.FirstOrDefaultAsync(l => l.Id == loggedTimeToUpdate.Id);
+            var result = await applicationDBContext.LoggedTime.FirstOrDefaultAsync(l => l.Id == loggedTimeToUpdate.Id);
             if (result != null)
             {
                 result.DateLogged = loggedTimeToUpdate.DateLogged;
@@ -52,7 +53,7 @@ namespace FlamingSoftHR.Server.Models
                 result.LogTypeId = loggedTimeToUpdate.LogTypeId;
                 result.WeekNumber = loggedTimeToUpdate.WeekNumber;
 
-                await hrContext.SaveChangesAsync();
+                await applicationDBContext.SaveChangesAsync();
                 return result;
             }
             return null;
