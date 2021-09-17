@@ -21,7 +21,7 @@
                 <MudGrid>
 
                     <MudItem xs="3" Class="d-flex align-center">
-                        <MudPaper Elevation="4" Class="pa-7">
+                        <MudPaper Elevation="4" Class="grey lighten-4 pa-7">
 
                             <MudDateRangePicker Label="Dates" DisableToolbar="true" Rounded="true" MaxDate="@(DateTime.Today)" @bind-DateRange="dateRange" />
 
@@ -101,7 +101,7 @@
                     </MudItem>
 
                     <MudItem xs="3" Class="d-flex align-center">
-                        <MudPaper Elevation="4" Class="pa-9">
+                        <MudPaper Elevation="4" Class="grey lighten-4 pa-9">
                             <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text"> Calculate Payment </MudButton>
                         </MudPaper>
                     </MudItem>
@@ -112,20 +112,36 @@
 
             <!--   Third Section   --->
             <MudItem xs="12">
-                <MudTable Hover="true" Items="@(new List<string>())" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
-                    <HeaderContent>
-                        <MudTh>Date</MudTh>
-                        <MudTh>Regular</MudTh>
-                        <MudTh>Vacation</MudTh>
-                        <MudTh>Sick</MudTh>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudTd DataLabel="Date">25/07/2021</MudTd>
-                        <MudTd DataLabel="Regular">8</MudTd>
-                        <MudTd DataLabel="Vacation">0</MudTd>
-                        <MudTd DataLabel="Sick">0</MudTd>
-                    </RowTemplate>
-                </MudTable>
+                <MudPaper Elevation="4" Class="grey lighten-4 py-7 px-10 red-text text-darken-2">
+
+                    <MudGrid>
+                        <MudSpacer/>
+                        <MudItem xs="4" Class="d-flex justify-end">
+                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="OpenAddLoggedTime"> Add </MudButton>
+                        </MudItem>
+
+                        <MudItem xs="12">
+                            <MudTable Hover="true" Items="@(new List<string>())" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                                <HeaderContent>
+                                    <MudTh>Date</MudTh>
+                                    <MudTh>Regular</MudTh>
+                                    <MudTh>Vacation</MudTh>
+                                    <MudTh>Sick</MudTh>
+                                    <MudTh>Actions</MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    <MudTd DataLabel="Date">25/07/2021</MudTd>
+                                    <MudTd DataLabel="Regular">8</MudTd>
+                                    <MudTd DataLabel="Vacation">0</MudTd>
+                                    <MudTd DataLabel="Sick">0</MudTd>
+                                    <MudTd DataLabel="Actions">0</MudTd>
+                                </RowTemplate>
+                            </MudTable>
+                        </MudItem>
+
+                    </MudGrid>
+                    
+                </MudPaper>
             </MudItem>
 
         </MudGrid>
@@ -137,5 +153,13 @@
     [Parameter]
     public string id { get; set; }
 
+    [Inject]
+    IDialogService dialogService { get; set; }
+
     private DateRange dateRange { get; set; }
+
+    private void OpenAddLoggedTime()
+    {
+        dialogService.Show <AddTimeManagement>("Add Loggeed Time");
+    }
 }

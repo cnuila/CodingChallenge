@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/TimeManagement.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/AddTimeManagement.razor">
     <Files>
-      <File FileName="FlamingSoftHR/Client/Pages/TimeManagement.razor" Line="21" Column="116" />
+      <File FileName="FlamingSoftHR/Client/Pages/TimeManagement.razor" Line="120" Column="149" />
+      <File FileName="FlamingSoftHR/Client/Pages/AddTimeManagement.razor" Line="6" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +11,7 @@
           <Node name="FlamingSoftHR" expanded="True">
             <Node name="FlamingSoftHR.Client" expanded="True">
               <Node name="Pages" expanded="True">
-                <Node name="TimeManagement.razor" selected="True" />
+                <Node name="AddTimeManagement.razor" selected="True" />
               </Node>
               <Node name="Shared" expanded="True" />
             </Node>

@@ -96,8 +96,7 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/timemanagement/{id}")]
-    public partial class TimeManagement : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class AddTimeManagement : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,20 +104,21 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 152 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagement.razor"
+#line 31 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/AddTimeManagement.razor"
        
-    [Parameter]
-    public string id { get; set; }
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
 
-    [Inject]
-    IDialogService dialogService { get; set; }
+    private TimeSpan? entryTime = DateTime.Now.TimeOfDay;
+    private TimeSpan? exitTime = DateTime.Now.TimeOfDay;
 
-    private DateRange dateRange { get; set; }
-
-    private void OpenAddLoggedTime()
+    private void OnSelectedValue(string value)
     {
-        dialogService.Show <AddTimeManagement>("Add Loggeed Time");
+
     }
+
+    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    private void Cancel() => MudDialog.Cancel();
 
 #line default
 #line hidden

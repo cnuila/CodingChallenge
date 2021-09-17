@@ -1968,3 +1968,5 @@ E:/Shared/FlamingShare/FlamingSoft/Flamingsoft Mexico/Coding Challenges/FlamingS
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/build-gz/tSk9figt.gz
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/TimeManagement.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/TimeManagement.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/AddTimeManagement.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/AddTimeManagement.razor.g.cs

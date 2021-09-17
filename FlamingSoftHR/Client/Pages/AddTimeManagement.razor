@@ -1,0 +1,45 @@
+﻿
+<MudDialog>
+    <DialogContent>
+
+        <MudGrid>
+            <MudItem xs="12" Class="mx-12 my-7">
+
+                <MudDatePicker Label="Date" Required="true" Disabled="true" Date="@(DateTime.Today)" Class="pa-5" />
+
+                <MudTimePicker Class="pa-5" Required="true" RequiredError="Entry hour is required" Label="Entry Time" Color="Color.Error" @bind-Time="entryTime" />
+
+                <MudTimePicker Class="pa-5" Label="Exit Time" Required="true" RequiredError="Exit hour is required" Color="Color.Error" @bind-Time="exitTime" />
+
+                <MudSelect Required="true" Class="pa-5" RequiredError="Logged Time Type is required" T="string" Label="Logged Time Type" Direction="@Direction.Bottom" OffsetY="true" ValueChanged="OnSelectedValue">
+                    <MudSelectItem T="string" Value="@("Regular")">Regular</MudSelectItem>
+                    <MudSelectItem T="string" Value="@("Vacation")">Vacation</MudSelectItem>
+                    <MudSelectItem T="string" Value="@("Sick")">Sick</MudSelectItem>
+                </MudSelect>
+
+            </MudItem>
+        </MudGrid>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
+
+    private TimeSpan? entryTime = DateTime.Now.TimeOfDay;
+    private TimeSpan? exitTime = DateTime.Now.TimeOfDay;
+
+    private void OnSelectedValue(string value)
+    {
+
+    }
+
+    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    private void Cancel() => MudDialog.Cancel();
+}
