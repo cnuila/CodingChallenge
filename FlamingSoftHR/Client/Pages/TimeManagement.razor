@@ -151,15 +151,15 @@
 
 @code {
     [Parameter]
-    public string id { get; set; }
+    public string Id { get; set; }
 
     [Inject]
-    IDialogService dialogService { get; set; }
+    public IDialogService DialogService { get; set; }
 
     private DateRange dateRange { get; set; }
 
     private void OpenAddLoggedTime()
     {
-        dialogService.Show <AddTimeManagement>("Add Loggeed Time");
+        DialogService.Show <AddTimeManagement>("Add Loggeed Time");
     }
 }

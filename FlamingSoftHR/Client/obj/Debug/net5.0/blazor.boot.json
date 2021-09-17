@@ -200,12 +200,12 @@
       "netstandard.dll": "sha256-5TcSqPhm3fAT6s3NH7+BMGakcfGgZGd3\/\/cVwVs2VPI=",
       "System.Private.CoreLib.dll": "sha256-VJv3DLM\/G0m\/RnTeWL9X8mkbxlsn8nNRhm0BHYEY+uo=",
       "FlamingSoftHR.Shared.dll": "sha256-xNqOaohUOvxzkLBZTkjkWmMutx6gkVWGlR\/NvUv7e6Y=",
-      "FlamingSoftHR.Client.dll": "sha256-MOCx4viZ8eOeKJV1QnK8LlMBcII9yfxDBwhqN4rkyFk="
+      "FlamingSoftHR.Client.dll": "sha256-ioRDp\/6FW6Sr1c8K31M5RgRo+i1Y2MgA5P7K0f1t0UY="
     },
     "lazyAssembly": null,
     "pdb": {
       "FlamingSoftHR.Shared.pdb": "sha256-+ZQAOwk\/QC8XZx5PtQ3P90+ncHYDSLfS8TVUAtCI+ho=",
-      "FlamingSoftHR.Client.pdb": "sha256-GKrg+Nxep19LeZsAPL9Rn\/mvv5dutMyEKwCf3zRxr+w="
+      "FlamingSoftHR.Client.pdb": "sha256-u4b7DLT3Qi6fs\/ofKzJ4uGHnKlbh\/gt0248+sNKUoeQ="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-PvlHrby1PYtdX46ITs6pB8iDNqXNcewh8Eoa\/Gm2+GM=",

@@ -84,13 +84,20 @@ using FlamingSoftHR.Client;
 #nullable disable
 #nullable restore
 #line 11 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
-using FlamingSoftHR.Client.Shared;
+using FlamingSoftHR.Client.Pages.Employees;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using FlamingSoftHR.Client.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using MudBlazor;
 
 #line default
@@ -108,16 +115,16 @@ using MudBlazor;
 #line 152 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagement.razor"
        
     [Parameter]
-    public string id { get; set; }
+    public string Id { get; set; }
 
     [Inject]
-    IDialogService dialogService { get; set; }
+    public IDialogService DialogService { get; set; }
 
     private DateRange dateRange { get; set; }
 
     private void OpenAddLoggedTime()
     {
-        dialogService.Show <AddTimeManagement>("Add Loggeed Time");
+        DialogService.Show <AddTimeManagement>("Add Loggeed Time");
     }
 
 #line default

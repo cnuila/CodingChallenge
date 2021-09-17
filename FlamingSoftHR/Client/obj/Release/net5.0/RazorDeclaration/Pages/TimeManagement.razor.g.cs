@@ -84,20 +84,27 @@ using FlamingSoftHR.Client;
 #nullable disable
 #nullable restore
 #line 11 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
-using FlamingSoftHR.Client.Shared;
+using FlamingSoftHR.Client.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using FlamingSoftHR.Client.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
-    public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/timemanagement/{id}")]
+    public partial class TimeManagement : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,13 +112,19 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Counter.razor"
+#line 152 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagement.razor"
        
-    private int currentCount = 0;
+    [Parameter]
+    public string id { get; set; }
 
-    private void IncrementCount()
+    [Inject]
+    IDialogService dialogService { get; set; }
+
+    private DateRange dateRange { get; set; }
+
+    private void OpenAddLoggedTime()
     {
-        currentCount++;
+        dialogService.Show <AddTimeManagement>("Add Loggeed Time");
     }
 
 #line default

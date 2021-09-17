@@ -84,13 +84,20 @@ using FlamingSoftHR.Client;
 #nullable disable
 #nullable restore
 #line 11 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
-using FlamingSoftHR.Client.Shared;
+using FlamingSoftHR.Client.Pages.Employees;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using FlamingSoftHR.Client.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using MudBlazor;
 
 #line default
@@ -103,6 +110,22 @@ using MudBlazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Shared/Navbar.razor"
+       
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    private void GoToHome()
+    {
+
+        NavigationManager.NavigateTo("/");
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

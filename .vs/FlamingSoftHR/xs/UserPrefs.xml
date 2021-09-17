@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/AddTimeManagement.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/Employee.razor">
     <Files>
-      <File FileName="FlamingSoftHR/Client/Pages/TimeManagement.razor" Line="120" Column="149" />
-      <File FileName="FlamingSoftHR/Client/Pages/AddTimeManagement.razor" Line="6" Column="41" />
+      <File FileName="FlamingSoftHR/Client/Pages/Employee.razor" Line="10" Column="21" />
+      <File FileName="FlamingSoftHR/Client/Pages/Table.razor" Line="14" Column="29" />
+      <File FileName="FlamingSoftHR/Client/Pages/Employees/AddUpdateEmployee.razor" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,9 +12,14 @@
           <Node name="FlamingSoftHR" expanded="True">
             <Node name="FlamingSoftHR.Client" expanded="True">
               <Node name="Pages" expanded="True">
-                <Node name="AddTimeManagement.razor" selected="True" />
+                <Node name="Employees" expanded="True" />
+                <Node name="Employee.razor" selected="True" />
               </Node>
               <Node name="Shared" expanded="True" />
+            </Node>
+            <Node name="FlamingSoftHR.Server" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
             </Node>
           </Node>
         </State>

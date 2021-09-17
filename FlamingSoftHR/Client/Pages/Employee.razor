@@ -1,0 +1,30 @@
+﻿@page "/employees"
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" Class="pa-8">
+
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs="12">
+                <MudPaper Elevation="4" Class="grey lighten-4 pa-7 red-text text-darken-2">
+
+                    <Table OpenAdd="OpenAddEmployee" HeaderContent="headerContent"/>
+
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    [Inject]
+    public IDialogService DialogService { get; set; }
+
+    private List<string> headerContent = new List<string> { "Employee Id", "Name", "Department", "Salary", "Actions" };
+
+    private void OpenAddEmployee()
+    {
+        DialogService.Show<AddUpdateEmployee>("Add Employee");
+    }
+}

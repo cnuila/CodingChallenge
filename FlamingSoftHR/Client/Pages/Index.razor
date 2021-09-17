@@ -2,59 +2,20 @@
 
 <MudGrid Spacing="1" Justify="Justify.FlexStart">
 
-    <MudItem xs="4" Class="pa-8">
-        <MudCard Elevation="3" @onclick='() => GoToPage("timemanagement/1")'>
-            <MudCardMedia Image="/Images/timeManagement.jpg" Height="200" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Time Management</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
+    @foreach (var module in modules)
+    {
+        <MudItem xs="4" Class="pa-8">
+            <MudCard Elevation="3" @onclick='() => GoToPage(module[0])'>
 
-    <MudItem xs="4" Class="pa-8">
-        <MudCard Elevation="3">
-            <MudCardMedia Image="/Images/employees.jpg" Height="200" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Employees</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
+                <MudCardMedia Image=@module[1] Height="200" />
 
-    <MudItem xs="4" Class="pa-8">
-        <MudCard Elevation="3">
-            <MudCardMedia Image="/Images/departments.jpg" Height="200" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Departments</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">@module[2]</MudText>
+                </MudCardContent>
 
-    <MudItem xs="4" Class="pa-8">
-        <MudCard Elevation="3">
-            <MudCardMedia Image="/Images/jobs.jpg" Height="200" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Jobs</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem xs="4" Class="pa-8">
-        <MudCard Elevation="3">
-            <MudCardMedia Image="/Images/employeeType.jpg" Height="200" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Employee Types</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem xs="4" Class="pa-8">
-        <MudCard Elevation="3">
-            <MudCardMedia Image="/Images/loggedTimeType.png" Height="200" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Logged Time Types</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
+            </MudCard>
+        </MudItem>
+    }
 
 </MudGrid>
 
@@ -62,6 +23,17 @@
 
     [Inject]
     public NavigationManager NavigationManager { get; set; }
+
+
+    //Every module in the app, { route, image path and display text }
+    private List<List<string>> modules = new List<List<string>> {
+        new List<string> { "timemanagement/1", "/Images/timeManagement.jpg", "Time Management" },
+        new List<string> { "employees", "/Images/employees.jpg", "Employees" },
+        new List<string> { "jobs", "/Images/jobs.jpg", "Jobs" },
+        new List<string> { "employeetypes", "/Images/employeeType.jpg", "Employee Types" },
+        new List<string> { "loggedtimetypes", "/Images/loggedTimeType.png", "Logged Time Types" }
+    };
+
 
     private void GoToPage(string route)
     {
