@@ -31,7 +31,7 @@ namespace FlamingSoftHR.Client.Services
             throw new NotImplementedException();
         }
 
-        public Task<Employee> GetEmployeeByUserId(string userId)
+        public Task<Employee> GetEmployeeByEmail(string email)
         {
             throw new NotImplementedException();
         }

@@ -110,6 +110,13 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -125,6 +132,8 @@ using MudBlazor;
     [Inject]
     public NavigationManager NavigationManager { get; set; }
 
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
 
     //Every module in the app, { route, image path and display text }
     private List<List<string>> modules = new List<List<string>> {
@@ -137,9 +146,21 @@ using MudBlazor;
     };
 
 
-    private void GoToPage(string route)
+    private async Task GoToPage(string route)
     {
-        
+        /*var authState = await authenticationStateTask;
+        var user = authState.User;
+
+
+        var userId = user.FindFirst(ClaimTypes.NameIdentifier);
+
+        if (user.Identity.IsAuthenticated)
+        {
+            Console.WriteLine(user.Identity.Name);
+            NavigationManager.NavigateTo($"/{userId}");
+        }*/
+        //buscar usuario por su email
+
         NavigationManager.NavigateTo($"/{route}");
     }
 

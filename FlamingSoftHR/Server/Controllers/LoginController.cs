@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using FlamingSoftHR.Shared;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +20,7 @@ namespace FlamingSoftHR.Server.Controllers
 
         private readonly SignInManager<IdentityUser> signInManager;
 
-        public LoginController(IConfiguration configuration, SignInManager<IdentityUser> signInManager)
+        public LoginController(IConfiguration configuration, SignInManager<IdentityUser> signInManager, HttpContextAccessor httpContextAccessor)
         {
             this.configuration = configuration;
             this.signInManager = signInManager;

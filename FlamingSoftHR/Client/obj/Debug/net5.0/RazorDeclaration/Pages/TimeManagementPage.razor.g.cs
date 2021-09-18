@@ -110,6 +110,13 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/timemanagement/{id}")]
     public partial class TimeManagementPage : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -167,7 +174,7 @@ using MudBlazor;
         }
 
 
-        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100000, startDate, endDate ,skip, take);
+        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100006, startDate, endDate ,skip, take);
         loading = false;
 
         int totalItems = result.Count;

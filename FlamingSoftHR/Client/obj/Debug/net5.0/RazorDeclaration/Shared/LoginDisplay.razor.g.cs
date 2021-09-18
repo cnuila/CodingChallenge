@@ -104,6 +104,13 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 15 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Shared/LoginDisplay.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 

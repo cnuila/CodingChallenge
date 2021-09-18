@@ -39,9 +39,9 @@ namespace FlamingSoftHR.Server.Models
             }
         }
 
-        public async Task<Employee> GetEmployeeByUserId(string userId)
+        public async Task<Employee> GetEmployeeByEmail(string email)
         {
-            return await applicationDBContext.Employee.Include(e => e.Job.Department).FirstOrDefaultAsync(e => e.UserId == userId);
+            return await applicationDBContext.Employee.Include(e => e.Job.Department).FirstOrDefaultAsync(e => e.Email == email);
         }
 
         public async Task<Employee> GetEmployee(int id)

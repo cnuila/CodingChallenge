@@ -476,12 +476,6 @@ CREATE TABLE dbo.Employee (
 )
 GO
 
-ALTER TABLE dbo.Employee 
-ALTER COLUMN UserId NVARCHAR(450) NULL;
-GO
-
-DROP TABLE LoggedTime
-
 CREATE TABLE dbo.LoggedTime (
     Id INT IDENTITY(1,1) NOT NULL,
     DateLogged DATETIME2 NOT NULL,
@@ -561,34 +555,34 @@ VALUES
 /**** Employee ****/
 INSERT INTO 
 		dbo.Employee(
-			UserId,EmployeeTypeId,First_Name,Middle_Name,Last_Name, Salary, JobId
+			UserId,EmployeeTypeId,FirstName,MiddleName,LastName, Salary, JobId, [Email]
 		) 
 VALUES 
-		(NULL,2,'Carlos','Antonio','Nuila',10000.00,2),
-		(NULL,2,'Diana',NULL,'Hernandez',15000.00,4),
-		(NULL,1,'John',NULL,'Buckeridge',3000.00,3),
-		(NULL,1,'Sarah','Madelyne','Cameron',6000.00,5),
-		(NULL,2,'Billie','Evelyn','Smith',5000.00,3);
+		('2d1b0b3d-b7cb-44c4-97b0-94702ade474b',2,'Carlos','Antonio','Nuila',10000.00,2,'carlos@gmail.com'),
+		(NULL,2,'Diana',NULL,'Hernandez',15000.00,4,NULL),
+		(NULL,1,'John',NULL,'Buckeridge',3000.00,3,NULL),
+		(NULL,1,'Sarah','Madelyne','Cameron',6000.00,5,NULL),
+		(NULL,2,'Billie','Evelyn','Smith',5000.00,3,NULL);
 
 /**** Logged TIme ****/
 INSERT INTO 
 		dbo.LoggedTime(
-			DateLogged,[Hours],WeekNumber,EmployeeId, LogTypeId
+			DateLogged,[Hours],WeekNumber,EmployeeId, LoggedTimeTypeId
 		) 
 VALUES
-		('2021-09-14 00:00:00',7.00,37,100000,3),
-		('2021-09-13 00:00:00',7.00,37,100000,3),
-		('2021-09-11 00:00:00',8.00,36,100000,3),
-		('2021-09-10 00:00:00',8.00,36,100000,3),
-		('2021-09-09 00:00:00',8.00,36,100000,3),
-		('2021-09-08 00:00:00',8.00,36,100000,3),
-		('2021-09-07 00:00:00',8.00,36,100000,3),
-		('2021-09-06 00:00:00',8.00,36,100000,3),
-		('2021-09-03 00:00:00',0.00,35,100000,1),
-		('2021-09-02 00:00:00',0.00,35,100000,1),
-		('2021-09-01 00:00:00',8.00,35,100000,3),
-		('2021-08-31 00:00:00',0.00,35,100000,2),
-		('2021-08-30 00:00:00',0.00,35,100000,2);
+		('2021-09-14 00:00:00',7.00,37,100006,3),
+		('2021-09-13 00:00:00',7.00,37,100006,3),
+		('2021-09-11 00:00:00',8.00,36,100006,3),
+		('2021-09-10 00:00:00',8.00,36,100006,3),
+		('2021-09-09 00:00:00',8.00,36,100006,3),
+		('2021-09-08 00:00:00',8.00,36,100006,3),
+		('2021-09-07 00:00:00',8.00,36,100006,3),
+		('2021-09-06 00:00:00',8.00,36,100006,3),
+		('2021-09-03 00:00:00',0.00,35,100006,1),
+		('2021-09-02 00:00:00',0.00,35,100006,1),
+		('2021-09-01 00:00:00',8.00,35,100006,3),
+		('2021-08-31 00:00:00',0.00,35,100006,2),
+		('2021-08-30 00:00:00',0.00,35,100006,2);
 
 SELECT * FROM loggedtime
 
@@ -614,3 +608,18 @@ VALUES
 		('Test13',5000.00,12000.00,4),
 		('Test14',5000.00,12000.00,4),
 		('Test15',8000.00,15000.00,4);
+
+ALTER TABLE Employee DROP CONSTRAINT FK_Employee_To_AspNetUser;
+ALTER TABLE Employee ADD CONSTRAINT FK_Employee_To_AspNetUser FOREIGN KEY (UserId) REFERENCES AspNetUsers(Id) ON DELETE CASCADE
+UPDATE Employee SET UserId = '2d1b0b3d-b7cb-44c4-97b0-94702ade474b' WHERE Id = 100000;
+
+ALTER TABLE dbo.Employee 
+ALTER COLUMN UserId NVARCHAR(450) NULL;
+GO
+
+ALTER TABLE Employee
+ADD Email varchar(255);
+
+UPDATE Employee set Email = 'cnuila@gmail.com' where id = 100000;
+
+DELETE FROM Employee

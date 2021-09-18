@@ -31,6 +31,8 @@ namespace FlamingSoftHR.Shared
         [Required]
         public int JobId { get; set; }
 
+        public string Email { get; set; }
+
         public Job Job { get; set; }
     }
 }

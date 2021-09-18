@@ -18,17 +18,17 @@ namespace FlamingSoftHR.Server.Controllers
             this.employeeRepository = employeeRepository;
         }
 
-        //This method returns a employee based on his user id
-        [HttpGet("{userId}")]
-        public async Task<ActionResult<Employee>> GetEmployeeByUserId(string userId)
+        //This method returns a employee based on his email
+        [HttpGet("{email}")]
+        public async Task<ActionResult<Employee>> GetEmployeeByEmail(string email)
         {
             try
             {
-                var employee = await employeeRepository.GetEmployeeByUserId(userId);
+                var employee = await employeeRepository.GetEmployeeByEmail(email);
 
                 if (employee == null)
                 {
-                    return NotFound($"Employee with User Id = {userId} was not found");
+                    return NotFound($"Employee with Email = {email} was not found");
                 }
 
                 return employee;
@@ -87,7 +87,7 @@ namespace FlamingSoftHR.Server.Controllers
                     return BadRequest();
                 }
 
-                var employee = await employeeRepository.GetEmployeeByUserId(employeeToAdd.UserId);
+                var employee = await employeeRepository.GetEmployeeByEmail(employeeToAdd.Email);
 
                 if (employee != null)
                 {

@@ -71,6 +71,8 @@ namespace FlamingSoftHR.Server
                 };
             });
 
+            services.AddHttpContextAccessor();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
