@@ -2657,3 +2657,5 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Clie
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/service-worker-assets.js
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Login.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/Login.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/LogoutPage.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/LogoutPage.razor.g.cs

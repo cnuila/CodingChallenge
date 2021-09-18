@@ -2,8 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/RegisterPage.razor">
     <Files>
-      <File FileName="FlamingSoftHR/Client/Pages/RegisterPage.razor" Line="150" Column="1" />
-      <File FileName="FlamingSoftHR/Client/Pages/Index.razor" Line="1" Column="1" />
+      <File FileName="FlamingSoftHR/Client/Pages/RegisterPage.razor" Line="158" Column="16" />
       <File FileName="FlamingSoftHR/Client/Pages/TimeManagementPage.razor" Line="120" Column="115" />
     </Files>
     <Pads>
@@ -15,11 +14,9 @@
                 <Node name="RegisterPage.razor" selected="True" />
               </Node>
               <Node name="Services" expanded="True" />
-              <Node name="Shared" expanded="True" />
             </Node>
             <Node name="FlamingSoftHR.Server" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
             </Node>
           </Node>
         </State>

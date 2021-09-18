@@ -27,7 +27,7 @@ namespace FlamingSoftHR.Client.Services
         public async Task<LoginDataResult> Login(LoginModel loginModel)
         {
             var loginAsJson = JsonSerializer.Serialize(loginModel);
-            var response = await httpClient.PostAsync("/api/Login", new StringContent(loginAsJson, Encoding.UTF8, "application/json"));
+            var response = await httpClient.PostAsync("api/Login", new StringContent(loginAsJson, Encoding.UTF8, "application/json"));
             var loginResult = JsonSerializer.Deserialize<LoginDataResult>(await response.Content.ReadAsStringAsync(),
                                                                           new JsonSerializerOptions {
                                                                                PropertyNameCaseInsensitive = true

@@ -34,14 +34,14 @@ namespace FlamingSoftHR.Client.Services
 
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", savedToken);
 
-            return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(ParseClaimsFromJwt(savedToken))));
+            return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(ParseClaimsFromJwt(savedToken),"jwt")));
         }
 
         // this method updates the authentication state when a user logs in
-        public void MarkUserAsAuthenticated(string userName)
+        public void MarkUserAsAuthenticated(string email)
         {
             var authenticatedUser = new ClaimsPrincipal(
-                                        new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, userName) }
+                                        new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, email) }
                                         , "apiauth")
                                         );
 

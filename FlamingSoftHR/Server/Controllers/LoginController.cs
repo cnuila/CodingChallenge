@@ -32,7 +32,7 @@ namespace FlamingSoftHR.Server.Controllers
 
             if (!result.Succeeded)
             {
-                return BadRequest(new LoginDataResult { Successful = false, Error = "Username and password are invalid." });
+                return BadRequest(new LoginDataResult { Successful = false, Error = "Email and password are invalid." });
             }
 
             var claims = new[]
@@ -41,7 +41,7 @@ namespace FlamingSoftHR.Server.Controllers
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSecurityKey"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expiry = DateTime.Now.AddDays(Convert.ToInt32(configuration["JwtExpiryInDays"]));
 
             var token = new JwtSecurityToken(
@@ -49,7 +49,7 @@ namespace FlamingSoftHR.Server.Controllers
                 configuration["JwtAudience"],
                 claims,
                 expires: expiry,
-                signingCredentials: creds
+                signingCredentials: credentials
             );
 
             return Ok(new LoginDataResult { Successful = true, Token = new JwtSecurityTokenHandler().WriteToken(token) });

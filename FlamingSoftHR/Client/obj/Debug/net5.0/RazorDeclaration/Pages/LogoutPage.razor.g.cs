@@ -110,8 +110,8 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
-    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/logout")]
+    public partial class LogoutPage : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -119,40 +119,19 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/Login.razor"
+#line 3 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/LogoutPage.razor"
        
-
     [Inject]
     public IAuthService AuthService { get; set; }
 
     [Inject]
     public NavigationManager NavigationManager { get; set; }
 
-    private LoginModel loginModel= new LoginModel();
-
-    private string error {get; set; }
-    private bool success { get; set; }
-
-    private async Task HandleLogin()
+    protected override async Task OnInitializedAsync()
     {
-        Console.Write("vasdas");
-
-        var result = await AuthService.Login(loginModel);
-
-
-
-        if (result.Successful)
-        {
-            NavigationManager.NavigateTo("/", forceLoad:true);
-        }
-        else
-        {
-            error = result.Error;
-        }
+        await AuthService.Logout();
+        NavigationManager.NavigateTo("/login", forceLoad: true);
     }
-
-
-
 
 #line default
 #line hidden
