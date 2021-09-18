@@ -154,9 +154,17 @@ using MudBlazor;
             startDate = ((DateTime)dateRange.Start).ToString("yyyy-MM-dd");
         } else
         {
-            //startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).ToString("yyyy-MM-dd");
+            startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).ToString("yyyy-MM-dd");
         }
-        string endDate = String.Format("yyyy-MM-dd", dateRange.End);
+
+        if (dateRange.End != null)
+        {
+            endDate = ((DateTime)dateRange.End).ToString("yyyy-MM-dd");
+        }
+        else
+        {
+            endDate = DateTime.Today.ToString("yyyy-MM-dd");
+        }
 
 
         LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100000, startDate, endDate ,skip, take);

@@ -1,0 +1,171 @@
+﻿@page "/register"
+
+<div>
+    <MudGrid Justify="Justify.Center" Class="py-4">
+        <MudItem xs="9">
+
+            <MudCard>
+
+                <MudText Typo="Typo.h4" Class="red-text text-darken-3 pa-4"> Sign Up </MudText>
+
+                <MudCardContent>
+                    <MudForm @bind-Errors="@errors" @bind-IsValid="@success">
+
+                        <MudGrid>
+
+                            <MudItem xs="4">
+                                <MudTextField T="string" Label="Email" @bind-Value="@registerModel.Email" Required="true" RequiredError="Email is required" Validation="@registerModel.Email" />
+                            </MudItem>
+
+                            <MudItem xs="4">
+                                <MudTextField T="string" Label="Password" HelperText="Choose a strong password" @bind-Value="@registerModel.Password"
+                                              InputType="InputType.Password"
+                                              Validation="@registerModel.Password" Required="true"
+                                              RequiredError="Password is required" />
+
+                            </MudItem>
+
+                            <MudItem xs="4">
+                                <MudTextField T="string" Label="Confirm Password" HelperText="Choose a strong password" @bind-Value="@registerModel.ConfirmPassword"
+                                              InputType="InputType.Password"
+                                              Validation="@registerModel.ConfirmPassword" Required="true"
+                                              RequiredError="Confirm password is required" />
+                            </MudItem>
+
+                            <MudItem xs="4">
+                                <MudTextField T="string" Label="First Name" @bind-Value="@firstName" Required="true" RequiredError="First Name is required" />
+                            </MudItem>
+
+                            <MudItem xs="4">
+                                <MudTextField T="string" Label="Middle Name" @bind-Value="@middleName" />
+                            </MudItem>
+
+                            <MudItem xs="4">
+                                <MudTextField T="string" Label="Last Name" @bind-Value="@lastName" Required="true" RequiredError="Last Name is required" />
+                            </MudItem>
+
+                            <MudItem xs="12">
+                                <div class="d-flex">
+                                    <MudRadioGroup T="string" Required="true" @bind-SelectedOption="@employeeType"  RequiredError="Employee type is required">
+                                        @foreach(var employeeType in employeeTypes)
+                                         {
+                                            <MudRadio Option="@employeeType.Description">@employeeType.Description</MudRadio>
+                                         }
+                                        
+                                    </MudRadioGroup>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="4">
+                                <MudSelect T="string" Required="true" ValueChanged="OnSelectedValue" Value="departmentName" RequiredError="A department must be selected" Label="Department">
+                                    @foreach (var department in departments)
+                                    {
+                                        <MudSelectItem Value="@department.Name" />
+                                    }
+                                </MudSelect>
+                            </MudItem>
+
+                            <MudItem xs="8">
+                                <MudSelect Disabled="@(!departmentSelected)" @bind-Value="jobDescription" RequiredError="A job must be selected" Required="true" T="string" Label="Job">
+                                    @foreach (var job in jobs)
+                                    {
+                                        <MudSelectItem Value="@job.Description" />
+                                    }
+                                </MudSelect>
+                            </MudItem>
+
+                            <MudItem xs="5">
+                                <MudNumericField @bind-Value="salary" Label="Salary" Required="true" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" HideSpinButtons="true" />
+                            </MudItem>
+                        </MudGrid>
+
+                    </MudForm>
+                </MudCardContent>
+
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Disabled="@(!success)" OnClick="HandleRegistration" Class="red darken-2 white-text ml-auto"> Login </MudButton>
+                </MudCardActions>
+
+            </MudCard>
+
+
+            <MudExpansionPanels>
+                <MudExpansionPanel Text="@($"Show Errors ({errors.Length})")">
+                    @foreach (var error in errors)
+                    {
+                        <MudText Color="@Color.Error">@error</MudText>
+                    }
+                </MudExpansionPanel>
+            </MudExpansionPanels>
+
+        </MudItem>
+    </MudGrid>
+</div>
+
+@code {
+
+    [Inject]
+    public IAuthService AuthService { get; set; }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    [Inject]
+    public IJobService JobService { get; set; }
+
+    [Inject]
+    public IDepartmentService DepartmentService { get; set; }
+
+    [Inject]
+    public IEmployeeTypeService EmployeeTypeService { get; set; }
+
+    private RegisterModel registerModel = new RegisterModel();
+    private List<Department> departments = new List<Department>();
+    private List<Job> jobs = new List<Job>();
+    private List<EmployeeType> employeeTypes = new List<EmployeeType>();
+
+    private string[] errors = {};
+    private string firstName { get; set; }
+    private string middleName { get; set; }
+    private string lastName { get; set; }
+    private string jobDescription { get; set; }
+    private string employeeType { get; set; }
+    private string departmentName { get; set; }
+    private decimal salary { get; set; }
+    private bool success { get; set; }
+    private bool departmentSelected { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        departments = (await DepartmentService.GetDepartments()).ToList();
+        employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+        departmentSelected = false;
+    }
+
+    // everytime the department value change it's going to search the jobs for that specific department
+    private async void OnSelectedValue(string value)
+    {
+        departmentName = value;
+
+        departmentSelected = true;
+
+        int departmentId = (departments.Find(d => d.Name == value)).Id;
+        jobs = (await JobService.GetJobsByDepartment(departmentId)).ToList();
+    }
+
+    private async Task HandleRegistration()
+    {
+        var result = await AuthService.Register(registerModel);
+
+        if (result.Successful)
+        {
+            //create employee
+            NavigationManager.NavigateTo("/login");
+        } else
+        {
+            errors = result.Errors.ToArray();
+        }
+    }
+
+
+}

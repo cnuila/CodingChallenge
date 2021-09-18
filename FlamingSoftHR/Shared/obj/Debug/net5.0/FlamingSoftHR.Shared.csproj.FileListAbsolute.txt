@@ -38,7 +38,6 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shar
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/bin/Debug/net5.0/FlamingSoftHR.Shared.pdb
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfoInputs.cache
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.AssemblyInfo.cs
@@ -46,3 +45,4 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Shar
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/ref/FlamingSoftHR.Shared.dll
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.pdb
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/Debug/net5.0/FlamingSoftHR.Shared.csproj.AssemblyReference.cache

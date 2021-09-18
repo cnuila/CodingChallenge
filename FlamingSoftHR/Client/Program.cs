@@ -1,4 +1,6 @@
+using Blazored.LocalStorage;
 using FlamingSoftHR.Client.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -46,6 +48,17 @@ namespace FlamingSoftHR.Client
             builder.Services.AddHttpClient<IEmployeeTypeService, EmployeeTypeService>(client => {
                 client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
             });
+
+            builder.Services.AddHttpClient<IAuthService, AuthService>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+
+            builder.Services.AddHttpClient<AuthenticationStateProvider, ApiAuthenticationStateProvider>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+
+            builder.Services.AddBlazoredLocalStorage();
+            builder.Services.AddAuthorizationCore();
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("FlamingSoftHR.ServerAPI"));

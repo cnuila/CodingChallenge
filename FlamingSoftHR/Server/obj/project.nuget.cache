@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UNy22bs9aRv2NUYcEGvdI+Yit0t6kxQHAiXbtb2e2QvgHyYUK1f8y2DV0Rt6KBZXt3MwK//gmK7aE758rznwyw==",
+  "dgSpecHash": "cO/hLGRXXT8TnwPjJL6xX/8cz/eZ5B/uz4kgbNJoqSOFc03/fT5WzIzQ8KuLVaOQUMEUPJ/WMBeTq7srvEf2Pw==",
   "success": true,
   "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Server/FlamingSoftHR.Server.csproj",
   "expectedPackageFiles": [
     "/Users/cnuila/.nuget/packages/automapper/10.0.0/automapper.10.0.0.nupkg.sha512",
+    "/Users/cnuila/.nuget/packages/blazored.localstorage/4.1.5/blazored.localstorage.4.1.5.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/identitymodel/4.4.0/identitymodel.4.4.0.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/identityserver4/4.1.0/identityserver4.4.1.0.nupkg.sha512",

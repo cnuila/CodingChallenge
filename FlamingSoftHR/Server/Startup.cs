@@ -4,12 +4,18 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace FlamingSoftHR.Server
 {
@@ -30,24 +36,40 @@ namespace FlamingSoftHR.Server
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DBConnection")));
 
-            services.AddDatabaseDeveloperPageExceptionFilter();
+            //.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedEmail = false)
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+            //services.AddIdentityServer()
+            //    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
+            //services.AddAuthentication()
+            //    .AddIdentityServerJwt();
 
-            //Repositories 
+            // Repositories 
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
             services.AddScoped<ILoggedTimeRepository, LoggedTimeRepository>();
             services.AddScoped<ILoggedTimeTypeRepository, LoggedTimeTypeRepository>();
             services.AddScoped<IJobRepository, JobRepository>();
+
+            // setting up JWT
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["JwtIssuer"],
+                    ValidAudience = Configuration["JwtAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecurityKey"]))
+
+                };
+            });
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -75,7 +97,7 @@ namespace FlamingSoftHR.Server
 
             app.UseRouting();
 
-            app.UseIdentityServer();
+            //app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();
 

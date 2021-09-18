@@ -13,8 +13,12 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     },
     {
-      "hash": "sha256-V9O5Oz0ejt8F8jtUvr8HmrhQtO51ESDk44l35cMhbhw=",
+      "hash": "sha256-LjRvgRIXcq+sb2MkHo0Ny1gxPPRFbImXqilHqIWvadA=",
       "url": "_framework\/blazor.boot.json"
+    },
+    {
+      "hash": "sha256-ItMv+HytRb8SgPKYiz75PK0k+DFgN1E247PZT\/8lODs=",
+      "url": "_framework\/Blazored.LocalStorage.dll"
     },
     {
       "hash": "sha256-Qs05+jXr6ExLqKHmpkMovKl\/fBhD8otN+T2ZtL9Vlrc=",
@@ -813,24 +817,28 @@
       "url": "_framework\/dotnet.5.0.10.js"
     },
     {
-      "hash": "sha256-8VPINaUPQCGs0PLaCrEt9OAk+QJZOBGhff6v4k6rogo=",
+      "hash": "sha256-XOYeq+d++B0eu+6mWwkPWc3H5R9QKKDHrlC9xRUi7U0=",
       "url": "_framework\/FlamingSoftHR.Shared.dll"
     },
     {
-      "hash": "sha256-OwdT4eIb2gOzuRUUw3fT3\/8G6YmJpS7zlJYjhAK8fFg=",
+      "hash": "sha256-qkJiOo4NdqpGTcCCpPWuuxDCizs9n5tDN1AEKq04oow=",
       "url": "_framework\/FlamingSoftHR.Shared.pdb"
     },
     {
-      "hash": "sha256-4Ikz583iG9eQDlkV0EgsyVyiPTtTbIeerJmNheOeE6U=",
+      "hash": "sha256-yTKUTuAH2MtlwaIXeMCki3sw0NaMRD1qaB0X53IaHP0=",
       "url": "_framework\/FlamingSoftHR.Client.dll"
     },
     {
-      "hash": "sha256-TzqAjLBgdIFZgSLwAYGJVu2okXwQ5RVkP3G251cnxsM=",
+      "hash": "sha256-e\/26HPEmsV6NnbE3MnZnpyIAAvy+Wjkk2Y7eAjQt7i0=",
       "url": "_framework\/FlamingSoftHR.Client.pdb"
     },
     {
       "hash": "sha256-dl8FVRvWOJfOtzIC\/x66QNnBNsT9cAOMrn22GB8fJ8U=",
       "url": "_framework\/blazor.webassembly.js"
+    },
+    {
+      "hash": "sha256-8JNXOwe8cxVtsr+PFCKiu5fhIVN3cgsEylKQBGdQ81s=",
+      "url": "_framework\/Blazored.LocalStorage.dll.gz"
     },
     {
       "hash": "sha256-UE9ifypYMCWqXmBezLgO4488wURHglZZBzGhwGXZ8do=",
@@ -1629,7 +1637,7 @@
       "url": "_framework\/dotnet.5.0.10.js.gz"
     },
     {
-      "hash": "sha256-I8EVTzLBiRQNmJkw+HlqBggtQYeN2IldirWbFvSG2b8=",
+      "hash": "sha256-3zo58DhvBibeFiqv+ylHzeqzVWh2CJ3o1rtWNuKyR7k=",
       "url": "_framework\/FlamingSoftHR.Shared.dll.gz"
     },
     {
@@ -1713,7 +1721,7 @@
       "url": "Images\/timeManagement.jpg"
     },
     {
-      "hash": "sha256-xeCp\/MyiarcFSQrag9Y7R\/lKZ7TxrjXj+kDuyoFGzt8=",
+      "hash": "sha256-+xoDBjUCJUOWRqejM5rM1gGPTZ6yxxCyy42+FkrdXsE=",
       "url": "index.html"
     },
     {
@@ -1729,5 +1737,5 @@
       "url": "FlamingSoftHR.Client.bundle.scp.css"
     }
   ],
-  "version": "aO4asLRJ"
+  "version": "B6n7u2r1"
 };

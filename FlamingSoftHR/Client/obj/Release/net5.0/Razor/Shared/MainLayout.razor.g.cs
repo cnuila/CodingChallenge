@@ -88,6 +88,20 @@ using FlamingSoftHR.Client.Shared;
 #nullable disable
 #nullable restore
 #line 12 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using FlamingSoftHR.Client.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
+using FlamingSoftHR.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/_Imports.razor"
 using MudBlazor;
 
 #line default

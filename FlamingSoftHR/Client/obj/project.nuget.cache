@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "y656T/3fMtBG88CKqV6Pw4IYrqMnsPlbvXOlmlJS7oBNLhPkMwbZp8Ad+ZiPnjyFqOtY9LaYgIL9QJymXa2oTg==",
+  "dgSpecHash": "etm2YpY4VTb20RtDjRO3dGPn6oAy3jcOIsz42a5yqmGQHQ7yv9C7IwzgE+vE3gsmQsn47WghTyswRkKe5QA+Eg==",
   "success": true,
   "projectFilePath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/FlamingSoftHR.Client.csproj",
   "expectedPackageFiles": [
+    "/Users/cnuila/.nuget/packages/blazored.localstorage/4.1.5/blazored.localstorage.4.1.5.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.aspnetcore.authorization/5.0.10/microsoft.aspnetcore.authorization.5.0.10.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.aspnetcore.components/5.0.10/microsoft.aspnetcore.components.5.0.10.nupkg.sha512",
     "/Users/cnuila/.nuget/packages/microsoft.aspnetcore.components.analyzers/5.0.10/microsoft.aspnetcore.components.analyzers.5.0.10.nupkg.sha512",

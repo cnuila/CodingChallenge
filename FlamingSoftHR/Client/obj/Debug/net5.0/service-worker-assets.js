@@ -13,8 +13,12 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     },
     {
-      "hash": "sha256-Uxe1IcdiAFUuMWqjYFQ6nveTepMGRBjKZgz8OfSUJQM=",
+      "hash": "sha256-g7kSF2hWzfLGud\/k59ymnbusDbgy6UJc7sC1xrfy+sY=",
       "url": "_framework\/blazor.boot.json"
+    },
+    {
+      "hash": "sha256-ItMv+HytRb8SgPKYiz75PK0k+DFgN1E247PZT\/8lODs=",
+      "url": "_framework\/Blazored.LocalStorage.dll"
     },
     {
       "hash": "sha256-Qs05+jXr6ExLqKHmpkMovKl\/fBhD8otN+T2ZtL9Vlrc=",
@@ -813,24 +817,28 @@
       "url": "_framework\/dotnet.5.0.10.js"
     },
     {
-      "hash": "sha256-JA3bMEOZR5rihPEeSqvKsoB\/FQyxO6RlNHxj+6D0\/4Y=",
+      "hash": "sha256-PThSkYe9KKrOBFccBiS4bhkQYapd7Ai9Qh6uXE2UelQ=",
       "url": "_framework\/FlamingSoftHR.Shared.dll"
     },
     {
-      "hash": "sha256-DDVI4V3dTHZ\/WlB7JJJV6A46YajFttOs0MUlhLn2Tys=",
+      "hash": "sha256-kyy0eKZBHXHMAOXnl6D4vxFeHNvn2ZLrPKGhTQ4tzEI=",
       "url": "_framework\/FlamingSoftHR.Shared.pdb"
     },
     {
-      "hash": "sha256-OvIMciAL9lmaRzjmsXvbNpw8nlpRD\/0JAt2pOe9arK0=",
+      "hash": "sha256-Bl85WrLp0if4S0YJu51VxwhEyf6e09nOmgnW13Uc+zM=",
       "url": "_framework\/FlamingSoftHR.Client.dll"
     },
     {
-      "hash": "sha256-RIYUUM2GLFmhUhLTlDsLQqG8MlMQ6O3kHgQxixQDkTg=",
+      "hash": "sha256-Xw578kn0I9lhb\/nIBJrCZ\/YV\/Gwo8ePf1UYN6TsXJeY=",
       "url": "_framework\/FlamingSoftHR.Client.pdb"
     },
     {
       "hash": "sha256-dl8FVRvWOJfOtzIC\/x66QNnBNsT9cAOMrn22GB8fJ8U=",
       "url": "_framework\/blazor.webassembly.js"
+    },
+    {
+      "hash": "sha256-8JNXOwe8cxVtsr+PFCKiu5fhIVN3cgsEylKQBGdQ81s=",
+      "url": "_framework\/Blazored.LocalStorage.dll.gz"
     },
     {
       "hash": "sha256-UE9ifypYMCWqXmBezLgO4488wURHglZZBzGhwGXZ8do=",
@@ -1629,7 +1637,7 @@
       "url": "_framework\/dotnet.5.0.10.js.gz"
     },
     {
-      "hash": "sha256-nq6MYtZhV8QLeTS5mMQsGtoQUToyCOSNSCgY4M0BTDE=",
+      "hash": "sha256-jNeCcVqdqwvPi15OAyQj\/J3k5pVubb7VeSO+cev2zmY=",
       "url": "_framework\/FlamingSoftHR.Shared.dll.gz"
     },
     {
@@ -1729,5 +1737,5 @@
       "url": "FlamingSoftHR.Client.bundle.scp.css"
     }
   ],
-  "version": "M3CcV0sJ"
+  "version": "1SUDAFiS"
 };

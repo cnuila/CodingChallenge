@@ -53,6 +53,19 @@ namespace FlamingSoftHR.Server.Controllers
             }
         }
 
+        [HttpGet("department/{id:int}")]
+        public async Task<ActionResult> GetJobsByDepartment(int id)
+        {
+            try
+            {
+                return Ok(await jobRepository.GetJobsByDepartment(id));    
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+            }
+        }
+
         // This method recieves a job through HTTTP Post, creates the job and returns 201 Status Code
         [HttpPost]
         public async Task<ActionResult<Job>> AddJob(Job jobToAdd)

@@ -36,6 +36,11 @@ namespace FlamingSoftHR.Client.Services
             return await httpClient.GetFromJsonAsync<JobDataResult>($"/api/jobs?skip={skip}&take={take}");
         }
 
+        public async Task<IEnumerable<Job>> GetJobsByDepartment(int id)
+        {
+            return await httpClient.GetFromJsonAsync<IEnumerable<Job>>($"/api/jobs/department/{id}");
+        }
+
         public Task<Job> UpdateJob(Job jobToUpdate)
         {
             throw new NotImplementedException();

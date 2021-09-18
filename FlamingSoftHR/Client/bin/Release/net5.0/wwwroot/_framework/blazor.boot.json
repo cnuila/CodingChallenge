@@ -7,6 +7,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "Blazored.LocalStorage.dll": "sha256-ItMv+HytRb8SgPKYiz75PK0k+DFgN1E247PZT\/8lODs=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-Qs05+jXr6ExLqKHmpkMovKl\/fBhD8otN+T2ZtL9Vlrc=",
       "Microsoft.AspNetCore.Components.dll": "sha256-x4ddqjUyODALx4h32YVXlEiGn0AU+nR1KVVO2AWPo7c=",
       "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-0sNONsUAkM5AuTENoapY19uoFIw0dF7NtyPoqMblbZ4=",
@@ -199,13 +200,13 @@
       "mscorlib.dll": "sha256-7WjHY56PbksCp7YOxNV59r6MqLujjAH8vhnMJ+zVezY=",
       "netstandard.dll": "sha256-5TcSqPhm3fAT6s3NH7+BMGakcfGgZGd3\/\/cVwVs2VPI=",
       "System.Private.CoreLib.dll": "sha256-VJv3DLM\/G0m\/RnTeWL9X8mkbxlsn8nNRhm0BHYEY+uo=",
-      "FlamingSoftHR.Shared.dll": "sha256-8VPINaUPQCGs0PLaCrEt9OAk+QJZOBGhff6v4k6rogo=",
-      "FlamingSoftHR.Client.dll": "sha256-4Ikz583iG9eQDlkV0EgsyVyiPTtTbIeerJmNheOeE6U="
+      "FlamingSoftHR.Shared.dll": "sha256-XOYeq+d++B0eu+6mWwkPWc3H5R9QKKDHrlC9xRUi7U0=",
+      "FlamingSoftHR.Client.dll": "sha256-yTKUTuAH2MtlwaIXeMCki3sw0NaMRD1qaB0X53IaHP0="
     },
     "lazyAssembly": null,
     "pdb": {
-      "FlamingSoftHR.Shared.pdb": "sha256-OwdT4eIb2gOzuRUUw3fT3\/8G6YmJpS7zlJYjhAK8fFg=",
-      "FlamingSoftHR.Client.pdb": "sha256-TzqAjLBgdIFZgSLwAYGJVu2okXwQ5RVkP3G251cnxsM="
+      "FlamingSoftHR.Shared.pdb": "sha256-qkJiOo4NdqpGTcCCpPWuuxDCizs9n5tDN1AEKq04oow=",
+      "FlamingSoftHR.Client.pdb": "sha256-e\/26HPEmsV6NnbE3MnZnpyIAAvy+Wjkk2Y7eAjQt7i0="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-PvlHrby1PYtdX46ITs6pB8iDNqXNcewh8Eoa\/Gm2+GM=",

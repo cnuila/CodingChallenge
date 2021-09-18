@@ -54,6 +54,12 @@ namespace FlamingSoftHR.Server.Models
             return result;
         }
 
+        public async Task<IEnumerable<Job>> GetJobsByDepartment(int departmentId)
+        {
+            IQueryable<Job> query = applicationDBContext.Job.Where(j => j.DepartmentId == departmentId);
+            return await query.ToListAsync();
+        }
+
         public async Task<Job> UpdateJob(Job jobToUpdate)
         {
             var result = await applicationDBContext.Job.FirstOrDefaultAsync(j => j.Id == jobToUpdate.Id);

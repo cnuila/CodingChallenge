@@ -15,6 +15,18 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
+      "Blazored.LocalStorage/4.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.5"
+        },
+        "compile": {
+          "lib/net5.0/Blazored.LocalStorage.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Blazored.LocalStorage.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -2578,6 +2590,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Blazored.LocalStorage": "4.1.5",
           "FlamingSoftHR.Shared": "1.0.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "5.0.10",
           "Microsoft.AspNetCore.Components.WebAssembly.Authentication": "5.0.10",
@@ -2619,6 +2632,20 @@
         "lib/net461/AutoMapper.xml",
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "Blazored.LocalStorage/4.1.5": {
+      "sha512": "i9v27ScPOsHv6skc+isE+DZ/mtR53w019Nq2/MnjvpiLV2otbnqqyxfiYnXAU0Ho6MBIvAS2gdf+odbAyDZPzw==",
+      "type": "package",
+      "path": "blazored.localstorage/4.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazored.localstorage.4.1.5.nupkg.sha512",
+        "blazored.localstorage.nuspec",
+        "icon.png",
+        "lib/net5.0/Blazored.LocalStorage.dll",
+        "lib/netstandard2.1/Blazored.LocalStorage.dll"
       ]
     },
     "Humanizer.Core/2.8.26": {
