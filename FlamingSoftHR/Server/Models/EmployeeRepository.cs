@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FlamingSoftHR.Server.Data;
 using FlamingSoftHR.Shared;
@@ -44,9 +45,14 @@ namespace FlamingSoftHR.Server.Models
             
         }
 
-        public async Task<IEnumerable<Employee>> GetEmployees()
+        public async Task<EmployeeDataResult> GetEmployees(int skip = 0, int take = 10)
         {
-            return await applicationDBContext.Employee.ToListAsync();
+            EmployeeDataResult result = new()
+            {
+                Employees = applicationDBContext.Employee.Skip(skip).Take(take),
+                Count = await applicationDBContext.Employee.CountAsync()
+            };
+            return result;
         }
 
         public async Task<Employee> UpdateEmployee(Employee employeeToUpdate)

@@ -119,11 +119,24 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeeTypePage.razor"
+#line 44 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeeTypePage.razor"
        
 
     [Inject]
     public IDialogService DialogService { get; set; }
+
+    [Inject]
+    public IEmployeeTypeService EmployeeTypeService { get; set; }
+
+    private List<EmployeeType> employeeTypes { get; set; }
+    private bool loading = true;
+
+    // load employee types, once loaded loading the animation stops
+    protected async override Task OnInitializedAsync()
+    {
+        employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+        loading = false;
+    }
 
     private void OpenAddEmployeeType()
     {

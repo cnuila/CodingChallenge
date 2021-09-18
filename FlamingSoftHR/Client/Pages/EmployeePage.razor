@@ -15,7 +15,7 @@
 
                         <MudItem xs="12">
 
-                            <MudTable Hover="true" Items="@employees" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
+                            <MudTable ServerData="@(new Func<TableState, Task<TableData<Employee>>>(ServerPaging))" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
 
                                 <HeaderContent>
                                     <MudTh Class="red-text text-darken-4">Employee Id</MudTh>
@@ -29,9 +29,13 @@
                                     <MudTd DataLabel="Employee Id"> @context.Id </MudTd>
                                     <MudTd DataLabel="Name">@context.FirstName @context.LastName</MudTd>
                                     <MudTd DataLabel="Department">IT</MudTd>
-                                    <MudTd DataLabel="Salary"> $ @context.Salary </MudTd>
+                                    <MudTd DataLabel="Salary"> $ @(String.Format("{0:n}",context.Salary))</MudTd>
                                     <MudTd DataLabel="Actions">0</MudTd>
                                 </RowTemplate>
+
+                                <PagerContent>
+                                    <MudTablePager />
+                                </PagerContent>
 
                             </MudTable>
 
@@ -54,16 +58,21 @@
     [Inject]
     public IEmployeeService EmployeeService { get; set; }
 
-    private List<string> headerContent = new List<string> { "Employee Id", "Name", "Department", "Salary", "Actions" };
-    private List<Employee> employees = new List<Employee>();
     private bool loading = true;
 
-
-    // load employees, once loaded loading the animation stops
-    protected override async Task OnInitializedAsync()
+    // skip = current page times the size of it in order to get how many of them we want to skip
+    // once skip and take are assigned, it queries with the data provided
+    private async Task<TableData<Employee>> ServerPaging(TableState tableState)
     {
-        employees = (await EmployeeService.GetEmployees()).ToList();
+        int skip = tableState.Page * tableState.PageSize;
+        int take = tableState.PageSize;
+
+        EmployeeDataResult result = await EmployeeService.GetEmployees(skip, take);
         loading = false;
+
+        int totalItems = result.Count;
+
+        return new TableData<Employee>() { TotalItems = totalItems, Items = result.Employees.ToList() };
     }
 
     private void OpenAddEmployee()

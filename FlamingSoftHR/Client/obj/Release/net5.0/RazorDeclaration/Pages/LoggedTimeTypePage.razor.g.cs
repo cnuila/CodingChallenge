@@ -131,7 +131,7 @@ using MudBlazor;
     private List<LoggedTimeType> loggedTimeTypes { get; set; }
     private bool loading = true;
 
-    // load departments, once loaded loading the animation stops
+    // load logged time types, once loaded loading the animation stops
     protected async override Task OnInitializedAsync()
     {
         loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();

@@ -40,13 +40,13 @@ namespace FlamingSoftHR.Server.Controllers
         }
 
 
-        // This method returns all the employees in the database through HTTP Get
+        // This method returns all the employees between a range in the database through HTTP Get
         [HttpGet]
-        public async Task<ActionResult> GetEmployees()
+        public async Task<ActionResult> GetEmployees(int skip = 0, int take = 10)
         {
             try
             {
-                return Ok(await employeeRepository.GetEmployees());
+                return Ok(await employeeRepository.GetEmployees(skip,take));
             }
             catch (Exception)
             {

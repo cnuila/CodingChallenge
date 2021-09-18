@@ -7,7 +7,7 @@ namespace FlamingSoftHR.Server.Models
 {
     public interface IJobRepository
     {
-        Task<IEnumerable<Job>> GetJobs();
+        Task<JobDataResult> GetJobs(int skip, int take);
         Task<Job> GetJob(int id);
         Task<Job> AddJob(Job jobToAdd);
         Task<Job> UpdateJob(Job jobToUpdate);

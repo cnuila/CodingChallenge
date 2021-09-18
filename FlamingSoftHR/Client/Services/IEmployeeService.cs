@@ -5,9 +5,10 @@ using FlamingSoftHR.Shared;
 
 namespace FlamingSoftHR.Client.Services
 {
-    public interface IEmployeeService { 
+    public interface IEmployeeService {
 
-        Task<IEnumerable<Employee>> GetEmployees();
+        Task<Employee> GetEmployeeByUserId(string userId);
+        Task<EmployeeDataResult> GetEmployees(int skip, int take);
         Task<Employee> GetEmployee(int id);
         Task<Employee> AddEmployee(Employee employeeToAdd);
         Task<Employee> UpdateEmployee(Employee employeeToUpdate);

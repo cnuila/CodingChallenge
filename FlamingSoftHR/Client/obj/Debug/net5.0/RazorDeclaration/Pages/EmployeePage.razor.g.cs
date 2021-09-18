@@ -119,7 +119,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeePage.razor"
+#line 53 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeePage.razor"
        
 
     [Inject]
@@ -128,16 +128,21 @@ using MudBlazor;
     [Inject]
     public IEmployeeService EmployeeService { get; set; }
 
-    private List<string> headerContent = new List<string> { "Employee Id", "Name", "Department", "Salary", "Actions" };
-    private List<Employee> employees = new List<Employee>();
     private bool loading = true;
 
-
-    // load employees, once loaded loading the animation stops
-    protected override async Task OnInitializedAsync()
+    // skip = current page times the size of it in order to get how many of them we want to skip
+    // once skip and take are assigned, it queries with the data provided
+    private async Task<TableData<Employee>> ServerPaging(TableState tableState)
     {
-        employees = (await EmployeeService.GetEmployees()).ToList();
+        int skip = tableState.Page * tableState.PageSize;
+        int take = tableState.PageSize;
+
+        EmployeeDataResult result = await EmployeeService.GetEmployees(skip, take);
         loading = false;
+
+        int totalItems = result.Count;
+
+        return new TableData<Employee>() { TotalItems = totalItems, Items = result.Employees.ToList() };
     }
 
     private void OpenAddEmployee()

@@ -18,13 +18,13 @@ namespace FlamingSoftHR.Server.Controllers
             this.jobRepository = jobRepository;
         }
 
-        // This method returns all the jobs in the database through HTTP Get
+        // This method returns all the jobs between a range in the database through HTTP Get
         [HttpGet]
-        public async Task<ActionResult> GetJobs()
+        public async Task<ActionResult> GetJobs(int skip = 0, int take = 10)
         {
             try
             {
-                return Ok(await jobRepository.GetJobs());
+                return Ok(await jobRepository.GetJobs(skip, take));
             }
             catch (Exception)
             {
