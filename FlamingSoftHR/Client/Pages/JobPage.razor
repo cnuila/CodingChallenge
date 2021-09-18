@@ -33,7 +33,7 @@
                                     <MudTd DataLabel="Description">@context.Description</MudTd>
                                     <MudTd DataLabel="Min. Salary">@(String.Format("{0:n}",context.MinSalary))  </MudTd>
                                     <MudTd DataLabel="Max. Salary">@(String.Format("{0:n}",context.MaxSalary))</MudTd>
-                                    <MudTd DataLabel="Department">@context.DepartmentId</MudTd>
+                                    <MudTd DataLabel="Department">@context.Department.Name</MudTd>
                                     <MudTd DataLabel="Action">0</MudTd>
                                 </RowTemplate>
 

@@ -28,7 +28,7 @@
                                 <RowTemplate>
                                     <MudTd DataLabel="Employee Id"> @context.Id </MudTd>
                                     <MudTd DataLabel="Name">@context.FirstName @context.LastName</MudTd>
-                                    <MudTd DataLabel="Department">IT</MudTd>
+                                    <MudTd DataLabel="Department">@context.Job.Department.Name</MudTd>
                                     <MudTd DataLabel="Salary"> $ @(String.Format("{0:n}",context.Salary))</MudTd>
                                     <MudTd DataLabel="Actions">0</MudTd>
                                 </RowTemplate>

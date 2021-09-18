@@ -19,6 +19,11 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<Employee> AddEmployee(Employee employeeToAdd)
         {
+            if (employeeToAdd.Job != null)
+            {
+                applicationDBContext.Entry(employeeToAdd.Job).State = EntityState.Unchanged;
+            }
+
             var result = await applicationDBContext.Employee.AddAsync(employeeToAdd);
             await applicationDBContext.SaveChangesAsync();
             return result.Entity;
@@ -36,12 +41,12 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<Employee> GetEmployeeByUserId(string userId)
         {
-            return await applicationDBContext.Employee.FirstOrDefaultAsync(e => e.UserId == userId);
+            return await applicationDBContext.Employee.Include(e => e.Job.Department).FirstOrDefaultAsync(e => e.UserId == userId);
         }
 
         public async Task<Employee> GetEmployee(int id)
         {
-            return await applicationDBContext.Employee.FirstOrDefaultAsync(e => e.Id == id);
+            return await applicationDBContext.Employee.Include(e => e.Job.Department).FirstOrDefaultAsync(e => e.Id == id);
             
         }
 
@@ -49,7 +54,7 @@ namespace FlamingSoftHR.Server.Models
         {
             EmployeeDataResult result = new()
             {
-                Employees = applicationDBContext.Employee.Skip(skip).Take(take),
+                Employees = applicationDBContext.Employee.Include(e => e.Job.Department).Skip(skip).Take(take),
                 Count = await applicationDBContext.Employee.CountAsync()
             };
             return result;

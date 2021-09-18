@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/EmployeePage.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/JobPage.razor">
     <Files>
-      <File FileName="FlamingSoftHR/Client/Pages/EmployeePage.razor" Line="18" Column="129" NotebookId="1" />
+      <File FileName="FlamingSoftHR/Client/Pages/JobPage.razor" Line="36" Column="91" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +10,7 @@
           <Node name="FlamingSoftHR" expanded="True">
             <Node name="FlamingSoftHR.Client" expanded="True">
               <Node name="Pages" expanded="True">
-                <Node name="EmployeePage.razor" selected="True" />
+                <Node name="JobPage.razor" selected="True" />
               </Node>
               <Node name="Services" expanded="True" />
             </Node>
@@ -18,6 +18,7 @@
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
             </Node>
+            <Node name="FlamingSoftHR.Shared" expanded="True" />
           </Node>
         </State>
       </Pad>

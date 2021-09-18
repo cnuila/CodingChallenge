@@ -19,6 +19,11 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<Job> AddJob(Job jobToAdd)
         {
+            if (jobToAdd.Department != null)
+            {
+                applicationDBContext.Entry(jobToAdd.Department).State = EntityState.Unchanged;
+            }
+
             var result = await applicationDBContext.Job.AddAsync(jobToAdd);
             await applicationDBContext.SaveChangesAsync();
             return result.Entity;
@@ -36,14 +41,14 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<Job> GetJob(int id)
         {
-            return await applicationDBContext.Job.FirstOrDefaultAsync(j => j.Id == id);
+            return await applicationDBContext.Job.Include(j => j.Department).FirstOrDefaultAsync(j => j.Id == id);
         }
 
         public async Task<JobDataResult> GetJobs(int skip = 0, int take = 10)
         {
             JobDataResult result = new()
             {
-                Jobs = applicationDBContext.Job.Skip(skip).Take(take),
+                Jobs = applicationDBContext.Job.Skip(skip).Take(take).Include(j => j.Department),
                 Count = await applicationDBContext.Job.CountAsync()
             };
             return result;
