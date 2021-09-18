@@ -119,7 +119,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 152 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagementPage.razor"
+#line 167 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagementPage.razor"
        
     [Parameter]
     public string Id { get; set; }
@@ -127,7 +127,45 @@ using MudBlazor;
     [Inject]
     public IDialogService DialogService { get; set; }
 
+    [Inject]
+    public ILoggedTimeService LoggedTimeService { get; set; }
+
     private DateRange dateRange { get; set; }
+    private bool loading = true;
+
+    protected override void OnInitialized()
+    {
+        DateTime date = DateTime.Today;
+        dateRange = new DateRange(new DateTime(date.Year, date.Month, 1), date);
+    }
+
+    // skip = current page times the size of it in order to get how many of them we want to skip
+    // once skip and take are assigned, it queries with the data provided
+    private async Task<TableData<LoggedTime>> ServerPaging(TableState tableState)
+    {
+        int skip = tableState.Page * tableState.PageSize;
+        int take = tableState.PageSize;
+
+        string startDate;
+        string endDate;
+
+        if (dateRange.Start != null)
+        {
+            startDate = ((DateTime)dateRange.Start).ToString("yyyy-MM-dd");
+        } else
+        {
+            //startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).ToString("yyyy-MM-dd");
+        }
+        string endDate = String.Format("yyyy-MM-dd", dateRange.End);
+
+
+        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100000, startDate, endDate ,skip, take);
+        loading = false;
+
+        int totalItems = result.Count;
+
+        return new TableData<LoggedTime>() { TotalItems = totalItems, Items = result.LoggedTimes.ToList() };
+    }
 
     private void OpenAddLoggedTime()
     {

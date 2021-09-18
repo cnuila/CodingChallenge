@@ -7,7 +7,7 @@ namespace FlamingSoftHR.Server.Models
 {
     public interface ILoggedTimeRepository
     {
-        Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int employeeId, int skip, int take);
+        Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int employeeId, string start, string end, int skip, int take);
         Task<LoggedTime> GetLoggedTime(int id);
         Task<LoggedTime> AddLoggedTime(LoggedTime loggedTimeToAdd);
         Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate);

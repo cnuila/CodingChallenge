@@ -1,6 +1,9 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/TimeManagementPage.razor">
+    <Files>
+      <File FileName="FlamingSoftHR/Client/Pages/TimeManagementPage.razor" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -9,8 +12,12 @@
               <Node name="Pages" expanded="True">
                 <Node name="TimeManagementPage.razor" selected="True" />
               </Node>
+              <Node name="Services" expanded="True" />
             </Node>
-            <Node name="FlamingSoftHR.Shared" expanded="True" />
+            <Node name="FlamingSoftHR.Server" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

@@ -31,9 +31,9 @@ namespace FlamingSoftHR.Client.Services
             throw new NotImplementedException();
         }
 
-        public async Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int id, int skip, int take)
+        public async Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int id, string start, string end, int skip, int take)
         {
-            return await httpClient.GetFromJsonAsync<LoggedTimeDataResult>($"/api/loggedtimes/employee/{id}?skip={skip}&take={take}");
+            return await httpClient.GetFromJsonAsync<LoggedTimeDataResult>($"/api/loggedtimes/employee/{id}/{start}/{end}?skip={skip}&take={take}");
         }
 
         public Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate)

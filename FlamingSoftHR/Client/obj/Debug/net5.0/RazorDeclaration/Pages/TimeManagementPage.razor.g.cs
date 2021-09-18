@@ -133,6 +133,12 @@ using MudBlazor;
     private DateRange dateRange { get; set; }
     private bool loading = true;
 
+    protected override void OnInitialized()
+    {
+        DateTime date = DateTime.Today;
+        dateRange = new DateRange(new DateTime(date.Year, date.Month, 1), date);
+    }
+
     // skip = current page times the size of it in order to get how many of them we want to skip
     // once skip and take are assigned, it queries with the data provided
     private async Task<TableData<LoggedTime>> ServerPaging(TableState tableState)
@@ -140,7 +146,28 @@ using MudBlazor;
         int skip = tableState.Page * tableState.PageSize;
         int take = tableState.PageSize;
 
-        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100000,skip, take);
+        string startDate;
+        string endDate;
+
+        if (dateRange.Start != null)
+        {
+            startDate = ((DateTime)dateRange.Start).ToString("yyyy-MM-dd");
+        } else
+        {
+            startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).ToString("yyyy-MM-dd");
+        }
+
+        if (dateRange.End != null)
+        {
+            endDate = ((DateTime)dateRange.End).ToString("yyyy-MM-dd");
+        }
+        else
+        {
+            endDate = DateTime.Today.ToString("yyyy-MM-dd");
+        }
+
+
+        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100000, startDate, endDate ,skip, take);
         loading = false;
 
         int totalItems = result.Count;

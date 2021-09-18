@@ -44,9 +44,17 @@ namespace FlamingSoftHR.Server.Models
             return await applicationDBContext.LoggedTime.Include(l => l.LoggedTimeType).FirstOrDefaultAsync(l => l.Id == id);
         }
 
-        public async Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int employeeId, int skip = 0, int take = 10)
+        public async Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int employeeId, string start, string end, int skip = 0, int take = 10)
         {
-            IQueryable<LoggedTime> query = applicationDBContext.LoggedTime.Include(l => l.LoggedTimeType).Where(l => l.EmployeeId == employeeId).Skip(skip).Take(take);
+            DateTime startDate = DateTime.Parse(start);
+            DateTime endDate = DateTime.Parse(end);
+
+            IQueryable<LoggedTime> query = applicationDBContext.LoggedTime
+                                                                .Include(l => l.LoggedTimeType)
+                                                                .Where(l => l.EmployeeId == employeeId)
+                                                                .Where(l => l.DateLogged >= startDate)
+                                                                .Where(l => l.DateLogged <= endDate)
+                                                                .Skip(skip).Take(take);                                                                
             LoggedTimeDataResult result = new()
             {
                 LoggedTimes = await query.ToListAsync(),

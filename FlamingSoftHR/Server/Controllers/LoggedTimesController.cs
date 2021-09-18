@@ -18,13 +18,13 @@ namespace FlamingSoftHR.Server.Controllers
             this.loggedTimeRepository = loggedTimeRepository;
         }
 
-        // This method returns all the logged times in the database through HTTP Get
-        [HttpGet("employee/{id:int}")]
-        public async Task<ActionResult> GetLoggedTimesByEmployee(int id,int skip = 0, int take = 10)
+        // This method returns all the logged times between a range in the database through HTTP Get
+        [HttpGet("employee/{id:int}/{start}/{end}")]
+        public async Task<ActionResult> GetLoggedTimesByEmployee(int id, string start, string end, int skip = 0, int take = 10)
         {
             try
             {
-                return Ok(await loggedTimeRepository.GetLoggedTimesByEmployee(id,skip,take));
+                return Ok(await loggedTimeRepository.GetLoggedTimesByEmployee(id, start, end, skip, take));
             }
             catch (Exception)
             {
