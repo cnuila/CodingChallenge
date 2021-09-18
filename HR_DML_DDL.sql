@@ -591,3 +591,5 @@ VALUES
 		('2021-08-30 00:00:00',0.00,35,100000,2);
 
 SELECT * FROM loggedtime
+
+UPDATE Employee SET UserId= '2d1b0b3d-b7cb-44c4-97b0-94702ade474b' WHERE Employee.id = 100000 

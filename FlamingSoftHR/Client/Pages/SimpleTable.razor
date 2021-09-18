@@ -14,7 +14,7 @@
                 </MudItem>
 
                 <MudItem xs="12">
-                    <MudTable Hover="true" Items="@(new List<string>())" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                    <MudTable Hover="true" Items="@List" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
                         <HeaderContent>
                             <MudTh> Id </MudTh>
                             <MudTh> Description  </MudTh>
@@ -43,6 +43,9 @@
 
     [Parameter]
     public string Title { get; set; }
+
+    [Parameter]
+    public List<Object> List { get; set; }
 
 
 

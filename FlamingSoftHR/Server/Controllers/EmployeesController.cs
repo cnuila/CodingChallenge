@@ -18,6 +18,27 @@ namespace FlamingSoftHR.Server.Controllers
             this.employeeRepository = employeeRepository;
         }
 
+        //This method returns a employee based on his user id
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<Employee>> GetEmployeeByUserId(string userId)
+        {
+            try
+            {
+                var employee = await employeeRepository.GetEmployeeByUserId(userId);
+
+                if (employee == null)
+                {
+                    return NotFound($"Employee with User Id = {userId} was not found");
+                }
+
+                return employee;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+            }
+        }
+
 
         // This method returns all the employees in the database through HTTP Get
         [HttpGet]
@@ -54,7 +75,8 @@ namespace FlamingSoftHR.Server.Controllers
             }
         }
 
-        // This method recieves an employee through HTTTP Post, creates the employee and returns 201 Status Code
+        // This method recieves an employee through HTTTP Post, creates the employee and returns 201 Status Code, if the user id
+        // exists already returns a bad request
         [HttpPost]
         public async Task<ActionResult<Employee>> AddEmployee(Employee employeeToAdd)
         {
@@ -63,6 +85,14 @@ namespace FlamingSoftHR.Server.Controllers
                 if (employeeToAdd == null)
                 {
                     return BadRequest();
+                }
+
+                var employee = await employeeRepository.GetEmployeeByUserId(employeeToAdd.UserId);
+
+                if (employee != null)
+                {
+                    ModelState.AddModelError("User Id", "Employee user id already in use");
+                    BadRequest(ModelState);
                 }
 
                 var createdEmployee = await employeeRepository.AddEmployee(employeeToAdd);

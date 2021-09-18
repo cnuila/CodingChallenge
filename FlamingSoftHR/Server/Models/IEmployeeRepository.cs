@@ -7,6 +7,7 @@ namespace FlamingSoftHR.Server.Models
 {
     public interface IEmployeeRepository
     {
+        Task<Employee> GetEmployeeByUserId(string userId);
         Task<IEnumerable<Employee>> GetEmployees();
         Task<Employee> GetEmployee(int id);
         Task<Employee> AddEmployee(Employee employeeToAdd);

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
+      "projectUniqueName": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
       "projectName": "FlamingSoftHR.Shared",
-      "projectPath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
+      "projectPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/FlamingSoftHR.Shared.csproj",
       "packagesPath": "/Users/cnuila/.nuget/packages/",
-      "outputPath": "/Users/cnuila/Proyectos/FlamingSoftHR/FlamingSoftHR/Shared/obj/",
+      "outputPath": "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Shared/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/cnuila/.nuget/NuGet/NuGet.Config"

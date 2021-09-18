@@ -32,7 +32,7 @@ namespace FlamingSoftHR.Server
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
@@ -47,6 +47,7 @@ namespace FlamingSoftHR.Server
             services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
             services.AddScoped<ILoggedTimeRepository, LoggedTimeRepository>();
             services.AddScoped<ILoggedTimeTypeRepository, LoggedTimeTypeRepository>();
+            services.AddScoped<IJobRepository, JobRepository>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

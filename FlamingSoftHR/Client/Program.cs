@@ -1,3 +1,4 @@
+using FlamingSoftHR.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,26 @@ namespace FlamingSoftHR.Client
 
             builder.Services.AddHttpClient("FlamingSoftHR.ServerAPI", client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
                 .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+
+            builder.Services.AddHttpClient<IEmployeeService, EmployeeService>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+
+            builder.Services.AddHttpClient<IDepartmentService, DepartmentService>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+
+            builder.Services.AddHttpClient<IJobService, JobService>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+
+            builder.Services.AddHttpClient<ILoggedTimeTypeService, LoggedTimeTypeService>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+
+            builder.Services.AddHttpClient<IEmployeeTypeService, EmployeeTypeService>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("FlamingSoftHR.ServerAPI"));

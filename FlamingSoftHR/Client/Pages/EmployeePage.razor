@@ -1,0 +1,73 @@
+﻿@page "/employees"
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" Class="pa-8">
+
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs="12">
+                <MudPaper Elevation="4" Class="grey lighten-4 pa-7 red-text text-darken-2">
+
+                    <MudGrid>
+
+                        <MudItem xs="12">
+                            <MudText Typo="Typo.h4"> Employees </MudText>
+                        </MudItem>
+
+                        <MudItem xs="12">
+
+                            <MudTable Hover="true" Items="@employees" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
+
+                                <HeaderContent>
+                                    <MudTh Class="red-text text-darken-4">Employee Id</MudTh>
+                                    <MudTh>Name</MudTh>
+                                    <MudTh>Department</MudTh>
+                                    <MudTh>Salary</MudTh>
+                                    <MudTh>Actions</MudTh>
+                                </HeaderContent>
+
+                                <RowTemplate>
+                                    <MudTd DataLabel="Employee Id"> @context.Id </MudTd>
+                                    <MudTd DataLabel="Name">@context.FirstName @context.LastName</MudTd>
+                                    <MudTd DataLabel="Department">IT</MudTd>
+                                    <MudTd DataLabel="Salary"> $ @context.Salary </MudTd>
+                                    <MudTd DataLabel="Actions">0</MudTd>
+                                </RowTemplate>
+
+                            </MudTable>
+
+                        </MudItem>
+
+                    </MudGrid>
+
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    [Inject]
+    public IDialogService DialogService { get; set; }
+
+    [Inject]
+    public IEmployeeService EmployeeService { get; set; }
+
+    private List<string> headerContent = new List<string> { "Employee Id", "Name", "Department", "Salary", "Actions" };
+    private List<Employee> employees = new List<Employee>();
+    private bool loading = true;
+
+
+    // load employees, once loaded loading the animation stops
+    protected override async Task OnInitializedAsync()
+    {
+        employees = (await EmployeeService.GetEmployees()).ToList();
+        loading = false;
+    }
+
+    private void OpenAddEmployee()
+    {
+        DialogService.Show<AddUpdateEmployee>("Add Employee");
+    }
+}

@@ -1,0 +1,70 @@
+﻿@page "/employeetypes"
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" Class="pa-8">
+        <MudGrid Justify="Justify.FlexStart">
+            <MudItem xs="7">
+                <MudPaper Elevation="4" Class="grey lighten-4 pa-7 red-text text-darken-2">
+
+                    <MudGrid>
+
+                        <MudItem xs="7">
+                            <MudText Typo="Typo.h4"> Employee Types </MudText>
+                        </MudItem>
+
+                        <MudItem xs="5" Class="d-flex justify-end">
+                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@OpenAddEmployeeType"> Add </MudButton>
+                        </MudItem>
+
+                        <MudItem xs="12">
+                            <MudTable Hover="true" Items="@employeeTypes" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
+                                <HeaderContent>
+                                    <MudTh> Id </MudTh>
+                                    <MudTh> Name </MudTh>
+                                    <MudTh> Actions  </MudTh>
+                                </HeaderContent>
+
+                                <RowTemplate>
+                                    <MudTd DataLabel="Id"> @context.Id</MudTd>
+                                    <MudTd DataLabel="Name">@context.Description</MudTd>
+                                    <MudTd DataLabel="Action">0</MudTd>
+                                </RowTemplate>
+
+                            </MudTable>
+                        </MudItem>
+
+                    </MudGrid>
+
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    [Inject]
+    public IDialogService DialogService { get; set; }
+
+    [Inject]
+    public IEmployeeTypeService EmployeeTypeService { get; set; }
+
+    private List<EmployeeType> employeeTypes { get; set; }
+    private bool loading = true;
+
+    // load employee types, once loaded loading the animation stops
+    protected async override Task OnInitializedAsync()
+    {
+        employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+        loading = false;
+    }
+
+    private void OpenAddEmployeeType()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Description");
+
+        DialogService.Show<AddUpdateSimple>("Add Employee Type", parameters);
+    }
+}
+

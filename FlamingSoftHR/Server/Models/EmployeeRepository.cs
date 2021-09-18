@@ -33,6 +33,11 @@ namespace FlamingSoftHR.Server.Models
             }
         }
 
+        public async Task<Employee> GetEmployeeByUserId(string userId)
+        {
+            return await applicationDBContext.Employee.FirstOrDefaultAsync(e => e.UserId == userId);
+        }
+
         public async Task<Employee> GetEmployee(int id)
         {
             return await applicationDBContext.Employee.FirstOrDefaultAsync(e => e.Id == id);

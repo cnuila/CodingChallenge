@@ -1,0 +1,69 @@
+﻿@page "/loggedtimetypes"
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" Class="pa-8">
+        <MudGrid Justify="Justify.FlexStart">
+            <MudItem xs="7">
+                <MudPaper Elevation="4" Class="grey lighten-4 pa-7 red-text text-darken-2">
+
+                    <MudGrid>
+
+                        <MudItem xs="7">
+                            <MudText Typo="Typo.h4"> Logged Time Types </MudText>
+                        </MudItem>
+
+                        <MudItem xs="5" Class="d-flex justify-end">
+                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@OpenAddLoggedTimeType"> Add </MudButton>
+                        </MudItem>
+
+                        <MudItem xs="12">
+                            <MudTable Hover="true" Items="@loggedTimeTypes" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
+                                <HeaderContent>
+                                    <MudTh> Id </MudTh>
+                                    <MudTh> Description </MudTh>
+                                    <MudTh> Actions  </MudTh>
+                                </HeaderContent>
+
+                                <RowTemplate>
+                                    <MudTd DataLabel="Id"> @context.Id</MudTd>
+                                    <MudTd DataLabel="Name">@context.Description</MudTd>
+                                    <MudTd DataLabel="Action">0</MudTd>
+                                </RowTemplate>
+
+                            </MudTable>
+                        </MudItem>
+
+                    </MudGrid>
+
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    [Inject]
+    public IDialogService DialogService { get; set; }
+
+    [Inject]
+    public ILoggedTimeTypeService LoggedTimeTypeService { get; set; }
+
+    private List<LoggedTimeType> loggedTimeTypes { get; set; }
+    private bool loading = true;
+
+    // load logged time types, once loaded loading the animation stops
+    protected async override Task OnInitializedAsync()
+    {
+        loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+        loading = false;
+    }
+
+    private void OpenAddLoggedTimeType()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Description");
+
+        DialogService.Show<AddUpdateSimple>("Add Logged Time Type", parameters);
+    }
+}

@@ -13,7 +13,7 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     },
     {
-      "hash": "sha256-0uyatURwaJXarWSvD\/CFSO2pEWxDdJ7jTFJntsl4CAs=",
+      "hash": "sha256-+a\/Fo+J9Ty99kA+tEoTSFbVZTW5WkryT0wv96I0C0Fk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -813,19 +813,19 @@
       "url": "_framework\/dotnet.5.0.10.js"
     },
     {
-      "hash": "sha256-r1+miNDLF6S2YhjcXigRXp7mHzzn+M5In4CMAvnaOrg=",
+      "hash": "sha256-\/KhMnsV39uUaJJhKGrVOoX3aQsWkEGnRnuAYLPx2zps=",
       "url": "_framework\/FlamingSoftHR.Shared.dll"
     },
     {
-      "hash": "sha256-LY\/MvQYzWpjgpUujZ7WO8k\/zlYGe7LtTqVCJMPPp+BY=",
+      "hash": "sha256-3z0h8PFuCKyr98v51hW9lbLi3QsR3cR\/AdDUnPuXDf8=",
       "url": "_framework\/FlamingSoftHR.Shared.pdb"
     },
     {
-      "hash": "sha256-E9zH5bPzqF+kiOwgmEAzvVaa3xNvd+m7W6QWKdrpWuw=",
+      "hash": "sha256-f9LN9zfvv9HVujQ5firtkjPjf9bJ4+2lwjKWwGy605c=",
       "url": "_framework\/FlamingSoftHR.Client.dll"
     },
     {
-      "hash": "sha256-66pvq3kffF\/1NmYCh0mZiAWbLTmhHEXI\/33Be3ooMFY=",
+      "hash": "sha256-xc\/gLXbDPEaIzAUSmP8X5nr38q4jFsxVXAMLI9tYLqQ=",
       "url": "_framework\/FlamingSoftHR.Client.pdb"
     },
     {
@@ -1629,7 +1629,7 @@
       "url": "_framework\/dotnet.5.0.10.js.gz"
     },
     {
-      "hash": "sha256-itPqtb89bwWitqqYwOqUMjXsa4YsvlvCU28Qscxppw0=",
+      "hash": "sha256-SGTsToxKjg25vXukDvKBgMorebrzkuYNO\/eWb9yQRXI=",
       "url": "_framework\/FlamingSoftHR.Shared.dll.gz"
     },
     {
@@ -1689,7 +1689,31 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-xeCp\/MyiarcFSQrag9Y7R\/lKZ7TxrjXj+kDuyoFGzt8=",
+      "hash": "sha256-cKD\/DfPsUBOuCNwN8dBjSUgO5oz2W4qEuN8Mpxy0PH0=",
+      "url": "Images\/departments.jpg"
+    },
+    {
+      "hash": "sha256-1AkiCyK81DNBViFvOoqxNp\/u6a05gB3RWD6on7941qQ=",
+      "url": "Images\/employees.jpg"
+    },
+    {
+      "hash": "sha256-dJpQ8cm8QiI0Tbb8XCSddAp4ab9H3Sx+WirCKJ0fWJ8=",
+      "url": "Images\/employeeType.jpg"
+    },
+    {
+      "hash": "sha256-ceePrBPsaXZDhOtu89Vpv1dvPF2\/vdHfZR6mG0rYQwU=",
+      "url": "Images\/jobs.jpg"
+    },
+    {
+      "hash": "sha256-FHfINnr8s3PSCw4lEsSFV45DJQnfRXlOV+WRo+kX5LA=",
+      "url": "Images\/loggedTimeType.png"
+    },
+    {
+      "hash": "sha256-zfWZU3GRTCquefSjQNTnsPhJqdo\/gw0+b+\/MFbpyOrs=",
+      "url": "Images\/timeManagement.jpg"
+    },
+    {
+      "hash": "sha256-+xoDBjUCJUOWRqejM5rM1gGPTZ6yxxCyy42+FkrdXsE=",
       "url": "index.html"
     },
     {
@@ -1705,5 +1729,5 @@
       "url": "FlamingSoftHR.Client.bundle.scp.css"
     }
   ],
-  "version": "vos3jJbQ"
+  "version": "jogqtwOp"
 };
