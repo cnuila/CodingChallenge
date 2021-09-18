@@ -119,7 +119,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 152 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagementPage.razor"
+#line 167 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagementPage.razor"
        
     [Parameter]
     public string Id { get; set; }
@@ -127,7 +127,26 @@ using MudBlazor;
     [Inject]
     public IDialogService DialogService { get; set; }
 
+    [Inject]
+    public ILoggedTimeService LoggedTimeService { get; set; }
+
     private DateRange dateRange { get; set; }
+    private bool loading = true;
+
+    // skip = current page times the size of it in order to get how many of them we want to skip
+    // once skip and take are assigned, it queries with the data provided
+    private async Task<TableData<LoggedTime>> ServerPaging(TableState tableState)
+    {
+        int skip = tableState.Page * tableState.PageSize;
+        int take = tableState.PageSize;
+
+        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100000,skip, take);
+        loading = false;
+
+        int totalItems = result.Count;
+
+        return new TableData<LoggedTime>() { TotalItems = totalItems, Items = result.LoggedTimes.ToList() };
+    }
 
     private void OpenAddLoggedTime()
     {

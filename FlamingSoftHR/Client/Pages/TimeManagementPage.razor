@@ -121,7 +121,8 @@
                         </MudItem>
 
                         <MudItem xs="12">
-                            <MudTable Hover="true" Items="@(new List<string>())" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                            <MudTable ServerData="@(new Func<TableState, Task<TableData<LoggedTime>>>(ServerPaging))" Hover="true" Loading="@loading" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Error">
+
                                 <HeaderContent>
                                     <MudTh>Date</MudTh>
                                     <MudTh>Regular</MudTh>
@@ -129,13 +130,27 @@
                                     <MudTh>Sick</MudTh>
                                     <MudTh>Actions</MudTh>
                                 </HeaderContent>
+
                                 <RowTemplate>
-                                    <MudTd DataLabel="Date">25/07/2021</MudTd>
-                                    <MudTd DataLabel="Regular">8</MudTd>
-                                    <MudTd DataLabel="Vacation">0</MudTd>
-                                    <MudTd DataLabel="Sick">0</MudTd>
+                                    <MudTd DataLabel="Date">
+                                        <b>@((context.DateLogged).ToString("MMMM, dd yyyy"))</b>
+                                    </MudTd>
+                                    <MudTd DataLabel="Regular">
+                                        @(context.LoggedTimeType.Description.Equals("Regular") ? context.Hours : 0)
+                                    </MudTd>
+                                    <MudTd DataLabel="Vacation">
+                                        @(context.LoggedTimeType.Description.Equals("Vacation") ? context.Hours : 0)
+                                    </MudTd>
+                                    <MudTd DataLabel="Sick">
+                                        @(context.LoggedTimeType.Description.Equals("Sick") ? context.Hours : 0)
+                                    </MudTd>
                                     <MudTd DataLabel="Actions">0</MudTd>
                                 </RowTemplate>
+
+                                <PagerContent>
+                                    <MudTablePager />
+                                </PagerContent>
+
                             </MudTable>
                         </MudItem>
 
@@ -156,7 +171,26 @@
     [Inject]
     public IDialogService DialogService { get; set; }
 
+    [Inject]
+    public ILoggedTimeService LoggedTimeService { get; set; }
+
     private DateRange dateRange { get; set; }
+    private bool loading = true;
+
+    // skip = current page times the size of it in order to get how many of them we want to skip
+    // once skip and take are assigned, it queries with the data provided
+    private async Task<TableData<LoggedTime>> ServerPaging(TableState tableState)
+    {
+        int skip = tableState.Page * tableState.PageSize;
+        int take = tableState.PageSize;
+
+        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100000,skip, take);
+        loading = false;
+
+        int totalItems = result.Count;
+
+        return new TableData<LoggedTime>() { TotalItems = totalItems, Items = result.LoggedTimes.ToList() };
+    }
 
     private void OpenAddLoggedTime()
     {

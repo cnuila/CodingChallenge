@@ -128,15 +128,21 @@ using MudBlazor;
     [Inject]
     public IJobService JobService{ get; set; }
 
-    private List<Job> jobs { get; set; }
     private bool loading = true;
 
-    // load jobs, once loaded loading the animation stops
-    protected async override Task OnInitializedAsync()
+    // skip = current page times the size of it in order to get how many of them we want to skip
+    // once skip and take are assigned, it queries with the data provided
+    private async Task<TableData<Job>> ServerPaging(TableState tableState)
     {
-        jobs = (await JobService.GetJobs()).ToList();
-        Console.WriteLine(jobs);
+        int skip = tableState.Page * tableState.PageSize;
+        int take = tableState.PageSize;
+
+        JobDataResult result = await JobService.GetJobs(skip, take);
         loading = false;
+
+        int totalItems = result.Count;
+
+        return new TableData<Job>() { TotalItems = totalItems, Items = result.Jobs.ToList() };
     }
 
     private void OpenAddJob()

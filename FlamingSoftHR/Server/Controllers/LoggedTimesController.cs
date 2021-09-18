@@ -19,12 +19,12 @@ namespace FlamingSoftHR.Server.Controllers
         }
 
         // This method returns all the logged times in the database through HTTP Get
-        [HttpGet]
-        public async Task<ActionResult> GetLoggedTime()
+        [HttpGet("employee/{id:int}")]
+        public async Task<ActionResult> GetLoggedTimesByEmployee(int id,int skip = 0, int take = 10)
         {
             try
             {
-                return Ok(await loggedTimeRepository.GetLoggedTimes());
+                return Ok(await loggedTimeRepository.GetLoggedTimesByEmployee(id,skip,take));
             }
             catch (Exception)
             {

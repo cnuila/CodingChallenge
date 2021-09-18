@@ -7,7 +7,7 @@ namespace FlamingSoftHR.Client.Services
 {
     public interface ILoggedTimeService
     {
-        Task<IEnumerable<LoggedTime>> GetLoggedTimes();
+        Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int id, int skip, int take);
         Task<LoggedTime> GetLoggedTime(int id);
         Task<LoggedTime> AddLoggedTime(LoggedTime loggedTimeToAdd);
         Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate);

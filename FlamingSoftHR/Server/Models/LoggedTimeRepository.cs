@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FlamingSoftHR.Server.Data;
 using FlamingSoftHR.Shared;
@@ -18,6 +19,11 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<LoggedTime> AddLoggedTime(LoggedTime loggedTimeToAdd)
         {
+            if (loggedTimeToAdd.LoggedTimeType != null)
+            {
+                applicationDBContext.Entry(loggedTimeToAdd.LoggedTimeType).State = EntityState.Unchanged;
+            }
+
             var result = await applicationDBContext.LoggedTime.AddAsync(loggedTimeToAdd);
             await applicationDBContext.SaveChangesAsync();
             return result.Entity;
@@ -35,12 +41,18 @@ namespace FlamingSoftHR.Server.Models
 
         public async Task<LoggedTime> GetLoggedTime(int id)
         {
-            return await applicationDBContext.LoggedTime.FirstOrDefaultAsync(l => l.Id == id);
+            return await applicationDBContext.LoggedTime.Include(l => l.LoggedTimeType).FirstOrDefaultAsync(l => l.Id == id);
         }
 
-        public async Task<IEnumerable<LoggedTime>> GetLoggedTimes()
+        public async Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int employeeId, int skip = 0, int take = 10)
         {
-            return await applicationDBContext.LoggedTime.ToListAsync();
+            IQueryable<LoggedTime> query = applicationDBContext.LoggedTime.Include(l => l.LoggedTimeType).Where(l => l.EmployeeId == employeeId).Skip(skip).Take(take);
+            LoggedTimeDataResult result = new()
+            {
+                LoggedTimes = await query.ToListAsync(),
+                Count = await query.CountAsync()
+            };
+            return result;
         }
 
         public async Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate)
@@ -50,7 +62,7 @@ namespace FlamingSoftHR.Server.Models
             {
                 result.DateLogged = loggedTimeToUpdate.DateLogged;
                 result.Hours = loggedTimeToUpdate.Hours;
-                result.LogTypeId = loggedTimeToUpdate.LogTypeId;
+                result.LoggedTimeTypeId = loggedTimeToUpdate.LoggedTimeTypeId;
                 result.WeekNumber = loggedTimeToUpdate.WeekNumber;
 
                 await applicationDBContext.SaveChangesAsync();

@@ -39,6 +39,10 @@ namespace FlamingSoftHR.Client
                 client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
             });
 
+            builder.Services.AddHttpClient<ILoggedTimeService, LoggedTimeService>(client => {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+
             builder.Services.AddHttpClient<IEmployeeTypeService, EmployeeTypeService>(client => {
                 client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
             });

@@ -16,9 +16,11 @@ namespace FlamingSoftHR.Shared
         public decimal Hours { get; set; }
 
         [Required]
-        public int LogTypeId { get; set; }
+        public int LoggedTimeTypeId { get; set; }
 
         public int WeekNumber { get; set; }
         public int EmployeeId { get; set; }
+
+        public LoggedTimeType LoggedTimeType { get; set; }
     }
 }
