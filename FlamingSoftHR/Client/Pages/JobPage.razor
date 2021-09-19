@@ -14,11 +14,11 @@
                         </MudItem>
 
                         <MudItem xs="5" Class="d-flex justify-end">
-                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@OpenAddJob"> Add </MudButton>
+                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@AddJob"> Add </MudButton>
                         </MudItem>
 
                         <MudItem xs="12">
-                            <MudTable ServerData="@(new Func<TableState, Task<TableData<Job>>>(ServerPaging))" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
+                            <MudTable @ref="mudTable" ServerData="@(new Func<TableState, Task<TableData<Job>>>(ServerPaging))" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
                                 <HeaderContent>
                                     <MudTh> Id </MudTh>
                                     <MudTh> Description </MudTh>
@@ -34,7 +34,10 @@
                                     <MudTd DataLabel="Min. Salary">@(String.Format("{0:n}",context.MinSalary))  </MudTd>
                                     <MudTd DataLabel="Max. Salary">@(String.Format("{0:n}",context.MaxSalary))</MudTd>
                                     <MudTd DataLabel="Department">@context.Department.Name</MudTd>
-                                    <MudTd DataLabel="Action">0</MudTd>
+                                    <MudTd DataLabel="Action">
+                                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => UpdateJob(context.Id))"></MudIconButton>
+                                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => DeleteJob(context.Id))"></MudIconButton>
+                                    </MudTd>
                                 </RowTemplate>
 
                                 <PagerContent>
@@ -61,6 +64,11 @@
     [Inject]
     public IJobService JobService{ get; set; }
 
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
+    private MudTable<Job> mudTable { get; set; }
+
     private bool loading = true;
 
     // skip = current page times the size of it in order to get how many of them we want to skip
@@ -78,11 +86,60 @@
         return new TableData<Job>() { TotalItems = totalItems, Items = result.Jobs.ToList() };
     }
 
-    private void OpenAddJob()
+    protected async void AddJob()
     {
         var parameters = new DialogParameters();
-        parameters.Add("FieldName", "Description");
+        parameters.Add("Job", new Job());
 
-        DialogService.Show<AddUpdateSimple>("Add Job", parameters);
+        var dialog = DialogService.Show<AddUpdateJob>("Add Job", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Job response = await JobService.AddJob((Job)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Job Created Successfully", Severity.Success);
+            }
+        }
     }
+
+    protected async void UpdateJob(int id)
+    {
+        Job jobToUpdate = await JobService.GetJob(id);
+
+        var parameters = new DialogParameters();
+        parameters.Add("Job", jobToUpdate);
+
+        var dialog = DialogService.Show<AddUpdateJob>("Update Job", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Job response = await JobService.UpdateJob((Job)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Job Updated Successfully", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteJob(int id)
+    {
+        await JobService.DeleteJob(id);
+        await mudTable.ReloadServerData();
+        Snackbar.Add($"Department Deleted Successfully", Severity.Success);
+    }
+
 }

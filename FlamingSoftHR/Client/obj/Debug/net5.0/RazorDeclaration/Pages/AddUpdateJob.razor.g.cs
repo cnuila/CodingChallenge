@@ -117,8 +117,7 @@ using System.Security.Claims;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/loggedtimetypes")]
-    public partial class LoggedTimeTypePage : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class AddUpdateJob : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -126,89 +125,37 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/LoggedTimeTypePage.razor"
+#line 32 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/AddUpdateJob.razor"
        
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public Job Job { get; set; }
 
     [Inject]
-    public IDialogService DialogService { get; set; }
+    public IDepartmentService DepartmentService { get; set; }
 
-    [Inject]
-    public ILoggedTimeTypeService LoggedTimeTypeService { get; set; }
+    private List<Department> departments = new List<Department>();
+    private string departmentName { get; set; }
 
-    [Inject]
-    ISnackbar Snackbar { get; set; }
-
-    private List<LoggedTimeType> loggedTimeTypes { get; set; }
-    private bool loading = true;
-
-    // load logged time types, once loaded loading the animation stops
     protected async override Task OnInitializedAsync()
     {
-        loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
-        loading = false;
-    }
-
-    protected async void AddLoggedTimeType()
-    {
-        var parameters = new DialogParameters();
-        parameters.Add("FieldName", "Description");
-        var dialog = DialogService.Show<AddUpdateSimple>("Add Logged Time Type", parameters);
-
-        var result = await dialog.Result;
-
-        if (!result.Cancelled)
+        departments = (await DepartmentService.GetDepartments()).ToList();
+        if (Job.Department != null)
         {
-            LoggedTimeType response = await LoggedTimeTypeService.AddLoggedTimeType(new LoggedTimeType { Description = (string)result.Data });
-
-            if (response != null)
-            {
-                loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
-                Snackbar.Add($"Logged Time Type Created Successfully", Severity.Success);
-                StateHasChanged();
-            }
+            departmentName = Job.Department.Name;
         }
-
     }
 
-    protected async void UpdateLoggedTimeType(int id)
+    private void Submit()
     {
-        LoggedTimeType loggedTimeTypeToUpdate = await LoggedTimeTypeService.GetLoggedTimeType(id);
-
-        string loggedTimeTypeDescription = loggedTimeTypeToUpdate.Description;
-
-        var parameters = new DialogParameters();
-        parameters.Add("FieldName", "Name");
-        parameters.Add("FieldValue", loggedTimeTypeDescription);
-
-        var dialog = DialogService.Show<AddUpdateSimple>("Update Logged Time Type", parameters);
-
-        var result = await dialog.Result;
-
-        if (!result.Cancelled)
-        {
-            LoggedTimeType response = await LoggedTimeTypeService.UpdateLoggedTimeType(new LoggedTimeType { Id = id, Description = (string)result.Data });
-
-            if (response != null)
-            {
-                loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
-                Snackbar.Add($"Logged Time Type Updated Successfully", Severity.Success);
-                StateHasChanged();
-            }
-            else
-            {
-                Snackbar.Add($"An error has ocurred", Severity.Error);
-            }
-        }
-
+        int departmentId = (departments.Find(d => d.Name == departmentName)).Id;
+        Job.DepartmentId = departmentId;
+        MudDialog.Close(DialogResult.Ok(Job));
     }
 
-    protected async void DeleteLoggedTimeType(int id)
-    {
-        await LoggedTimeTypeService.DeleteLoggedTimeType(id);
-        loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
-        Snackbar.Add($"Logged Time Type Deleted Successfully", Severity.Success);
-        StateHasChanged();
-    }
+    private void Cancel() => MudDialog.Cancel();
 
 #line default
 #line hidden

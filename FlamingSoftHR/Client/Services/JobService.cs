@@ -16,19 +16,20 @@ namespace FlamingSoftHR.Client.Services
             this.httpClient = httpClient;
         }
 
-        public Task<Job> AddJob(Job jobToAdd)
+        public async Task<Job> AddJob(Job jobToAdd)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PostAsJsonAsync("/api/jobs", jobToAdd);
+            return await response.Content.ReadFromJsonAsync<Job>();
         }
 
-        public Task DeleteJob(int id)
+        public async Task DeleteJob(int id)
         {
-            throw new NotImplementedException();
+            await httpClient.DeleteAsync($"/api/jobs/{id}");
         }
 
-        public Task<Job> GetJob(int id)
+        public async Task<Job> GetJob(int id)
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<Job>($"/api/jobs/{id}");
         }
 
         public async Task<JobDataResult> GetJobs(int skip, int take)
@@ -41,9 +42,10 @@ namespace FlamingSoftHR.Client.Services
             return await httpClient.GetFromJsonAsync<IEnumerable<Job>>($"/api/jobs/department/{id}");
         }
 
-        public Task<Job> UpdateJob(Job jobToUpdate)
+        public async Task<Job> UpdateJob(Job jobToUpdate)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PutAsJsonAsync($"/api/jobs/{jobToUpdate.Id}", jobToUpdate);
+            return await response.Content.ReadFromJsonAsync<Job>();
         }
     }
 }

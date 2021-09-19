@@ -189,7 +189,7 @@ using System.Security.Claims;
         {
             Department response = await DepartmentService.UpdateDepartment(new Department { Id = id, Name = (string)result.Data });
 
-            if (response.Id != 0)
+            if (response != null)
             {
                 departments = (await DepartmentService.GetDepartments()).ToList();
                 Snackbar.Add($"Department Updated Successfully", Severity.Success);

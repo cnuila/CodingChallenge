@@ -1,0 +1,62 @@
+﻿<MudDialog>
+    <DialogContent>
+
+        <MudGrid>
+            <MudItem xs="12" Class="mx-9 my-3">
+
+                <MudTextField @bind-Value="Job.Description" Required="true" RequiredError="Job description is required" Label="Description" Variant="Variant.Text" Class="py-2"></MudTextField>
+
+                <MudNumericField @bind-Value="Job.MinSalary" Label="Min. Salary" Required="true" Variant="Variant.Text" Adornment="Adornment.Start" Class="py-2" AdornmentIcon="@Icons.Material.Filled.AttachMoney" HideSpinButtons="true" />
+
+                <MudNumericField @bind-Value="Job.MaxSalary" Label="Max. Salary" Min="Job.MinSalary" Required="true" Variant="Variant.Text" Adornment="Adornment.Start" Class="py-2" AdornmentIcon="@Icons.Material.Filled.AttachMoney" HideSpinButtons="true" />
+
+                <MudSelect T="string" Required="true" Class="py-2" @bind-Value="departmentName" RequiredError="A department must be selected" Label="Department">
+                    @foreach (var department in departments)
+                    {
+                        <MudSelectItem Value="@department.Name" />
+                    }
+                </MudSelect>
+
+
+            </MudItem>
+        </MudGrid>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton OnClick="Submit" Class="red-text text-darken-3">Ok</MudButton>
+    </DialogActions>
+
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public Job Job { get; set; }
+
+    [Inject]
+    public IDepartmentService DepartmentService { get; set; }
+
+    private List<Department> departments = new List<Department>();
+    private string departmentName { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        departments = (await DepartmentService.GetDepartments()).ToList();
+        if (Job.Department != null)
+        {
+            departmentName = Job.Department.Name;
+        }
+    }
+
+    private void Submit()
+    {
+        int departmentId = (departments.Find(d => d.Name == departmentName)).Id;
+        Job.DepartmentId = departmentId;
+        MudDialog.Close(DialogResult.Ok(Job));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+}

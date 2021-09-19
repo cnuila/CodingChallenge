@@ -126,7 +126,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/JobPage.razor"
+#line 59 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/JobPage.razor"
        
 
     [Inject]
@@ -134,6 +134,11 @@ using System.Security.Claims;
 
     [Inject]
     public IJobService JobService{ get; set; }
+
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
+    private MudTable<Job> mudTable { get; set; }
 
     private bool loading = true;
 
@@ -152,13 +157,62 @@ using System.Security.Claims;
         return new TableData<Job>() { TotalItems = totalItems, Items = result.Jobs.ToList() };
     }
 
-    private void OpenAddJob()
+    protected async void AddJob()
     {
         var parameters = new DialogParameters();
-        parameters.Add("FieldName", "Description");
+        parameters.Add("Job", new Job());
 
-        DialogService.Show<AddUpdateSimple>("Add Job", parameters);
+        var dialog = DialogService.Show<AddUpdateJob>("Add Job", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Job response = await JobService.AddJob((Job)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Job Created Successfully", Severity.Success);
+            }
+        }
     }
+
+    protected async void UpdateJob(int id)
+    {
+        Job jobToUpdate = await JobService.GetJob(id);
+
+        var parameters = new DialogParameters();
+        parameters.Add("Job", jobToUpdate);
+
+        var dialog = DialogService.Show<AddUpdateJob>("Update Job", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Job response = await JobService.UpdateJob((Job)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Job Updated Successfully", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteJob(int id)
+    {
+        await JobService.DeleteJob(id);
+        await mudTable.ReloadServerData();
+        Snackbar.Add($"Department Deleted Successfully", Severity.Success);
+    }
+
 
 #line default
 #line hidden

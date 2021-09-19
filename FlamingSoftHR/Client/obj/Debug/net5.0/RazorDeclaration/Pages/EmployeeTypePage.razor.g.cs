@@ -188,7 +188,7 @@ using System.Security.Claims;
         {
             EmployeeType response = await EmployeeTypeService.UpdateEmployeeType(new EmployeeType { Id = id, Description = (string)result.Data });
 
-            if (response.Id != 0)
+            if (response != null)
             {
                 employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
                 Snackbar.Add($"Employee Type Updated Successfully", Severity.Success);
