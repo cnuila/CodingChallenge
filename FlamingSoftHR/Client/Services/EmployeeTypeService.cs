@@ -16,19 +16,20 @@ namespace FlamingSoftHR.Client.Services
             this.httpClient = httpClient;
         }
 
-        public Task<EmployeeType> AddEmployeeType(EmployeeType employeeTypeToAdd)
+        public async Task<EmployeeType> AddEmployeeType(EmployeeType employeeTypeToAdd)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PostAsJsonAsync("/api/employeetypes", employeeTypeToAdd);
+            return await response.Content.ReadFromJsonAsync<EmployeeType>();
         }
 
-        public Task DeleteEmployeeType(int id)
+        public async Task DeleteEmployeeType(int id)
         {
-            throw new NotImplementedException();
+            await httpClient.DeleteAsync($"/api/employeetypes/{id}");
         }
 
-        public Task<EmployeeType> GetEmployeeType(int id)
+        public async Task<EmployeeType> GetEmployeeType(int id)
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<EmployeeType>($"/api/employeetypes/{id}");
         }
 
         public async Task<IEnumerable<EmployeeType>> GetEmployeeTypes()
@@ -36,9 +37,10 @@ namespace FlamingSoftHR.Client.Services
             return await httpClient.GetFromJsonAsync<IEnumerable<EmployeeType>>("/api/employeetypes");
         }
 
-        public Task<EmployeeType> UpdateEmployeeType(EmployeeType employeeTypeToUpdate)
+        public async Task<EmployeeType> UpdateEmployeeType(EmployeeType employeeTypeToUpdate)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PutAsJsonAsync($"/api/employeetypes/{employeeTypeToUpdate.Id}", employeeTypeToUpdate);
+            return await response.Content.ReadFromJsonAsync<EmployeeType>();
         }
     }
 }

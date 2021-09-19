@@ -196,7 +196,7 @@ using System.Security.Claims;
                 StateHasChanged();
             } else
             {
-                Snackbar.Add($"An error ocurred", Severity.Error);
+                Snackbar.Add($"An error has ocurred", Severity.Error);
             }
         }
 

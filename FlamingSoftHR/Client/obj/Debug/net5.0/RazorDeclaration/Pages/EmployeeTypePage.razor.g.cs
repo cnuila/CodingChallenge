@@ -126,7 +126,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeeTypePage.razor"
+#line 47 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeeTypePage.razor"
        
 
     [Inject]
@@ -134,6 +134,9 @@ using System.Security.Claims;
 
     [Inject]
     public IEmployeeTypeService EmployeeTypeService { get; set; }
+
+    [Inject]
+    ISnackbar Snackbar { get; set; }
 
     private List<EmployeeType> employeeTypes { get; set; }
     private bool loading = true;
@@ -145,12 +148,66 @@ using System.Security.Claims;
         loading = false;
     }
 
-    private void OpenAddEmployeeType()
+    protected async void AddEmployeeType()
     {
         var parameters = new DialogParameters();
-        parameters.Add("FieldName", "Description");
+        parameters.Add("FieldName", "Name");
+        var dialog = DialogService.Show<AddUpdateSimple>("Add Employee Type", parameters);
 
-        DialogService.Show<AddUpdateSimple>("Add Employee Type", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            EmployeeType response = await EmployeeTypeService.AddEmployeeType(new EmployeeType { Description = (string)result.Data });
+
+            if (response != null)
+            {
+                employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+                Snackbar.Add($"Employee Type Created Successfully", Severity.Success);
+                StateHasChanged();
+            }
+        }
+
+    }
+
+    protected async void UpdateEmployeeType(int id)
+    {
+        EmployeeType employeeTypeToUpdate = await EmployeeTypeService.GetEmployeeType(id);
+
+        string employeeTypeDescription = employeeTypeToUpdate.Description;
+
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Name");
+        parameters.Add("FieldValue", employeeTypeDescription);
+
+        var dialog = DialogService.Show<AddUpdateSimple>("Update Employee Type", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            EmployeeType response = await EmployeeTypeService.UpdateEmployeeType(new EmployeeType { Id = id, Description = (string)result.Data });
+
+            if (response.Id != 0)
+            {
+                employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+                Snackbar.Add($"Employee Type Updated Successfully", Severity.Success);
+                StateHasChanged();
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteEmployeeType(int id)
+    {
+        await EmployeeTypeService.DeleteEmployeeType(id);
+        employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+        Snackbar.Add($"Employee Type Deleted Successfully", Severity.Success);
+        StateHasChanged();
     }
 
 #line default
