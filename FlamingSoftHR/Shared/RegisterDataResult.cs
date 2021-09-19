@@ -7,5 +7,6 @@ namespace FlamingSoftHR.Shared
     {
         public bool Successful { get; set; }
         public IEnumerable<string> Errors { get; set; }
+        public string UserId { get; set; }
     }
 }

@@ -144,6 +144,12 @@ using System.Security.Claims;
     [Inject]
     public IEmployeeTypeService EmployeeTypeService { get; set; }
 
+    [Inject]
+    public IEmployeeService EmployeeService { get; set; }
+
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
     private RegisterModel registerModel = new RegisterModel();
     private List<Department> departments = new List<Department>();
     private List<Job> jobs = new List<Job>();
@@ -154,7 +160,7 @@ using System.Security.Claims;
     private string middleName { get; set; }
     private string lastName { get; set; }
     private string jobDescription { get; set; }
-    private string employeeType { get; set; }
+    private string employeeTypeDescription { get; set; }
     private string departmentName { get; set; }
     private decimal salary { get; set; }
     private bool success { get; set; }
@@ -184,7 +190,32 @@ using System.Security.Claims;
 
         if (result.Successful)
         {
+            string middleNameToAdd = null;
+
+            if (!String.IsNullOrWhiteSpace(middleName))
+            {
+                middleNameToAdd = middleName;
+            }
+
+            int jobId = (jobs.Find(j => j.Description == jobDescription)).Id;
+            int employeeTypeId = (employeeTypes.Find(e => e.Description == employeeTypeDescription)).Id;
+
             //create employee
+            Employee newEmployee = new()
+            {
+                FirstName = firstName,
+                MiddleName = middleNameToAdd,
+                LastName = lastName,
+                Email = registerModel.Email,
+                JobId = jobId,
+                EmployeeTypeId = employeeTypeId,
+                Salary = salary,
+                UserId = result.UserId
+            };
+
+            await EmployeeService.AddEmployee(newEmployee);
+            Snackbar.Add($"Employee signed up successfully {newEmployee.UserId}", Severity.Success);
+
             NavigationManager.NavigateTo("/login");
         } else
         {

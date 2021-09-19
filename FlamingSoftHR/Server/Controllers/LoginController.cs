@@ -20,7 +20,7 @@ namespace FlamingSoftHR.Server.Controllers
 
         private readonly SignInManager<IdentityUser> signInManager;
 
-        public LoginController(IConfiguration configuration, SignInManager<IdentityUser> signInManager, HttpContextAccessor httpContextAccessor)
+        public LoginController(IConfiguration configuration, SignInManager<IdentityUser> signInManager)
         {
             this.configuration = configuration;
             this.signInManager = signInManager;

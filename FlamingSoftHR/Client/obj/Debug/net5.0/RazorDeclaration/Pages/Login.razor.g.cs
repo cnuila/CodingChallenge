@@ -142,11 +142,7 @@ using System.Security.Claims;
 
     private async Task HandleLogin()
     {
-        Console.Write("vasdas");
-
         var result = await AuthService.Login(loginModel);
-
-
 
         if (result.Successful)
         {

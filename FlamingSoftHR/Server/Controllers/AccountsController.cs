@@ -19,7 +19,7 @@ namespace FlamingSoftHR.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post ([FromBody]RegisterModel model)
+        public async Task<ActionResult> Post([FromBody] RegisterModel model)
         {
             var newUser = new IdentityUser { UserName = model.Email, Email = model.Email };
 
@@ -32,7 +32,9 @@ namespace FlamingSoftHR.Server.Controllers
                 return Ok(new RegisterDataResult { Successful = false, Errors = errors });
             }
 
-            return Ok(new RegisterDataResult { Successful = true }); 
+            var userId = (await userManager.FindByNameAsync(newUser.UserName)).Id;
+
+            return Ok(new RegisterDataResult { Successful = true, UserId = userId }); 
         }
 
     }
