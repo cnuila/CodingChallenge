@@ -13,7 +13,7 @@
                         </MudItem>
 
                         <MudItem xs="5" Class="d-flex justify-end">
-                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@OpenAddLoggedTimeType"> Add </MudButton>
+                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@AddLoggedTimeType"> Add </MudButton>
                         </MudItem>
 
                         <MudItem xs="12">
@@ -26,8 +26,11 @@
 
                                 <RowTemplate>
                                     <MudTd DataLabel="Id"> @context.Id</MudTd>
-                                    <MudTd DataLabel="Name">@context.Description</MudTd>
-                                    <MudTd DataLabel="Action">0</MudTd>
+                                    <MudTd DataLabel="Description">@context.Description</MudTd>
+                                    <MudTd DataLabel="Action">
+                                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => UpdateLoggedTimeType(context.Id))"></MudIconButton>
+                                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => DeleteLoggedTimeType(context.Id))"></MudIconButton>
+                                    </MudTd>
                                 </RowTemplate>
 
                             </MudTable>
@@ -49,6 +52,9 @@
     [Inject]
     public ILoggedTimeTypeService LoggedTimeTypeService { get; set; }
 
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
     private List<LoggedTimeType> loggedTimeTypes { get; set; }
     private bool loading = true;
 
@@ -59,11 +65,65 @@
         loading = false;
     }
 
-    private void OpenAddLoggedTimeType()
+    protected async void AddLoggedTimeType()
     {
         var parameters = new DialogParameters();
         parameters.Add("FieldName", "Description");
+        var dialog = DialogService.Show<AddUpdateSimple>("Add Logged Time Type", parameters);
 
-        DialogService.Show<AddUpdateSimple>("Add Logged Time Type", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTimeType response = await LoggedTimeTypeService.AddLoggedTimeType(new LoggedTimeType { Description = (string)result.Data });
+
+            if (response != null)
+            {
+                loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+                Snackbar.Add($"Logged Time Type Created Successfully", Severity.Success);
+                StateHasChanged();
+            }
+        }
+
+    }
+
+    protected async void UpdateLoggedTimeType(int id)
+    {
+        LoggedTimeType loggedTimeTypeToUpdate = await LoggedTimeTypeService.GetLoggedTimeType(id);
+
+        string loggedTimeTypeDescription = loggedTimeTypeToUpdate.Description;
+
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Name");
+        parameters.Add("FieldValue", loggedTimeTypeDescription);
+
+        var dialog = DialogService.Show<AddUpdateSimple>("Update Logged Time Type", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTimeType response = await LoggedTimeTypeService.UpdateLoggedTimeType(new LoggedTimeType { Id = id, Description = (string)result.Data });
+
+            if (response.Id != 0)
+            {
+                loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+                Snackbar.Add($"Logged Time Type Updated Successfully", Severity.Success);
+                StateHasChanged();
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteLoggedTimeType(int id)
+    {
+        await LoggedTimeTypeService.DeleteLoggedTimeType(id);
+        loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+        Snackbar.Add($"Logged Time Type Deleted Successfully", Severity.Success);
+        StateHasChanged();
     }
 }

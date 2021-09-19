@@ -151,7 +151,7 @@ using System.Security.Claims;
     protected async void AddEmployeeType()
     {
         var parameters = new DialogParameters();
-        parameters.Add("FieldName", "Name");
+        parameters.Add("FieldName", "Description");
         var dialog = DialogService.Show<AddUpdateSimple>("Add Employee Type", parameters);
 
         var result = await dialog.Result;

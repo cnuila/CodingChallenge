@@ -16,19 +16,20 @@ namespace FlamingSoftHR.Client.Services
             this.httpClient = httpClient;
         }
 
-        public Task<LoggedTimeType> AddLoggedTimeType(LoggedTimeType loggedTimeTypeToAdd)
+        public async Task<LoggedTimeType> AddLoggedTimeType(LoggedTimeType loggedTimeTypeToAdd)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PostAsJsonAsync("/api/loggedtimetypes", loggedTimeTypeToAdd);
+            return await response.Content.ReadFromJsonAsync<LoggedTimeType>();
         }
 
-        public Task DeleteLoggedTimeType(int id)
+        public async Task DeleteLoggedTimeType(int id)
         {
-            throw new NotImplementedException();
+            await httpClient.DeleteAsync($"/api/loggedtimetypes/{id}");
         }
 
-        public Task<LoggedTimeType> GetLoggedTimeType(int id)
+        public async Task<LoggedTimeType> GetLoggedTimeType(int id)
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<LoggedTimeType>($"/api/loggedtimetypes/{id}");
         }
 
         public async Task<IEnumerable<LoggedTimeType>> GetLoggedTimeTypes()
@@ -36,9 +37,10 @@ namespace FlamingSoftHR.Client.Services
             return await httpClient.GetFromJsonAsync<IEnumerable<LoggedTimeType>>("/api/loggedtimetypes");
         }
 
-        public Task<LoggedTimeType> UpdateLoggedTimeType(LoggedTimeType loggedTimeTypeToUpdate)
+        public async Task<LoggedTimeType> UpdateLoggedTimeType(LoggedTimeType loggedTimeTypeToUpdate)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PutAsJsonAsync($"/api/loggedtimetypes/{loggedTimeTypeToUpdate.Id}", loggedTimeTypeToUpdate);
+            return await response.Content.ReadFromJsonAsync<LoggedTimeType>();
         }
     }
 }

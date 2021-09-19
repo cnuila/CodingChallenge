@@ -126,7 +126,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/LoggedTimeTypePage.razor"
+#line 47 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/LoggedTimeTypePage.razor"
        
 
     [Inject]
@@ -134,6 +134,9 @@ using System.Security.Claims;
 
     [Inject]
     public ILoggedTimeTypeService LoggedTimeTypeService { get; set; }
+
+    [Inject]
+    ISnackbar Snackbar { get; set; }
 
     private List<LoggedTimeType> loggedTimeTypes { get; set; }
     private bool loading = true;
@@ -145,12 +148,66 @@ using System.Security.Claims;
         loading = false;
     }
 
-    private void OpenAddLoggedTimeType()
+    protected async void AddLoggedTimeType()
     {
         var parameters = new DialogParameters();
         parameters.Add("FieldName", "Description");
+        var dialog = DialogService.Show<AddUpdateSimple>("Add Logged Time Type", parameters);
 
-        DialogService.Show<AddUpdateSimple>("Add Logged Time Type", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTimeType response = await LoggedTimeTypeService.AddLoggedTimeType(new LoggedTimeType { Description = (string)result.Data });
+
+            if (response != null)
+            {
+                loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+                Snackbar.Add($"Logged Time Type Created Successfully", Severity.Success);
+                StateHasChanged();
+            }
+        }
+
+    }
+
+    protected async void UpdateLoggedTimeType(int id)
+    {
+        LoggedTimeType loggedTimeTypeToUpdate = await LoggedTimeTypeService.GetLoggedTimeType(id);
+
+        string loggedTimeTypeDescription = loggedTimeTypeToUpdate.Description;
+
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Name");
+        parameters.Add("FieldValue", loggedTimeTypeDescription);
+
+        var dialog = DialogService.Show<AddUpdateSimple>("Update Logged Time Type", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTimeType response = await LoggedTimeTypeService.UpdateLoggedTimeType(new LoggedTimeType { Id = id, Description = (string)result.Data });
+
+            if (response.Id != 0)
+            {
+                loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+                Snackbar.Add($"Logged Time Type Updated Successfully", Severity.Success);
+                StateHasChanged();
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteLoggedTimeType(int id)
+    {
+        await LoggedTimeTypeService.DeleteLoggedTimeType(id);
+        loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+        Snackbar.Add($"Logged Time Type Deleted Successfully", Severity.Success);
+        StateHasChanged();
     }
 
 #line default
