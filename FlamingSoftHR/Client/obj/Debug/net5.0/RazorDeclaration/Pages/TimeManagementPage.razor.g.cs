@@ -126,7 +126,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 167 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagementPage.razor"
+#line 187 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/TimeManagementPage.razor"
        
     [Parameter]
     public string Id { get; set; }
@@ -137,13 +137,60 @@ using System.Security.Claims;
     [Inject]
     public ILoggedTimeService LoggedTimeService { get; set; }
 
-    private DateRange dateRange { get; set; }
-    private bool loading = true;
+    [Inject]
+    public IEmployeeService EmployeeService { get; set; }
 
-    protected override void OnInitialized()
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
+    private MudTable<LoggedTime> mudTable { get; set; }
+
+    private DateRange dateRange { get; set; }
+    private bool loadingTabla = true;
+    private bool loadingEmployeeData = true;
+
+    private string[] regularTime = new string[2];
+    private string[] vacationTime = new string[2];
+    private string[] sickTime = new string[2];
+
+    private Employee employee = new Employee();
+
+    protected async override Task OnInitializedAsync()
     {
         DateTime date = DateTime.Today;
         dateRange = new DateRange(new DateTime(date.Year, date.Month, 1), date);
+
+        //convert dates to string
+        string startDate;
+        string endDate;
+
+        if (dateRange.Start != null)
+        {
+            startDate = ((DateTime)dateRange.Start).ToString("yyyy-MM-dd");
+        }
+        else
+        {
+            startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).ToString("yyyy-MM-dd");
+        }
+
+        if (dateRange.End != null)
+        {
+            endDate = ((DateTime)dateRange.End).ToString("yyyy-MM-dd");
+        }
+        else
+        {
+            endDate = DateTime.Today.ToString("yyyy-MM-dd");
+        }
+
+        //convert decimals to hours and minutes
+        TotalHours totalHours = await LoggedTimeService.GetHours(int.Parse(Id), startDate, endDate);
+
+        regularTime = decimalToHours(totalHours.RegularHours);
+        vacationTime = decimalToHours(totalHours.VacationHours);
+        sickTime = decimalToHours(totalHours.SickHours);
+
+        employee = await EmployeeService.GetEmployee(int.Parse(Id));
+        loadingEmployeeData = false;
     }
 
     // skip = current page times the size of it in order to get how many of them we want to skip
@@ -153,13 +200,15 @@ using System.Security.Claims;
         int skip = tableState.Page * tableState.PageSize;
         int take = tableState.PageSize;
 
+        //convert dates to string
         string startDate;
         string endDate;
 
         if (dateRange.Start != null)
         {
             startDate = ((DateTime)dateRange.Start).ToString("yyyy-MM-dd");
-        } else
+        }
+        else
         {
             startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).ToString("yyyy-MM-dd");
         }
@@ -174,17 +223,88 @@ using System.Security.Claims;
         }
 
 
-        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100006, startDate, endDate ,skip, take);
-        loading = false;
+        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(int.Parse(Id), startDate, endDate, skip, take);
+        loadingTabla = false;
 
         int totalItems = result.Count;
 
         return new TableData<LoggedTime>() { TotalItems = totalItems, Items = result.LoggedTimes.ToList() };
     }
 
-    private void OpenAddLoggedTime()
+
+    // converts a decimal number to hours and return a string[] with the values hours and minutes
+    private string[] decimalToHours(decimal hoursDate)
     {
-        DialogService.Show <AddTimeManagement>("Add Loggeed Time");
+        int hours = (int)hoursDate;
+
+        decimal decimalMinutes = hoursDate - hours;
+
+        int minutes = Convert.ToInt32((double)decimalMinutes * 60.00);
+
+        string[] timeArray = new string[2];
+        timeArray[0] = hours.ToString();
+        timeArray[1] = minutes.ToString();
+
+        return timeArray;
+    }
+
+    protected async void AddLoggedTime()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("LoggedTime", new LoggedTime() { DateLogged  = DateTime.Today });
+
+        var dialog = DialogService.Show<AddUpdateTimeManagement>("Add Logged Time", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTime loggedTimeToAdd = (LoggedTime)result.Data;
+            loggedTimeToAdd.EmployeeId = int.Parse(Id);
+
+            LoggedTime response = await LoggedTimeService.AddLoggedTime(loggedTimeToAdd);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Logged Time Created Successfully", Severity.Success);
+            }
+        }
+    }
+
+    protected async void UpdateLoggedTime(int id)
+    {
+        LoggedTime loggedTimeToUpdate = await LoggedTimeService.GetLoggedTime(id);
+
+        var parameters = new DialogParameters();
+        parameters.Add("LoggedTime", loggedTimeToUpdate);
+
+        var dialog = DialogService.Show<AddUpdateTimeManagement>("Update Logged Time", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTime response = await LoggedTimeService.UpdateLoggedTime((LoggedTime)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Logged Time Updated Successfully", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteLoggedTime(int id)
+    {
+        await LoggedTimeService.DeleteLoggedTime(id);
+        await mudTable.ReloadServerData();
+        Snackbar.Add($"Logged Time Deleted Successfully", Severity.Success);
     }
 
 #line default

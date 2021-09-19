@@ -16,19 +16,20 @@ namespace FlamingSoftHR.Client.Services
             this.httpClient = httpClient;
         }
 
-        public Task<LoggedTime> AddLoggedTime(LoggedTime loggedTimeToAdd)
+        public async Task<LoggedTime> AddLoggedTime(LoggedTime loggedTimeToAdd)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PostAsJsonAsync("/api/loggedtimes", loggedTimeToAdd);
+            return await response.Content.ReadFromJsonAsync<LoggedTime>();
         }
 
-        public Task DeleteLoggedTime(int id)
+        public async Task DeleteLoggedTime(int id)
         {
-            throw new NotImplementedException();
+            await httpClient.DeleteAsync($"/api/loggedtimes/{id}");
         }
 
-        public Task<LoggedTime> GetLoggedTime(int id)
+        public async Task<LoggedTime> GetLoggedTime(int id)
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<LoggedTime>($"/api/loggedtimes/{id}");
         }
 
         public async Task<LoggedTimeDataResult> GetLoggedTimesByEmployee(int id, string start, string end, int skip, int take)
@@ -36,9 +37,15 @@ namespace FlamingSoftHR.Client.Services
             return await httpClient.GetFromJsonAsync<LoggedTimeDataResult>($"/api/loggedtimes/employee/{id}/{start}/{end}?skip={skip}&take={take}");
         }
 
-        public Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate)
+        public async Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PutAsJsonAsync($"/api/loggedtimes/{loggedTimeToUpdate.Id}", loggedTimeToUpdate);
+            return await response.Content.ReadFromJsonAsync<LoggedTime>();
+        }
+
+        public async Task<TotalHours> GetHours(int id, string start, string end)
+        {
+            return await httpClient.GetFromJsonAsync<TotalHours>($"/api/loggedtimes/hours/{id}/{start}/{end}");
         }
     }
 }

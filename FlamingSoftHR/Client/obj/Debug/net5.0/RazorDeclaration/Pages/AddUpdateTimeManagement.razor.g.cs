@@ -117,7 +117,7 @@ using System.Security.Claims;
 #line default
 #line hidden
 #nullable disable
-    public partial class AddTimeManagement : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class AddUpdateTimeManagement : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -125,20 +125,47 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/AddTimeManagement.razor"
+#line 32 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/AddUpdateTimeManagement.razor"
        
     [CascadingParameter]
     public MudDialogInstance MudDialog { get; set; }
 
+    [Parameter]
+    public LoggedTime LoggedTime { get; set; }
+
+    [Inject]
+    public ILoggedTimeTypeService LoggedTimeTypeService { get; set; }
+
     private TimeSpan? entryTime = DateTime.Now.TimeOfDay;
     private TimeSpan? exitTime = DateTime.Now.TimeOfDay;
+    private string loggedTimeTypeDescription { get; set; }
 
-    private void OnSelectedValue(string value)
+    private List<LoggedTimeType> loggedTimeTypes = new List<LoggedTimeType>();
+
+    protected async override Task OnInitializedAsync()
     {
+        loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+        if (LoggedTime.LoggedTimeType != null)
+        {
+            loggedTimeTypeDescription = LoggedTime.LoggedTimeType.Description;
+        }
 
     }
 
-    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    private void Submit()
+    {
+        DateTime startTime = (DateTime)(new DateTime() + entryTime);
+        DateTime endTime = (DateTime)(new DateTime() + exitTime);
+
+        TimeSpan time = endTime.Subtract(startTime);
+
+        LoggedTime.Hours = (decimal)time.TotalHours;
+        LoggedTime.WeekNumber = 1;
+
+        int loggedTimeTypeId = (loggedTimeTypes.Find(e => e.Description == loggedTimeTypeDescription)).Id;
+        LoggedTime.LoggedTimeTypeId = loggedTimeTypeId;
+        MudDialog.Close(DialogResult.Ok(LoggedTime));
+    }
     private void Cancel() => MudDialog.Cancel();
 
 #line default

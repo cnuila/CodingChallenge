@@ -22,5 +22,10 @@ namespace FlamingSoftHR.Shared
         public int EmployeeId { get; set; }
 
         public LoggedTimeType LoggedTimeType { get; set; }
+
+        public static explicit operator decimal(LoggedTime v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

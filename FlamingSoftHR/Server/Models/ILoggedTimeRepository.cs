@@ -12,5 +12,6 @@ namespace FlamingSoftHR.Server.Models
         Task<LoggedTime> AddLoggedTime(LoggedTime loggedTimeToAdd);
         Task<LoggedTime> UpdateLoggedTime(LoggedTime loggedTimeToUpdate);
         Task DeleteLoggedTime(int id);
+        Task<TotalHours> GetHours(int employeeId, string start, string end);
     }
 }

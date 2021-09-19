@@ -1,168 +1,188 @@
 ﻿@page "/timemanagement/{id}"
 
-<MudGrid Justify="Justify.Center">
-    <MudItem xs="12" Class="pa-8">
+@if (loadingEmployeeData)
+{
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" Class="mx-20 my-20" >
+            <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+        </MudItem>
+    </MudGrid>
+}
+else
+{
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" Class="pa-8">
 
-        <MudGrid Justify="Justify.Center">
+            <MudGrid Justify="Justify.Center">
 
-            <!--   First Section   --->
-            <MudItem xs="12">
-                <MudPaper Elevation="4" Class="grey lighten-4 py-7 px-10 red-text text-darken-2">
-                    <MudText Typo="Typo.h4"> <b>Carlos Antonio Nuila</b> </MudText>
-                    <MudText Typo="Typo.subtitle1"> Intern Junior Software Engineer </MudText>
-                    <MudText Typo="Typo.subtitle1" Class="grey-text text-darken-2"> IT </MudText>
-                    <MudText Typo="Typo.subtitle1" Class="grey-text text-darken-2"> Contract </MudText>
-                </MudPaper>
-            </MudItem>
+                <!--   First Section   --->
+                <MudItem xs="12">
+                    <MudPaper Elevation="4" Class="grey lighten-4 py-7 px-10 red-text text-darken-2">
+                        <MudText Typo="Typo.h4">
+                            <b>
+                                @employee.FirstName @(employee.MiddleName != null ? employee.MiddleName : "") @employee.LastName
+                            </b>
+                        </MudText>
+                        <MudText Typo="Typo.subtitle1"> @employee.Job.Description </MudText>
+                        <MudText Typo="Typo.subtitle1" Class="grey-text text-darken-2"> @employee.Job.Department.Name </MudText>
+                        <MudText Typo="Typo.subtitle1" Class="grey-text text-darken-2"> Contract </MudText>
+                    </MudPaper>
+                </MudItem>
 
-            <!--   Second Section   --->
-            <MudItem xs="12">
-
-                <MudGrid>
-
-                    <MudItem xs="3" Class="d-flex align-center">
-                        <MudPaper Elevation="4" Class="grey lighten-4 pa-7">
-
-                            <MudDateRangePicker Label="Dates" DisableToolbar="true" Rounded="true" MaxDate="@(DateTime.Today)" @bind-DateRange="dateRange" />
-
-                        </MudPaper>
-                    </MudItem>
-
-                    <MudItem xs="2" Class="d-flex align-center">
-                        <MudPaper Elevation="4" Class="grey lighten-4 py-3 px-7 red-text text-darken-2">
-
-                            <MudText Typo="Typo.body2"> <b>REGULAR HOURS </b> </MudText>
-
-                            <MudGrid Class="pt-3 mr-5">
-
-                                <MudItem xs="4">
-                                    <MudIcon Icon="@Icons.Material.Filled.AccessTime" Title="Access Time" Size="Size.Large" />
-                                </MudItem>
-                                <MudItem xs="4">
-                                    <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>200</b> </MudText>
-                                    <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Hours </MudText>
-                                </MudItem>
-                                <MudItem xs="4">
-                                    <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>30</b> </MudText>
-                                    <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Mins </MudText>
-                                </MudItem>
-
-                            </MudGrid>
-
-                        </MudPaper>
-                    </MudItem>
-
-                    <MudItem xs="2" Class="d-flex align-center">
-                        <MudPaper Elevation="4" Class="grey lighten-4 py-3 px-7 orange-text text-darken-2">
-
-                            <MudText Typo="Typo.body2"> <b>VACATION HOURS </b> </MudText>
-
-                            <MudGrid Class="pt-3 mr-5" Spacing="5">
-
-                                <MudItem xs="4">
-                                    <MudIcon Icon="@Icons.Material.Filled.Deck" Title="Deck" Size="Size.Large" />
-                                </MudItem>
-                                <MudItem xs="4">
-                                    <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>1000</b> </MudText>
-                                    <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Hours </MudText>
-                                </MudItem>
-                                <MudItem xs="4">
-                                    <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>30</b> </MudText>
-                                    <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Mins </MudText>
-                                </MudItem>
-
-                            </MudGrid>
-
-                        </MudPaper>
-                    </MudItem>
-
-                    <MudItem xs="2" Class="d-flex align-center">
-                        <MudPaper Elevation="4" Class="grey lighten-4 py-3 px-7 green-text text-accent-3">
-
-                            <MudText Typo="Typo.body2"> <b>SICK HOURS </b> </MudText>
-
-                            <MudGrid Class="pt-3 mr-5" Spacing="5">
-
-                                <MudItem xs="4">
-                                    <MudIcon Icon="@Icons.Material.Filled.Bed" Title="Bed" Size="Size.Large" />
-                                </MudItem>
-                                <MudItem xs="4">
-                                    <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>200</b> </MudText>
-                                    <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Hours </MudText>
-                                </MudItem>
-                                <MudItem xs="4">
-                                    <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>30</b> </MudText>
-                                    <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Mins </MudText>
-                                </MudItem>
-
-                            </MudGrid>
-
-                        </MudPaper>
-                    </MudItem>
-
-                    <MudItem xs="3" Class="d-flex align-center">
-                        <MudPaper Elevation="4" Class="grey lighten-4 pa-9">
-                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text"> Calculate Payment </MudButton>
-                        </MudPaper>
-                    </MudItem>
-
-                </MudGrid>
-
-            </MudItem>
-
-            <!--   Third Section   --->
-            <MudItem xs="12">
-                <MudPaper Elevation="4" Class="grey lighten-4 py-7 px-10 red-text text-darken-2">
+                <!--   Second Section   --->
+                <MudItem xs="12">
 
                     <MudGrid>
-                        <MudSpacer/>
-                        <MudItem xs="4" Class="d-flex justify-end">
-                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="OpenAddLoggedTime"> Add </MudButton>
+
+                        <MudItem xs="3" Class="d-flex align-center">
+                            <MudPaper Elevation="4" Class="grey lighten-4 pa-7">
+
+                                <MudDateRangePicker Label="Dates" DisableToolbar="true" Rounded="true" MaxDate="@(DateTime.Today)" @bind-DateRange="dateRange" />
+
+                            </MudPaper>
                         </MudItem>
 
-                        <MudItem xs="12">
-                            <MudTable ServerData="@(new Func<TableState, Task<TableData<LoggedTime>>>(ServerPaging))" Hover="true" Loading="@loading" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Error">
+                        <MudItem xs="2" Class="d-flex align-center">
+                            <MudPaper Elevation="4" Class="grey lighten-4 py-3 px-7 red-text text-darken-2">
 
-                                <HeaderContent>
-                                    <MudTh>Date</MudTh>
-                                    <MudTh>Regular</MudTh>
-                                    <MudTh>Vacation</MudTh>
-                                    <MudTh>Sick</MudTh>
-                                    <MudTh>Actions</MudTh>
-                                </HeaderContent>
+                                <MudText Typo="Typo.body2"> <b>REGULAR HOURS </b> </MudText>
 
-                                <RowTemplate>
-                                    <MudTd DataLabel="Date">
-                                        <b>@((context.DateLogged).ToString("MMMM, dd yyyy"))</b>
-                                    </MudTd>
-                                    <MudTd DataLabel="Regular">
-                                        @(context.LoggedTimeType.Description.Equals("Regular") ? context.Hours : 0)
-                                    </MudTd>
-                                    <MudTd DataLabel="Vacation">
-                                        @(context.LoggedTimeType.Description.Equals("Vacation") ? context.Hours : 0)
-                                    </MudTd>
-                                    <MudTd DataLabel="Sick">
-                                        @(context.LoggedTimeType.Description.Equals("Sick") ? context.Hours : 0)
-                                    </MudTd>
-                                    <MudTd DataLabel="Actions">0</MudTd>
-                                </RowTemplate>
+                                <MudGrid Class="pt-3 mr-5">
 
-                                <PagerContent>
-                                    <MudTablePager />
-                                </PagerContent>
+                                    <MudItem xs="4">
+                                        <MudIcon Icon="@Icons.Material.Filled.AccessTime" Title="Access Time" Size="Size.Large" />
+                                    </MudItem>
+                                    <MudItem xs="4">
+                                        <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>@regularTime[0]</b> </MudText>
+                                        <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Hours </MudText>
+                                    </MudItem>
+                                    <MudItem xs="4">
+                                        <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>@regularTime[1]</b> </MudText>
+                                        <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Mins </MudText>
+                                    </MudItem>
 
-                            </MudTable>
+                                </MudGrid>
+
+                            </MudPaper>
+                        </MudItem>
+                        <MudItem xs="2" Class="d-flex align-center">
+                            <MudPaper Elevation="4" Class="grey lighten-4 py-3 px-7 orange-text text-darken-2">
+
+                                <MudText Typo="Typo.body2"> <b>VACATION HOURS </b> </MudText>
+
+                                <MudGrid Class="pt-3 mr-5" Spacing="5">
+
+                                    <MudItem xs="4">
+                                        <MudIcon Icon="@Icons.Material.Filled.Deck" Title="Deck" Size="Size.Large" />
+                                    </MudItem>
+                                    <MudItem xs="4">
+                                        <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>@vacationTime[0]</b> </MudText>
+                                        <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Hours </MudText>
+                                    </MudItem>
+                                    <MudItem xs="4">
+                                        <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>@vacationTime[1]</b> </MudText>
+                                        <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Mins </MudText>
+                                    </MudItem>
+
+                                </MudGrid>
+
+                            </MudPaper>
+                        </MudItem>
+
+                        <MudItem xs="2" Class="d-flex align-center">
+                            <MudPaper Elevation="4" Class="grey lighten-4 py-3 px-7 green-text text-accent-3">
+
+                                <MudText Typo="Typo.body2"> <b>SICK HOURS </b> </MudText>
+
+                                <MudGrid Class="pt-3 mr-5" Spacing="5">
+
+                                    <MudItem xs="4">
+                                        <MudIcon Icon="@Icons.Material.Filled.Bed" Title="Bed" Size="Size.Large" />
+                                    </MudItem>
+                                    <MudItem xs="4">
+                                        <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>@sickTime[0]</b> </MudText>
+                                        <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Hours </MudText>
+                                    </MudItem>
+                                    <MudItem xs="4">
+                                        <MudText Typo="Typo.h6" Class="grey-text text-darken-3"> <b>@sickTime[1]</b> </MudText>
+                                        <MudText Typo="Typo.caption" Class="grey-text text-darken-2 "> Mins </MudText>
+                                    </MudItem>
+
+                                </MudGrid>
+
+                            </MudPaper>
+                        </MudItem>
+
+                        <MudItem xs="3" Class="d-flex align-center">
+                            <MudPaper Elevation="4" Class="grey lighten-4 pa-9">
+                                <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text"> Calculate Payment </MudButton>
+                            </MudPaper>
                         </MudItem>
 
                     </MudGrid>
-                    
-                </MudPaper>
-            </MudItem>
 
-        </MudGrid>
+                </MudItem>
 
-    </MudItem>
-</MudGrid>
+                <!--   Third Section   --->
+                <MudItem xs="12">
+                    <MudPaper Elevation="4" Class="grey lighten-4 py-7 px-10 red-text text-darken-2">
+
+                        <MudGrid>
+                            <MudSpacer />
+                            <MudItem xs="4" Class="d-flex justify-end">
+                                <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="AddLoggedTime"> Add </MudButton>
+                            </MudItem>
+
+                            <MudItem xs="12">
+                                <MudTable @ref="mudTable" ServerData="@(new Func<TableState, Task<TableData<LoggedTime>>>(ServerPaging))" Hover="true" Loading="@loadingTabla" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Error">
+
+                                    <HeaderContent>
+                                        <MudTh>Date</MudTh>
+                                        <MudTh>Regular</MudTh>
+                                        <MudTh>Vacation</MudTh>
+                                        <MudTh>Sick</MudTh>
+                                        <MudTh>Actions</MudTh>
+                                    </HeaderContent>
+
+                                    <RowTemplate>
+                                        <MudTd DataLabel="Date">
+                                            <b>@((context.DateLogged).ToString("MMMM, dd yyyy"))</b>
+                                        </MudTd>
+                                        <MudTd DataLabel="Regular">
+                                            @(context.LoggedTimeType.Description.Equals("Regular") ? context.Hours : 0)
+                                        </MudTd>
+                                        <MudTd DataLabel="Vacation">
+                                            @(context.LoggedTimeType.Description.Equals("Vacation") ? context.Hours : 0)
+                                        </MudTd>
+                                        <MudTd DataLabel="Sick">
+                                            @(context.LoggedTimeType.Description.Equals("Sick") ? context.Hours : 0)
+                                        </MudTd>
+                                        <MudTd DataLabel="Action">
+                                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => UpdateLoggedTime(context.Id))"></MudIconButton>
+                                            <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => DeleteLoggedTime(context.Id))"></MudIconButton>
+                                        </MudTd>
+                                    </RowTemplate>
+
+                                    <PagerContent>
+                                        <MudTablePager />
+                                    </PagerContent>
+
+                                </MudTable>
+                            </MudItem>
+
+                        </MudGrid>
+
+                    </MudPaper>
+                </MudItem>
+
+            </MudGrid>
+
+        </MudItem>
+    </MudGrid>
+
+}
+
+
 
 @code {
     [Parameter]
@@ -174,13 +194,60 @@
     [Inject]
     public ILoggedTimeService LoggedTimeService { get; set; }
 
-    private DateRange dateRange { get; set; }
-    private bool loading = true;
+    [Inject]
+    public IEmployeeService EmployeeService { get; set; }
 
-    protected override void OnInitialized()
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
+    private MudTable<LoggedTime> mudTable { get; set; }
+
+    private DateRange dateRange { get; set; }
+    private bool loadingTabla = true;
+    private bool loadingEmployeeData = true;
+
+    private string[] regularTime = new string[2];
+    private string[] vacationTime = new string[2];
+    private string[] sickTime = new string[2];
+
+    private Employee employee = new Employee();
+
+    protected async override Task OnInitializedAsync()
     {
         DateTime date = DateTime.Today;
         dateRange = new DateRange(new DateTime(date.Year, date.Month, 1), date);
+
+        //convert dates to string
+        string startDate;
+        string endDate;
+
+        if (dateRange.Start != null)
+        {
+            startDate = ((DateTime)dateRange.Start).ToString("yyyy-MM-dd");
+        }
+        else
+        {
+            startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).ToString("yyyy-MM-dd");
+        }
+
+        if (dateRange.End != null)
+        {
+            endDate = ((DateTime)dateRange.End).ToString("yyyy-MM-dd");
+        }
+        else
+        {
+            endDate = DateTime.Today.ToString("yyyy-MM-dd");
+        }
+
+        //convert decimals to hours and minutes
+        TotalHours totalHours = await LoggedTimeService.GetHours(int.Parse(Id), startDate, endDate);
+
+        regularTime = decimalToHours(totalHours.RegularHours);
+        vacationTime = decimalToHours(totalHours.VacationHours);
+        sickTime = decimalToHours(totalHours.SickHours);
+
+        employee = await EmployeeService.GetEmployee(int.Parse(Id));
+        loadingEmployeeData = false;
     }
 
     // skip = current page times the size of it in order to get how many of them we want to skip
@@ -190,13 +257,15 @@
         int skip = tableState.Page * tableState.PageSize;
         int take = tableState.PageSize;
 
+        //convert dates to string
         string startDate;
         string endDate;
 
         if (dateRange.Start != null)
         {
             startDate = ((DateTime)dateRange.Start).ToString("yyyy-MM-dd");
-        } else
+        }
+        else
         {
             startDate = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).ToString("yyyy-MM-dd");
         }
@@ -211,16 +280,87 @@
         }
 
 
-        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(100006, startDate, endDate ,skip, take);
-        loading = false;
+        LoggedTimeDataResult result = await LoggedTimeService.GetLoggedTimesByEmployee(int.Parse(Id), startDate, endDate, skip, take);
+        loadingTabla = false;
 
         int totalItems = result.Count;
 
         return new TableData<LoggedTime>() { TotalItems = totalItems, Items = result.LoggedTimes.ToList() };
     }
 
-    private void OpenAddLoggedTime()
+
+    // converts a decimal number to hours and return a string[] with the values hours and minutes
+    private string[] decimalToHours(decimal hoursDate)
     {
-        DialogService.Show <AddTimeManagement>("Add Loggeed Time");
+        int hours = (int)hoursDate;
+
+        decimal decimalMinutes = hoursDate - hours;
+
+        int minutes = Convert.ToInt32((double)decimalMinutes * 60.00);
+
+        string[] timeArray = new string[2];
+        timeArray[0] = hours.ToString();
+        timeArray[1] = minutes.ToString();
+
+        return timeArray;
+    }
+
+    protected async void AddLoggedTime()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("LoggedTime", new LoggedTime() { DateLogged  = DateTime.Today });
+
+        var dialog = DialogService.Show<AddUpdateTimeManagement>("Add Logged Time", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTime loggedTimeToAdd = (LoggedTime)result.Data;
+            loggedTimeToAdd.EmployeeId = int.Parse(Id);
+
+            LoggedTime response = await LoggedTimeService.AddLoggedTime(loggedTimeToAdd);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Logged Time Created Successfully", Severity.Success);
+            }
+        }
+    }
+
+    protected async void UpdateLoggedTime(int id)
+    {
+        LoggedTime loggedTimeToUpdate = await LoggedTimeService.GetLoggedTime(id);
+
+        var parameters = new DialogParameters();
+        parameters.Add("LoggedTime", loggedTimeToUpdate);
+
+        var dialog = DialogService.Show<AddUpdateTimeManagement>("Update Logged Time", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            LoggedTime response = await LoggedTimeService.UpdateLoggedTime((LoggedTime)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Logged Time Updated Successfully", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteLoggedTime(int id)
+    {
+        await LoggedTimeService.DeleteLoggedTime(id);
+        await mudTable.ReloadServerData();
+        Snackbar.Add($"Logged Time Deleted Successfully", Severity.Success);
     }
 }

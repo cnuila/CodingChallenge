@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Server/Controllers/LoginController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Server/Controllers/LoggedTimesController.cs">
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -8,13 +8,11 @@
             <Node name="FlamingSoftHR.Client" expanded="True">
               <Node name="Pages" expanded="True" />
               <Node name="Services" expanded="True" />
-              <Node name="Shared" expanded="True" />
             </Node>
             <Node name="FlamingSoftHR.Server" expanded="True">
               <Node name="Controllers" expanded="True">
-                <Node name="LoginController.cs" selected="True" />
+                <Node name="LoggedTimesController.cs" selected="True" />
               </Node>
-              <Node name="Models" expanded="True" />
             </Node>
             <Node name="FlamingSoftHR.Shared" expanded="True" />
           </Node>

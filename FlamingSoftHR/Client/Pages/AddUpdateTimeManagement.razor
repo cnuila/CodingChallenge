@@ -1,0 +1,73 @@
+﻿
+<MudDialog>
+    <DialogContent>
+
+        <MudGrid>
+            <MudItem xs="12" Class="mx-12 my-7">
+
+                <MudDatePicker Label="Date" Required="true" Disabled="true" Date="LoggedTime.DateLogged" Class="pa-5" />
+
+                <MudTimePicker Class="pa-5" Required="true"  RequiredError="Entry hour is required or a complete workday (8-5) in case of being on vacation or sick" Label="Entry Time" Color="Color.Error" @bind-Time="entryTime" />
+
+                <MudTimePicker Class="pa-5" Label="Exit Time" Required="true" RequiredError="Exit hour is required or a complete workday (8-5) in case of being on vacation or sick" Color="Color.Error" @bind-Time="exitTime" />
+
+                <MudSelect @bind-Value="loggedTimeTypeDescription" RequiredError="A logged time type must be selected" Required="true" T="string" Label="Log Type">
+                    @foreach (var loggedTimeType in loggedTimeTypes)
+                    {
+                        <MudSelectItem Value="@loggedTimeType.Description" />
+                    }
+                </MudSelect>
+
+            </MudItem>
+        </MudGrid>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton OnClick="Submit" Class="red-text text-darken-3">Ok</MudButton>
+    </DialogActions>
+
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public LoggedTime LoggedTime { get; set; }
+
+    [Inject]
+    public ILoggedTimeTypeService LoggedTimeTypeService { get; set; }
+
+    private TimeSpan? entryTime = DateTime.Now.TimeOfDay;
+    private TimeSpan? exitTime = DateTime.Now.TimeOfDay;
+    private string loggedTimeTypeDescription { get; set; }
+
+    private List<LoggedTimeType> loggedTimeTypes = new List<LoggedTimeType>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        loggedTimeTypes = (await LoggedTimeTypeService.GetLoggedTimeTypes()).ToList();
+        if (LoggedTime.LoggedTimeType != null)
+        {
+            loggedTimeTypeDescription = LoggedTime.LoggedTimeType.Description;
+        }
+
+    }
+
+    private void Submit()
+    {
+        DateTime startTime = (DateTime)(new DateTime() + entryTime);
+        DateTime endTime = (DateTime)(new DateTime() + exitTime);
+
+        TimeSpan time = endTime.Subtract(startTime);
+
+        LoggedTime.Hours = (decimal)time.TotalHours;
+        LoggedTime.WeekNumber = 1;
+
+        int loggedTimeTypeId = (loggedTimeTypes.Find(e => e.Description == loggedTimeTypeDescription)).Id;
+        LoggedTime.LoggedTimeTypeId = loggedTimeTypeId;
+        MudDialog.Close(DialogResult.Ok(LoggedTime));
+    }
+    private void Cancel() => MudDialog.Cancel();
+}

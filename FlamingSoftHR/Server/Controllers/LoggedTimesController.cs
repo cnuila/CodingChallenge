@@ -18,7 +18,7 @@ namespace FlamingSoftHR.Server.Controllers
             this.loggedTimeRepository = loggedTimeRepository;
         }
 
-        // This method returns all the logged times between a range in the database through HTTP Get
+        // This method returns all the logged times between two dates in the database through HTTP Get
         [HttpGet("employee/{id:int}/{start}/{end}")]
         public async Task<ActionResult> GetLoggedTimesByEmployee(int id, string start, string end, int skip = 0, int take = 10)
         {
@@ -124,6 +124,21 @@ namespace FlamingSoftHR.Server.Controllers
             }
 
         }
+
+        // This method returns the sum of the different times an employee's worked between two dates in the database through HTTP Get
+        [HttpGet("hours/{id:int}/{start}/{end}")]
+        public async Task<ActionResult<TotalHours>> GetHours(int id, string start, string end)
+        {
+            try
+            {
+                return Ok(await loggedTimeRepository.GetHours(id, start, end));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+            }
+        }
+
 
     }
 }

@@ -13,7 +13,7 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     },
     {
-      "hash": "sha256-oOIW1K9EBIXpLTM6xrrMn6qOFY3T3orX5ncLLCVHUHs=",
+      "hash": "sha256-e1uypCrlRQseUy957vs68M6v26lsQuLJqfVzEYTUiMo=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -817,19 +817,19 @@
       "url": "_framework\/dotnet.5.0.10.js"
     },
     {
-      "hash": "sha256-BSI9uBtrRF5F7X1dCUY\/7MQkn0FbIWrVMxeN7UTc9+U=",
+      "hash": "sha256-TZl\/GwUavFJF2d8nN75eBhzxFAXnkmaEnlWYswY1f6w=",
       "url": "_framework\/FlamingSoftHR.Shared.dll"
     },
     {
-      "hash": "sha256-KrBxDD9nvrtJo2ziShxptD062SHwBQaLK2F+2hZIqjw=",
+      "hash": "sha256-Hb5kI3kOYlk2umfAe8zlkpsfm8YTLiZ0a6o+IB6xj+0=",
       "url": "_framework\/FlamingSoftHR.Shared.pdb"
     },
     {
-      "hash": "sha256-ccqpe7yumrOVkLlrnS3URZC\/fCD9K1rdN7W36PdLzhU=",
+      "hash": "sha256-GO7q068C3NV\/wFc8DSc+Jx0rIaY9GII0ZB10nfTX8nw=",
       "url": "_framework\/FlamingSoftHR.Client.dll"
     },
     {
-      "hash": "sha256-wTbf+Qo+oRfoU\/646jHX5KeCkugatg1gOJPVolS788k=",
+      "hash": "sha256-K8cL7JHTRK2if89RCQJwQyzM7anEKN+FuQ6Ul4nvShc=",
       "url": "_framework\/FlamingSoftHR.Client.pdb"
     },
     {
@@ -1637,7 +1637,7 @@
       "url": "_framework\/dotnet.5.0.10.js.gz"
     },
     {
-      "hash": "sha256-3YuVUqOCq1ZZV+40iKNH\/ew7QoLerNVASLsyGgdOaJU=",
+      "hash": "sha256-nbE7AV57pTKblrIfaYD0oASCMoPuJ\/FGaX8ZABBctfE=",
       "url": "_framework\/FlamingSoftHR.Shared.dll.gz"
     },
     {
@@ -1737,5 +1737,5 @@
       "url": "FlamingSoftHR.Client.bundle.scp.css"
     }
   ],
-  "version": "i3jPzqfj"
+  "version": "Xo5gHV7G"
 };

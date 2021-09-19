@@ -78,5 +78,40 @@ namespace FlamingSoftHR.Server.Models
             }
             return null;
         }
+
+        public async Task<TotalHours> GetHours(int employeeId, string start, string end)
+        {
+            DateTime startDate = DateTime.Parse(start);
+            DateTime endDate = DateTime.Parse(end);
+
+            decimal queryRegularHours = applicationDBContext.LoggedTime
+                                                                .Include(l => l.LoggedTimeType)
+                                                                .Where(l => l.LoggedTimeType.Description == "Regular")
+                                                                .Where(l => l.DateLogged >= startDate)
+                                                                .Where(l => l.DateLogged <= endDate)
+                                                                .Sum(l => l.Hours);
+
+            decimal queryVacationHours = applicationDBContext.LoggedTime
+                                                                .Include(l => l.LoggedTimeType)
+                                                                .Where(l => l.LoggedTimeType.Description == "Vacation")
+                                                                .Where(l => l.DateLogged >= startDate)
+                                                                .Where(l => l.DateLogged <= endDate)
+                                                                .Sum(l => l.Hours);
+
+            decimal querySickrHours = applicationDBContext.LoggedTime
+                                                                .Include(l => l.LoggedTimeType)
+                                                                .Where(l => l.LoggedTimeType.Description == "Sick")
+                                                                .Where(l => l.DateLogged >= startDate)
+                                                                .Where(l => l.DateLogged <= endDate)
+                                                                .Sum(l => l.Hours);
+            TotalHours result = new()
+            {
+                RegularHours = queryRegularHours,
+                VacationHours = queryVacationHours,
+                SickHours = querySickrHours,
+            };
+            return result;
+
+        }
     }
 }

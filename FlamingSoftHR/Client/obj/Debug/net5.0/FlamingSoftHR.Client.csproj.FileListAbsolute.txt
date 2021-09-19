@@ -2400,7 +2400,7 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Clie
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/FlamingSoftHR.Client.MvcApplicationPartsAssemblyInfo.cache
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/FlamingSoftHR.Client.RazorComponent.input.cache
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/App.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/AddTimeManagement.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/AddUpdateJob.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/AddUpdateSimple.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Authentication.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/DepartmentPage.razor.g.cs
@@ -2409,9 +2409,12 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Clie
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Index.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/JobPage.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/LoggedTimeTypePage.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Login.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/LogoutPage.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/RegisterPage.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/SimpleTable.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/TimeManagementPage.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/UpdateEmployee.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Shared/LoginDisplay.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Shared/Navbar.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Shared/RedirectToLogin.razor.g.cs
@@ -2423,7 +2426,7 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Clie
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/FlamingSoftHR.Client.TagHelpers.output.cache
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/FlamingSoftHR.Client.RazorCoreGenerate.cache
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/App.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/AddTimeManagement.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/AddUpdateJob.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/AddUpdateSimple.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/Authentication.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/DepartmentPage.razor.g.cs
@@ -2432,9 +2435,12 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Clie
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/Index.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/JobPage.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/LoggedTimeTypePage.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/Login.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/LogoutPage.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/RegisterPage.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/SimpleTable.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/TimeManagementPage.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/UpdateEmployee.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Shared/LoginDisplay.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Shared/Navbar.razor.g.cs
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Shared/RedirectToLogin.razor.g.cs
@@ -2653,11 +2659,5 @@ C:/Users/Carlos Nuila/Desktop/Coding Challenges/FlamingSoftHR/FlamingSoftHR/Clie
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/FlamingSoftHR.Client.pdb
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/serviceworkers/wwwroot/service-worker.js
 /Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/service-worker-assets.js
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Login.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/Login.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/LogoutPage.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/LogoutPage.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/AddUpdateJob.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/AddUpdateJob.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/UpdateEmployee.razor.g.cs
-/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/UpdateEmployee.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/RazorDeclaration/Pages/AddUpdateTimeManagement.razor.g.cs
+/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/obj/Debug/net5.0/Razor/Pages/AddUpdateTimeManagement.razor.g.cs
