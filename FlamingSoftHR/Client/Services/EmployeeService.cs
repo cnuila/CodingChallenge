@@ -16,24 +16,25 @@ namespace FlamingSoftHR.Client.Services
             this.httpClient = httpClient;
         }
 
-        public Task<Employee> AddEmployee(Employee employeeToAdd)
+        public async Task<Employee> AddEmployee(Employee employeeToAdd)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PostAsJsonAsync("/api/employees", employeeToAdd);
+            return await response.Content.ReadFromJsonAsync<Employee>();
         }
 
-        public Task DeleteEmployee(int id)
+        public async Task DeleteEmployee(int id)
         {
-            throw new NotImplementedException();
+            await httpClient.DeleteAsync($"/api/employees/{id}");
         }
 
-        public Task<Employee> GetEmployee(int id)
+        public async Task<Employee> GetEmployee(int id)
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<Employee>($"/api/employees/{id}");
         }
 
-        public Task<Employee> GetEmployeeByEmail(string email)
+        public async Task<Employee> GetEmployeeByEmail(string email)
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<Employee>($"/api/employees/{email}");
         }
 
         public async Task<EmployeeDataResult> GetEmployees(int skip, int take)
@@ -41,9 +42,10 @@ namespace FlamingSoftHR.Client.Services
             return await httpClient.GetFromJsonAsync<EmployeeDataResult>($"/api/employees?skip={skip}&take={take}");
         }
 
-        public Task<Employee> UpdateEmployee(Employee employeeToUpdate)
+        public async Task<Employee> UpdateEmployee(Employee employeeToUpdate)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PutAsJsonAsync($"/api/employees/{employeeToUpdate.Id}", employeeToUpdate);
+            return await response.Content.ReadFromJsonAsync<Employee>();
         }
     }
 }

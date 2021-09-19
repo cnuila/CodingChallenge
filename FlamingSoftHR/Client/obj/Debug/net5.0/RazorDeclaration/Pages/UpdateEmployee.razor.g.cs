@@ -117,7 +117,7 @@ using System.Security.Claims;
 #line default
 #line hidden
 #nullable disable
-    public partial class AddUpdateEmployee : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class UpdateEmployee : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -125,20 +125,59 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/AddUpdateEmployee.razor"
+#line 62 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/UpdateEmployee.razor"
        
     [CascadingParameter]
     public MudDialogInstance MudDialog { get; set; }
 
-    private TimeSpan? entryTime = DateTime.Now.TimeOfDay;
-    private TimeSpan? exitTime = DateTime.Now.TimeOfDay;
+    [Parameter]
+    public Employee Employee { get; set; }
 
-    private void OnSelectedValue(string value)
+    [Inject]
+    public IJobService JobService { get; set; }
+
+    [Inject]
+    public IDepartmentService DepartmentService { get; set; }
+
+    [Inject]
+    public IEmployeeTypeService EmployeeTypeService { get; set; }
+
+    private List<Department> departments = new List<Department>();
+    private List<Job> jobs = new List<Job>();
+    private List<EmployeeType> employeeTypes = new List<EmployeeType>();
+    private string departmentName { get; set; }
+    private string jobDescription { get; set; }
+    private string employeeTypeDescription { get; set; }
+
+    protected async override Task OnInitializedAsync()
     {
+        departments = (await DepartmentService.GetDepartments()).ToList();
+        employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+        jobs = (await JobService.GetJobsByDepartment(Employee.Job.DepartmentId)).ToList();
 
+        jobDescription = Employee.Job.Description;
+        departmentName = Employee.Job.Department.Name;
+        employeeTypeDescription = (employeeTypes.Find(e => e.Id == Employee.EmployeeTypeId)).Description;
     }
 
-    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    // everytime the department value change it's going to search the jobs for that specific department
+    private async void OnSelectedValue(string value)
+    {
+        departmentName = value;
+        jobDescription = "";
+
+        int departmentId = (departments.Find(d => d.Name == value)).Id;
+        jobs = (await JobService.GetJobsByDepartment(departmentId)).ToList();
+    }
+
+    private void Submit()
+    {
+        int jobId = (jobs.Find(j => j.Description == jobDescription)).Id;
+        int employeeTypeId = (employeeTypes.Find(e => e.Description == employeeTypeDescription)).Id;
+        Employee.JobId = jobId;
+        Employee.EmployeeTypeId = employeeTypeId;
+        MudDialog.Close(DialogResult.Ok(Employee));
+    }
     private void Cancel() => MudDialog.Cancel();
 
 #line default

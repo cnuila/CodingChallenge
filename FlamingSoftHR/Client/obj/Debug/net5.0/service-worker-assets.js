@@ -13,7 +13,7 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     },
     {
-      "hash": "sha256-7CfYQiD5aOsU92o5njV0eCz7Gozljc5jMlbSN5Bh3+o=",
+      "hash": "sha256-tgmweyTsyxravuDfuSvrenfLCjHJz0BAbFZ6uyDYkAM=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -825,11 +825,11 @@
       "url": "_framework\/FlamingSoftHR.Shared.pdb"
     },
     {
-      "hash": "sha256-SuuWWgdUQqYYo2Z9htVA1BwwEmjZ3EEBWJcmV8I6kMg=",
+      "hash": "sha256-SR22o9bYCN0mefnrG2Uc6awxn5SHNAkKhE7ZuBxfunY=",
       "url": "_framework\/FlamingSoftHR.Client.dll"
     },
     {
-      "hash": "sha256-UcBKA\/nIH+nAmgEZyRAAJ1bbMLwcBJ2Az1BStNvd3HA=",
+      "hash": "sha256-SbjeoofEWg0Wyc3ceMxpp6ExaHJtmmiQpIgNl0Rafd8=",
       "url": "_framework\/FlamingSoftHR.Client.pdb"
     },
     {
@@ -1737,5 +1737,5 @@
       "url": "FlamingSoftHR.Client.bundle.scp.css"
     }
   ],
-  "version": "UtZKBgji"
+  "version": "Ent8vXqH"
 };

@@ -1,0 +1,115 @@
+﻿
+<MudDialog>
+    <DialogContent>
+
+        <MudGrid>
+
+            <MudItem xs="4">
+                <MudTextField T="string" Label="First Name" @bind-Value="Employee.FirstName" Required="true" RequiredError="First Name is required" />
+            </MudItem>
+
+            <MudItem xs="4">
+                <MudTextField T="string" Label="Middle Name" @bind-Value="@Employee.MiddleName" />
+            </MudItem>
+
+            <MudItem xs="4">
+                <MudTextField T="string" Label="Last Name" @bind-Value="@Employee.LastName" Required="true" RequiredError="Last Name is required" />
+            </MudItem>
+
+            <MudItem xs="12">
+                <div class="d-flex">
+                    <MudRadioGroup T="string" Required="true" @bind-SelectedOption="@employeeTypeDescription" RequiredError="Employee type is required">
+                        @foreach (var employeeType in employeeTypes)
+                        {
+                            <MudRadio Option="@employeeType.Description">@employeeType.Description</MudRadio>
+                        }
+
+                    </MudRadioGroup>
+                </div>
+            </MudItem>
+
+            <MudItem xs="4">
+                <MudSelect T="string" Required="true" ValueChanged="OnSelectedValue" Value="departmentName" RequiredError="A department must be selected" Label="Department">
+                    @foreach (var department in departments)
+                    {
+                        <MudSelectItem Value="@department.Name" />
+                    }
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="8">
+                <MudSelect  @bind-Value="jobDescription" RequiredError="A job must be selected" Required="true" T="string" Label="Job">
+                    @foreach (var job in jobs)
+                    {
+                        <MudSelectItem Value="@job.Description" />
+                    }
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="5">
+                <MudNumericField @bind-Value="Employee.Salary" Label="Salary" Required="true" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" HideSpinButtons="true" />
+            </MudItem>
+        </MudGrid>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton OnClick="Submit" Class="red-text text-darken-3">Ok</MudButton>
+    </DialogActions>
+
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public Employee Employee { get; set; }
+
+    [Inject]
+    public IJobService JobService { get; set; }
+
+    [Inject]
+    public IDepartmentService DepartmentService { get; set; }
+
+    [Inject]
+    public IEmployeeTypeService EmployeeTypeService { get; set; }
+
+    private List<Department> departments = new List<Department>();
+    private List<Job> jobs = new List<Job>();
+    private List<EmployeeType> employeeTypes = new List<EmployeeType>();
+    private string departmentName { get; set; }
+    private string jobDescription { get; set; }
+    private string employeeTypeDescription { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        departments = (await DepartmentService.GetDepartments()).ToList();
+        employeeTypes = (await EmployeeTypeService.GetEmployeeTypes()).ToList();
+        jobs = (await JobService.GetJobsByDepartment(Employee.Job.DepartmentId)).ToList();
+
+        jobDescription = Employee.Job.Description;
+        departmentName = Employee.Job.Department.Name;
+        employeeTypeDescription = (employeeTypes.Find(e => e.Id == Employee.EmployeeTypeId)).Description;
+    }
+
+    // everytime the department value change it's going to search the jobs for that specific department
+    private async void OnSelectedValue(string value)
+    {
+        departmentName = value;
+        jobDescription = "";
+
+        int departmentId = (departments.Find(d => d.Name == value)).Id;
+        jobs = (await JobService.GetJobsByDepartment(departmentId)).ToList();
+    }
+
+    private void Submit()
+    {
+        int jobId = (jobs.Find(j => j.Description == jobDescription)).Id;
+        int employeeTypeId = (employeeTypes.Find(e => e.Description == employeeTypeDescription)).Id;
+        Employee.JobId = jobId;
+        Employee.EmployeeTypeId = employeeTypeId;
+        MudDialog.Close(DialogResult.Ok(Employee));
+    }
+    private void Cancel() => MudDialog.Cancel();
+}

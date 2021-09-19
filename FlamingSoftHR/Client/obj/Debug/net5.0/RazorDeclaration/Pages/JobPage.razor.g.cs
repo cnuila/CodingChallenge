@@ -210,7 +210,7 @@ using System.Security.Claims;
     {
         await JobService.DeleteJob(id);
         await mudTable.ReloadServerData();
-        Snackbar.Add($"Department Deleted Successfully", Severity.Success);
+        Snackbar.Add($"Job Deleted Successfully", Severity.Success);
     }
 
 

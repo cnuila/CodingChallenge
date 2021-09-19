@@ -126,7 +126,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeePage.razor"
+#line 56 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/EmployeePage.razor"
        
 
     [Inject]
@@ -134,6 +134,11 @@ using System.Security.Claims;
 
     [Inject]
     public IEmployeeService EmployeeService { get; set; }
+
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
+    private MudTable<Employee> mudTable { get; set; }
 
     private bool loading = true;
 
@@ -152,10 +157,41 @@ using System.Security.Claims;
         return new TableData<Employee>() { TotalItems = totalItems, Items = result.Employees.ToList() };
     }
 
-    private void OpenAddEmployee()
+    protected async void UpdateEmployee(int id)
     {
-        DialogService.Show<AddUpdateEmployee>("Add Employee");
+        Employee employeeToUpdate = await EmployeeService.GetEmployee(id);
+
+        var parameters = new DialogParameters();
+        parameters.Add("Employee", employeeToUpdate);
+
+        var dialog = DialogService.Show<UpdateEmployee>("Update Employee", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Employee response = await EmployeeService.UpdateEmployee((Employee)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Employee Updated Successfully", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
     }
+
+    protected async void DeleteEmployee(int id)
+    {
+        await EmployeeService.DeleteEmployee(id);
+        await mudTable.ReloadServerData();
+        Snackbar.Add($"Employee Deleted Successfully", Severity.Success);
+    }
+
 
 #line default
 #line hidden

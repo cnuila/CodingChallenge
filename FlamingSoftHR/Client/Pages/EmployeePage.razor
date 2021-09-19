@@ -15,7 +15,7 @@
 
                         <MudItem xs="12">
 
-                            <MudTable ServerData="@(new Func<TableState, Task<TableData<Employee>>>(ServerPaging))" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
+                            <MudTable @ref="mudTable" ServerData="@(new Func<TableState, Task<TableData<Employee>>>(ServerPaging))" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Error">
 
                                 <HeaderContent>
                                     <MudTh Class="red-text text-darken-4">Employee Id</MudTh>
@@ -30,7 +30,10 @@
                                     <MudTd DataLabel="Name">@context.FirstName @context.LastName</MudTd>
                                     <MudTd DataLabel="Department">@context.Job.Department.Name</MudTd>
                                     <MudTd DataLabel="Salary"> $ @(String.Format("{0:n}",context.Salary))</MudTd>
-                                    <MudTd DataLabel="Actions">0</MudTd>
+                                    <MudTd DataLabel="Action">
+                                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => UpdateEmployee(context.Id))"></MudIconButton>
+                                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => DeleteEmployee(context.Id))"></MudIconButton>
+                                    </MudTd>
                                 </RowTemplate>
 
                                 <PagerContent>
@@ -58,6 +61,11 @@
     [Inject]
     public IEmployeeService EmployeeService { get; set; }
 
+    [Inject]
+    ISnackbar Snackbar { get; set; }
+
+    private MudTable<Employee> mudTable { get; set; }
+
     private bool loading = true;
 
     // skip = current page times the size of it in order to get how many of them we want to skip
@@ -75,8 +83,39 @@
         return new TableData<Employee>() { TotalItems = totalItems, Items = result.Employees.ToList() };
     }
 
-    private void OpenAddEmployee()
+    protected async void UpdateEmployee(int id)
     {
-        DialogService.Show<AddUpdateEmployee>("Add Employee");
+        Employee employeeToUpdate = await EmployeeService.GetEmployee(id);
+
+        var parameters = new DialogParameters();
+        parameters.Add("Employee", employeeToUpdate);
+
+        var dialog = DialogService.Show<UpdateEmployee>("Update Employee", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Employee response = await EmployeeService.UpdateEmployee((Employee)result.Data);
+
+            if (response != null)
+            {
+                await mudTable.ReloadServerData();
+                Snackbar.Add($"Employee Updated Successfully", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add($"An error has ocurred", Severity.Error);
+            }
+        }
+
     }
+
+    protected async void DeleteEmployee(int id)
+    {
+        await EmployeeService.DeleteEmployee(id);
+        await mudTable.ReloadServerData();
+        Snackbar.Add($"Employee Deleted Successfully", Severity.Success);
+    }
+
 }
