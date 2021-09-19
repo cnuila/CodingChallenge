@@ -133,9 +133,13 @@ using System.Security.Claims;
     [Parameter]
     public string FieldName { get; set; }
 
-    private string fieldValue { get; set; }
+    [Parameter]
+    public string FieldValue { get; set; }
 
-    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    private void Submit() {
+        MudDialog.Close(DialogResult.Ok(FieldValue));
+    }
+
     private void Cancel() => MudDialog.Cancel();
 
 #line default

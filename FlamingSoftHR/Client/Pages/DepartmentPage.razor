@@ -13,7 +13,7 @@
                         </MudItem>
 
                         <MudItem xs="5" Class="d-flex justify-end">
-                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@OpenAddDepartment"> Add </MudButton>
+                            <MudButton Variant="Variant.Filled" Size="Size.Medium" Class="red darken-2 white-text" OnClick="@AddDepartment"> Add </MudButton>
                         </MudItem>
 
                         <MudItem xs="12">
@@ -21,13 +21,16 @@
                                 <HeaderContent>
                                     <MudTh> Id </MudTh>
                                     <MudTh> Name </MudTh>
-                                    <MudTh> Actions  </MudTh>
+                                    <MudTh> Actions</MudTh>
                                 </HeaderContent>
 
                                 <RowTemplate>
                                     <MudTd DataLabel="Id"> @context.Id</MudTd>
                                     <MudTd DataLabel="Name">@context.Name</MudTd>
-                                    <MudTd DataLabel="Action">0</MudTd>
+                                    <MudTd DataLabel="Action">
+                                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => UpdateDepartment(context.Id))"></MudIconButton>
+                                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Class="red-text text-darken-3" OnClick="@(() => DeleteDepartment(context.Id))"></MudIconButton>
+                                    </MudTd>
                                 </RowTemplate>
 
                                 <PagerContent>
@@ -53,6 +56,9 @@
     [Inject]
     public IDepartmentService DepartmentService { get; set; }
 
+    [Inject]
+    ISnackbar Snackbar { get; set;}
+
     private List<Department> departments { get; set; }
     private bool loading = true;
 
@@ -63,11 +69,66 @@
         loading = false;
     }
 
-    private void OpenAddDepartment()
+
+    protected async void AddDepartment()
     {
         var parameters = new DialogParameters();
         parameters.Add("FieldName", "Name");
+        var dialog = DialogService.Show<AddUpdateSimple>("Add Department", parameters);
 
-        DialogService.Show<AddUpdateSimple>("Add Department", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Department response = await DepartmentService.AddDepartment(new Department { Name = (string)result.Data });
+
+            if (response != null)
+            {
+                departments = (await DepartmentService.GetDepartments()).ToList();
+                Snackbar.Add($"Department Created Successfully", Severity.Success);
+                StateHasChanged();
+            }
+        }
+
     }
+
+    protected async void UpdateDepartment(int id)
+    {
+        Department departmentToUpdate = await DepartmentService.GetDepartment(id);
+
+        string departmentName = departmentToUpdate.Name;
+
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Name");
+        parameters.Add("FieldValue", departmentName);
+
+        var dialog = DialogService.Show<AddUpdateSimple>("Update Department", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Department response = await DepartmentService.UpdateDepartment(new Department { Id = id, Name = (string)result.Data });
+
+            if (response.Id != 0)
+            {
+                departments = (await DepartmentService.GetDepartments()).ToList();
+                Snackbar.Add($"Department Updated Successfully", Severity.Success);
+                StateHasChanged();
+            } else
+            {
+                Snackbar.Add($"An error ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteDepartment(int id)
+    {
+        await DepartmentService.DeleteDepartment(id);
+        departments = (await DepartmentService.GetDepartments()).ToList();
+        Snackbar.Add($"Department Deleted Successfully", Severity.Success);
+        StateHasChanged();
+    }
+
 }

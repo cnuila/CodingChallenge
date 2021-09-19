@@ -126,7 +126,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/DepartmentPage.razor"
+#line 51 "/Users/cnuila/Proyectos/CodingChallengeFlamingSoft1/FlamingSoftHR/Client/Pages/DepartmentPage.razor"
        
 
     [Inject]
@@ -134,6 +134,9 @@ using System.Security.Claims;
 
     [Inject]
     public IDepartmentService DepartmentService { get; set; }
+
+    [Inject]
+    ISnackbar Snackbar { get; set;}
 
     private List<Department> departments { get; set; }
     private bool loading = true;
@@ -145,13 +148,68 @@ using System.Security.Claims;
         loading = false;
     }
 
-    private void OpenAddDepartment()
+
+    protected async void AddDepartment()
     {
         var parameters = new DialogParameters();
         parameters.Add("FieldName", "Name");
+        var dialog = DialogService.Show<AddUpdateSimple>("Add Department", parameters);
 
-        DialogService.Show<AddUpdateSimple>("Add Department", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Department response = await DepartmentService.AddDepartment(new Department { Name = (string)result.Data });
+
+            if (response != null)
+            {
+                departments = (await DepartmentService.GetDepartments()).ToList();
+                Snackbar.Add($"Department Created Successfully", Severity.Success);
+                StateHasChanged();
+            }
+        }
+
     }
+
+    protected async void UpdateDepartment(int id)
+    {
+        Department departmentToUpdate = await DepartmentService.GetDepartment(id);
+
+        string departmentName = departmentToUpdate.Name;
+
+        var parameters = new DialogParameters();
+        parameters.Add("FieldName", "Name");
+        parameters.Add("FieldValue", departmentName);
+
+        var dialog = DialogService.Show<AddUpdateSimple>("Update Department", parameters);
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            Department response = await DepartmentService.UpdateDepartment(new Department { Id = id, Name = (string)result.Data });
+
+            if (response.Id != 0)
+            {
+                departments = (await DepartmentService.GetDepartments()).ToList();
+                Snackbar.Add($"Department Updated Successfully", Severity.Success);
+                StateHasChanged();
+            } else
+            {
+                Snackbar.Add($"An error ocurred", Severity.Error);
+            }
+        }
+
+    }
+
+    protected async void DeleteDepartment(int id)
+    {
+        await DepartmentService.DeleteDepartment(id);
+        departments = (await DepartmentService.GetDepartments()).ToList();
+        Snackbar.Add($"Department Deleted Successfully", Severity.Success);
+        StateHasChanged();
+    }
+
 
 #line default
 #line hidden

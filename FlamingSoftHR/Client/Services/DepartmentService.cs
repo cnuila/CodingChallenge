@@ -16,19 +16,21 @@ namespace FlamingSoftHR.Client.Services
             this.httpClient = httpClient;
         }
 
-        public Task<Department> AddDepartment(Department departmentToAdd)
+        public async Task<Department> AddDepartment(Department departmentToAdd)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PostAsJsonAsync("/api/departments", departmentToAdd);
+            return await response.Content.ReadFromJsonAsync<Department>();
         }
 
-        public Task DeleteDepartment(int id)
+        public async Task DeleteDepartment(int id)
         {
-            throw new NotImplementedException();
+            await httpClient.DeleteAsync($"/api/departments/{id}");
         }
 
-        public Task<Department> GetDepartment(int id)
+        public async Task<Department> GetDepartment(int id)
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<Department>($"/api/departments/{id}");
+
         }
 
         public async Task<IEnumerable<Department>> GetDepartments()
@@ -36,9 +38,10 @@ namespace FlamingSoftHR.Client.Services
             return await httpClient.GetFromJsonAsync<IEnumerable<Department>>("/api/departments");
         }
 
-        public Task<Department> UpdateDepartment(Department departmentToUpdate)
+        public async Task<Department> UpdateDepartment(Department departmentToUpdate)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.PutAsJsonAsync($"/api/departments/{departmentToUpdate.Id}", departmentToUpdate);
+            return await response.Content.ReadFromJsonAsync<Department>();
         }
     }
 }

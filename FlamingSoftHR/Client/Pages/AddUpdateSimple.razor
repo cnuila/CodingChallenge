@@ -5,7 +5,7 @@
         <MudGrid>
             <MudItem xs="12" Class="mx-8 my-7">
 
-                <MudTextField @bind-Value="fieldValue" Label="@FieldName" Variant="Variant.Text"></MudTextField>
+                <MudTextField @bind-Value="FieldValue" Required="true" RequiredError="Department name is required" Label="@FieldName" Variant="Variant.Text"></MudTextField>
 
             </MudItem>
         </MudGrid>
@@ -13,7 +13,7 @@
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton OnClick="Submit" Class="red-text text-darken-3">Ok</MudButton>
+        <MudButton  ButtonType="ButtonType.Submit" OnClick="Submit" Class="red-text text-darken-3">Ok</MudButton>
     </DialogActions>
 
 </MudDialog>
@@ -25,8 +25,12 @@
     [Parameter]
     public string FieldName { get; set; }
 
-    private string fieldValue { get; set; }
+    [Parameter]
+    public string FieldValue { get; set; }
 
-    private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    private void Submit() {
+        MudDialog.Close(DialogResult.Ok(FieldValue));
+    }
+
     private void Cancel() => MudDialog.Cancel();
 }

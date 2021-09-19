@@ -1,14 +1,25 @@
 ﻿<Properties StartupConfiguration="{CF086C11-5170-4E39-989B-96A518E34398}|Default">
   <MonoDevelop.Ide.ItemProperties.FlamingSoftHR.Server PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="FlamingSoftHR/Client/Pages/AddUpdateSimple.razor">
+    <Files>
+      <File FileName="FlamingSoftHR/Client/Pages/DepartmentPage.razor" Line="113" Column="98" />
+      <File FileName="FlamingSoftHR/Client/Pages/AddUpdateSimple.razor" Line="32" Column="45" />
+      <File FileName="FlamingSoftHR/Client/Pages/SimpleTable.razor" Line="25" Column="28" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FlamingSoftHR" expanded="True">
             <Node name="FlamingSoftHR.Client" expanded="True">
-              <Node name="Pages" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="AddUpdateSimple.razor" selected="True" />
+              </Node>
               <Node name="Services" expanded="True" />
               <Node name="Shared" expanded="True" />
+            </Node>
+            <Node name="FlamingSoftHR.Server" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
             </Node>
             <Node name="FlamingSoftHR.Shared" expanded="True" />
           </Node>
